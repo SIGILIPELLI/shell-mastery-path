@@ -1,0 +1,100 @@
+site_name: Shell Mastery Path
+site_description: A structured, module-wise Bash/shell scripting training program from entry level to master level.
+site_url: https://sigilipelli.github.io/shell-mastery-path/
+repo_url: https://github.com/SIGILIPELLI/shell-mastery-path
+repo_name: shell-mastery-path
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Privacy Policy: privacy.md
+  - "Level 1 · Entry":
+      - Overview: level-1/index.md
+      - "01 · Setup & First Script": level-1/01-setup.md
+      - "02 · Variables & Data Types": level-1/02-variables-data-types.md
+      - "03 · Control Flow": level-1/03-control-flow.md
+      - "04 · Loops": level-1/04-loops.md
+      - "05 · Functions & Arguments": level-1/05-functions-arguments.md
+      - "06 · Files & Directories": level-1/06-files-directories.md
+      - "07 · Pipes & Redirection": level-1/07-pipes-redirection.md
+      - "08 · Basic Text Processing": level-1/08-text-processing.md
+      - "09 · Exit Codes & Error Handling": level-1/09-exit-codes-error-handling.md
+      - "10 · Project — Backup Script": level-1/10-project-backup-script.md
+  - "Level 2 · Intermediate":
+      - Overview: level-2/index.md
+      - "01 · Arrays & Associative Arrays": level-2/01-arrays.md
+      - "02 · String Manipulation": level-2/02-string-manipulation.md
+      - "03 · Regular Expressions in Bash": level-2/03-regular-expressions.md
+      - "04 · Process Management": level-2/04-process-management.md
+      - "05 · Scripting Best Practices": level-2/05-best-practices.md
+      - "06 · Debugging Scripts": level-2/06-debugging.md
+      - "07 · Scheduling & Automation": level-2/07-scheduling-automation.md
+      - "08 · Environment & Configuration Management": level-2/08-environment-config.md
+      - "09 · Testing Shell Scripts": level-2/09-testing-shell-scripts.md
+      - "10 · Project — Log Monitoring Script": level-2/10-project-log-monitor.md
+  - "Level 3 · Advanced":
+      - Overview: level-3/index.md
+      - "01 · Advanced sed & awk": level-3/01-advanced-sed-awk.md
+      - "02 · Process Substitution & Here-Docs": level-3/02-process-substitution-heredocs.md
+      - "03 · Signal Handling": level-3/03-signal-handling.md
+      - "04 · Parallelism": level-3/04-parallelism.md
+      - "05 · Writing Robust Production Scripts": level-3/05-robust-production-scripts.md
+      - "06 · Integrating with Git Hooks & CI Scripts": level-3/06-git-hooks-ci.md
+      - "07 · Security Considerations": level-3/07-security-considerations.md
+      - "08 · Packaging & Distributing Scripts": level-3/08-packaging-distributing.md
+      - "09 · Networking from the Shell": level-3/09-networking.md
+      - "10 · Project — CLI Tool with Git Hook": level-3/10-project-cli-tool.md
+  - "Level 4 · Master":
+      - Overview: level-4/index.md
+      - "01 · Building Full CLI Tools": level-4/01-building-cli-tools.md
+      - "02 · Advanced Scripting Patterns": level-4/02-advanced-patterns.md
+      - "03 · Performance Optimization": level-4/03-performance-optimization.md
+      - "04 · DevOps Automation": level-4/04-devops-automation.md
+      - "05 · Cross-Shell Compatibility": level-4/05-cross-shell-compatibility.md
+      - "06 · Advanced Text Processing Pipelines": level-4/06-text-processing-pipelines.md
+      - "07 · System Administration Scripting": level-4/07-sysadmin-scripting.md
+      - "08 · Logging & Observability for Scripts": level-4/08-logging-observability.md
+      - "09 · Security Hardening for Production Scripts": level-4/09-security-hardening.md
+      - "10 · Capstone Project — Deployment Automation Tool": level-4/10-capstone-project.md
