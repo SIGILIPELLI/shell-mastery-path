@@ -23,3 +23,11 @@ code snippets in every module and a hands-on project at the end of each level.
 - Examples target Bash; notes call out POSIX `sh` differences where they matter.
 
 Start here → [Level 1 · Entry](level-1/index.md)
+
+## More from the Mastery Path series
+
+Free, module-wise, entry-to-master training for other languages:
+
+- [Python Mastery Path](https://sigilipelli.github.io/python-mastery-path/)
+- [Java Mastery Path](https://sigilipelli.github.io/java-mastery-path/)
+- [JavaScript Mastery Path](https://sigilipelli.github.io/javascript-mastery-path/)
