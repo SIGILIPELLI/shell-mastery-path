@@ -1364,6 +1364,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Signal Handling
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1380,6 +1398,135 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#common-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catching-sigint-for-graceful-shutdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catching SIGINT for graceful shutdown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catching-multiple-signals-with-one-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catching multiple signals with one handler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trap-with-multiple-signal-names-on-one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trap with multiple signal names on one line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ignoring-a-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ignoring a signal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resetting-a-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resetting a trap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-robust-long-running-worker-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A robust long-running worker pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-signal-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing signal handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1983,6 +2130,124 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#common-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catching-sigint-for-graceful-shutdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catching SIGINT for graceful shutdown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catching-multiple-signals-with-one-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catching multiple signals with one handler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trap-with-multiple-signal-names-on-one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trap with multiple signal names on one line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ignoring-a-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ignoring a signal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resetting-a-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resetting a trap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-robust-long-running-worker-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A robust long-running worker pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-signal-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing signal handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2002,13 +2267,211 @@
 
 
 <h1 id="03-signal-handling">03 · Signal Handling<a class="headerlink" href="#03-signal-handling" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-<code>trap</code> for <code>SIGINT</code>/<code>SIGTERM</code>, graceful shutdown and cleanup routines.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Level 1 introduced <code>trap ... EXIT</code> for cleanup. Long-running scripts —
+servers, monitors, batch jobs — need to handle <strong>signals</strong> sent by the
+operating system or another process: <code>Ctrl+C</code>, a <code>kill</code> command, a system
+shutdown. This module covers catching and responding to those signals
+properly.</p>
+<h2 id="common-signals">Common signals<a class="headerlink" href="#common-signals" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Number</th>
+<th>Typical trigger</th>
+<th>Default behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SIGINT</code></td>
+<td>2</td>
+<td><code>Ctrl+C</code> in the terminal</td>
+<td>terminate</td>
+</tr>
+<tr>
+<td><code>SIGTERM</code></td>
+<td>15</td>
+<td><code>kill pid</code> (the default signal)</td>
+<td>terminate</td>
+</tr>
+<tr>
+<td><code>SIGHUP</code></td>
+<td>1</td>
+<td>terminal/session closed</td>
+<td>terminate</td>
+</tr>
+<tr>
+<td><code>SIGKILL</code></td>
+<td>9</td>
+<td><code>kill -9 pid</code></td>
+<td>terminate, <strong>cannot be caught or ignored</strong></td>
+</tr>
+<tr>
+<td><code>SIGQUIT</code></td>
+<td>3</td>
+<td><code>Ctrl+\</code></td>
+<td>terminate + core dump</td>
+</tr>
+<tr>
+<td><code>SIGSTOP</code>/<code>SIGCONT</code></td>
+<td>19/18</td>
+<td>suspend/resume a process</td>
+<td>pause / resume</td>
+</tr>
+</tbody>
+</table>
+<h2 id="catching-sigint-for-graceful-shutdown">Catching <code>SIGINT</code> for graceful shutdown<a class="headerlink" href="#catching-sigint-for-graceful-shutdown" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/usr/bin/env bash</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">running</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>handle_sigint<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Caught SIGINT — finishing current step, then exiting...&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nv">running</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="o">}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">trap</span><span class="w"> </span>handle_sigint<span class="w"> </span>SIGINT
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Working... press Ctrl+C to stop gracefully.&quot;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nv">count</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">while</span><span class="w"> </span><span class="nv">$running</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="o">((</span>count++<span class="o">))</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;iteration </span><span class="nv">$count</span><span class="s2">&quot;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span>sleep<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">done</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Stopped cleanly after </span><span class="nv">$count</span><span class="s2"> iterations.&quot;</span>
+</code></pre></div>
+<p>Without a trap, <code>Ctrl+C</code> kills the script immediately, mid-operation —
+possibly leaving a half-written file or an unreleased lock. Catching
+<code>SIGINT</code> and flipping a flag that the main loop checks lets the current unit
+of work finish before exiting.</p>
+<h2 id="catching-multiple-signals-with-one-handler">Catching multiple signals with one handler<a class="headerlink" href="#catching-multiple-signals-with-one-handler" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/usr/bin/env bash</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cleanup_and_exit<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">signal</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Received </span><span class="nv">$signal</span><span class="s2"> — cleaning up...&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span>/tmp/myjob.lock
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="o">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;cleanup_and_exit SIGINT&#39;</span><span class="w"> </span>SIGINT
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;cleanup_and_exit SIGTERM&#39;</span><span class="w"> </span>SIGTERM
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>touch<span class="w"> </span>/tmp/myjob.lock
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Job running (PID </span><span class="nv">$$</span><span class="s2">). Send SIGINT or SIGTERM to stop.&quot;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+<h2 id="trap-with-multiple-signal-names-on-one-line"><code>trap</code> with multiple signal names on one line<a class="headerlink" href="#trap-with-multiple-signal-names-on-one-line" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;echo &quot;shutting down&quot;; rm -f /tmp/myjob.lock; exit 0&#39;</span><span class="w"> </span>SIGINT<span class="w"> </span>SIGTERM
+</code></pre></div>
+<p>A single <code>trap</code> call can list several signal names — the same handler
+fires for whichever one is actually received.</p>
+<h2 id="ignoring-a-signal">Ignoring a signal<a class="headerlink" href="#ignoring-a-signal" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span>SIGINT<span class="w">      </span><span class="c1"># ignore Ctrl+C entirely — the script cannot be interrupted this way</span>
+</code></pre></div>
+<p>Use this sparingly — for a critical section that truly must not be
+interrupted (e.g. writing a database transaction file) — and restore normal
+handling immediately afterward with <code>trap - SIGINT</code>.</p>
+<h2 id="resetting-a-trap">Resetting a trap<a class="headerlink" href="#resetting-a-trap" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;echo &quot;ignoring Ctrl+C during critical section&quot;&#39;</span><span class="w"> </span>SIGINT
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># ... critical section ...</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">trap</span><span class="w"> </span>-<span class="w"> </span>SIGINT<span class="w">      </span><span class="c1"># restore default SIGINT behavior</span>
+</code></pre></div>
+<h2 id="a-robust-long-running-worker-pattern">A robust long-running worker pattern<a class="headerlink" href="#a-robust-long-running-worker-pattern" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/usr/bin/env bash</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nv">LOCK_FILE</span><span class="o">=</span><span class="s2">&quot;/tmp/worker.lock&quot;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">shutdown_requested</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>on_shutdown_signal<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Shutdown requested — will exit after this unit of work.&quot;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nv">shutdown_requested</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="o">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>on_exit<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Removing lock file and exiting.&quot;</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOCK_FILE</span><span class="s2">&quot;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="o">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nb">trap</span><span class="w"> </span>on_shutdown_signal<span class="w"> </span>SIGINT<span class="w"> </span>SIGTERM
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="nb">trap</span><span class="w"> </span>on_exit<span class="w"> </span>EXIT
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOCK_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Already running.&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="k">fi</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>touch<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOCK_FILE</span><span class="s2">&quot;</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="k">while</span><span class="w"> </span>!<span class="w"> </span><span class="nv">$shutdown_requested</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;processing a unit of work...&quot;</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span>sleep<span class="w"> </span><span class="m">2</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="k">done</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;graceful shutdown complete.&quot;</span>
+</code></pre></div>
+<p>Combining a <code>SIGINT</code>/<code>SIGTERM</code> trap (to stop the work loop) with an <code>EXIT</code>
+trap (to always release the lock, however the script ends — normal
+completion, a caught signal, or an error) is the standard shape for a
+production-quality long-running script.</p>
+<h2 id="testing-signal-handling">Testing signal handling<a class="headerlink" href="#testing-signal-handling" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./worker.sh<span class="w"> </span><span class="p">&amp;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">worker_pid</span><span class="o">=</span><span class="nv">$!</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sleep<span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">kill</span><span class="w"> </span>-SIGTERM<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$worker_pid</span><span class="s2">&quot;</span><span class="w">     </span><span class="c1"># simulate an operator asking it to stop</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">wait</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$worker_pid</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;worker exited with status </span><span class="nv">$?</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>trap 'handler' SIGINT</code></td>
+<td>run <code>handler</code> when SIGINT (Ctrl+C) is received</td>
+</tr>
+<tr>
+<td><code>trap 'handler' SIGTERM</code></td>
+<td>run <code>handler</code> when SIGTERM (from <code>kill</code>) is received</td>
+</tr>
+<tr>
+<td><code>trap 'handler' SIGINT SIGTERM</code></td>
+<td>one handler for multiple signals</td>
+</tr>
+<tr>
+<td><code>trap '' SIGINT</code></td>
+<td>ignore a signal</td>
+</tr>
+<tr>
+<td><code>trap - SIGINT</code></td>
+<td>restore default handling</td>
+</tr>
+<tr>
+<td><code>trap 'handler' EXIT</code></td>
+<td>always run on exit, regardless of cause</td>
+</tr>
+<tr>
+<td><code>kill -SIGNAL pid</code></td>
+<td>send a named/numbered signal to a process</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write <code>worker.sh</code> that runs an infinite loop printing a heartbeat message
+every second, holds a <code>/tmp/worker.lock</code> file for its whole run, and
+gracefully shuts down (removing the lock, printing a summary of how many
+heartbeats it printed) on either <code>SIGINT</code> or <code>SIGTERM</code>. Start it in the
+background, let it run for 5 seconds, then send it <code>SIGTERM</code> from another
+terminal (or <code>kill</code>) and confirm it shuts down cleanly.</p>
 
 
 

@@ -1822,6 +1822,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Advanced Text Processing Pipelines
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1838,6 +1856,146 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#thinking-in-pipeline-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thinking in pipeline stages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grep-to-filter-awk-to-extract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grep to filter, awk to extract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-to-extract-sed-to-reshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk to extract, sed to reshape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-jq-for-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducing jq for JSON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jq-navigating-and-filtering-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jq: navigating and filtering arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jq-reshaping-objects-with-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jq: reshaping objects with map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combining-jq-with-curl-awk-and-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combining jq with curl, awk, and grep
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-full-pipeline-log-analysis-to-a-ranked-json-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A full pipeline: log analysis to a ranked JSON report
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-csv-to-json-and-back-with-jq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting CSV to JSON and back with jq
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1983,6 +2141,135 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#thinking-in-pipeline-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thinking in pipeline stages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grep-to-filter-awk-to-extract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grep to filter, awk to extract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-to-extract-sed-to-reshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk to extract, sed to reshape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-jq-for-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducing jq for JSON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jq-navigating-and-filtering-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jq: navigating and filtering arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jq-reshaping-objects-with-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jq: reshaping objects with map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combining-jq-with-curl-awk-and-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combining jq with curl, awk, and grep
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-full-pipeline-log-analysis-to-a-ranked-json-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A full pipeline: log analysis to a ranked JSON report
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-csv-to-json-and-back-with-jq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting CSV to JSON and back with jq
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2002,13 +2289,136 @@
 
 
 <h1 id="06-advanced-text-processing-pipelines">06 · Advanced Text Processing Pipelines<a class="headerlink" href="#06-advanced-text-processing-pipelines" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Combining <code>awk</code>/<code>sed</code>/<code>grep</code>/<code>jq</code> into data-processing pipelines.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p><code>grep</code>, <code>awk</code>, <code>sed</code>, and <code>jq</code> are each capable on their own, but production
+data-processing scripts get their power from chaining them: filter with
+<code>grep</code>, extract/transform with <code>awk</code>, reshape with <code>sed</code>, and query/reshape
+JSON with <code>jq</code>. This module builds several real multi-stage pipelines,
+including converting between plain text, CSV, and JSON.</p>
+<h2 id="thinking-in-pipeline-stages">Thinking in pipeline stages<a class="headerlink" href="#thinking-in-pipeline-stages" title="Permanent link">&para;</a></h2>
+<p>Most text pipelines follow the same shape: <strong>filter → extract → transform →
+aggregate</strong>. Naming the stage you're on makes a long pipeline easy to debug
+one <code>|</code> at a time.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># filter (grep) -&gt; extract (awk) -&gt; aggregate (sort | uniq -c) -&gt; rank (sort -rn)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>grep<span class="w"> </span><span class="s1">&#39;ERROR&#39;</span><span class="w"> </span>app.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1, $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
+</code></pre></div>
+<p>Build pipelines incrementally: run the first stage alone, confirm the
+output looks right, then pipe in the next stage — trying to write a five-
+stage pipeline in one shot is how silent mistakes creep in.</p>
+<h2 id="grep-to-filter-awk-to-extract">grep to filter, awk to extract<a class="headerlink" href="#grep-to-filter-awk-to-extract" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># pull just the client IP and status code for 5xx responses in an access log</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>grep<span class="w"> </span><span class="s1">&#39; 5[0-9][0-9] &#39;</span><span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1, $9}&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># keep only lines mentioning a given user, then extract the action column</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>grep<span class="w"> </span><span class="s1">&#39;user=alice&#39;</span><span class="w"> </span>audit.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s1">&#39;action=&#39;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span>
+</code></pre></div>
+<h2 id="awk-to-extract-sed-to-reshape">awk to extract, sed to reshape<a class="headerlink" href="#awk-to-extract-sed-to-reshape" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># turn &quot;name=alice age=30 city=nyc&quot; lines into &quot;alice,30,nyc&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;name=alice age=30 city=nyc&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1, $2, $3}&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/[a-z]+=//g; s/ /,/g&#39;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># alice,30,nyc</span>
+</code></pre></div>
+<h2 id="introducing-jq-for-json">Introducing jq for JSON<a class="headerlink" href="#introducing-jq-for-json" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;name&quot;:&quot;alice&quot;,&quot;age&quot;:30}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.name&#39;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># &quot;alice&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;name&quot;:&quot;alice&quot;,&quot;age&quot;:30}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.name&#39;</span><span class="w">    </span><span class="c1"># -r strips the quotes</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># alice</span>
+</code></pre></div>
+<p><code>jq</code> filters chain with <code>|</code> just like shell pipes, but inside a single
+<code>jq</code> argument — <code>.foo.bar</code>, <code>.[0]</code>, and <code>select(...)</code> are the building
+blocks for everything below.</p>
+<h2 id="jq-navigating-and-filtering-arrays">jq: navigating and filtering arrays<a class="headerlink" href="#jq-navigating-and-filtering-arrays" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>users.json
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># [{&quot;name&quot;:&quot;alice&quot;,&quot;active&quot;:true},{&quot;name&quot;:&quot;bob&quot;,&quot;active&quot;:false}]</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>jq<span class="w"> </span><span class="s1">&#39;.[] | select(.active == true) | .name&#39;</span><span class="w"> </span>users.json
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># &quot;alice&quot;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.[] | select(.active) | .name&#39;</span><span class="w"> </span>users.json
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># alice</span>
+</code></pre></div>
+<h2 id="jq-reshaping-objects-with-map">jq: reshaping objects with map<a class="headerlink" href="#jq-reshaping-objects-with-map" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>jq<span class="w"> </span><span class="s1">&#39;[.[] | {user: .name, status: (if .active then &quot;active&quot; else &quot;inactive&quot; end)}]&#39;</span><span class="w"> </span>users.json
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># [{&quot;user&quot;:&quot;alice&quot;,&quot;status&quot;:&quot;active&quot;},{&quot;user&quot;:&quot;bob&quot;,&quot;status&quot;:&quot;inactive&quot;}]</span>
+</code></pre></div>
+<h2 id="combining-jq-with-curl-awk-and-grep">Combining jq with curl, awk, and grep<a class="headerlink" href="#combining-jq-with-curl-awk-and-grep" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># fetch a JSON API, keep only active users, uppercase their names</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>https://api.example.com/users<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.[] | select(.active) | .name&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print toupper($0) }&#39;</span>
+</code></pre></div>
+<h2 id="a-full-pipeline-log-analysis-to-a-ranked-json-report">A full pipeline: log analysis to a ranked JSON report<a class="headerlink" href="#a-full-pipeline-log-analysis-to-a-ranked-json-report" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># access.log fields: $1=IP ... $9=status code</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>awk<span class="w"> </span><span class="s1">&#39;{ print $1, $9 }&#39;</span><span class="w"> </span>access.log<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ printf &quot;{\&quot;ip\&quot;:\&quot;%s\&quot;,\&quot;status\&quot;:\&quot;%s\&quot;,\&quot;count\&quot;:%d}\n&quot;, $3, $2, $1 }&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-s<span class="w"> </span><span class="s1">&#39;sort_by(-.count)&#39;</span>
+</code></pre></div>
+<p>Reading it stage by stage: <code>awk</code> extracts IP + status, <code>sort | uniq -c</code>
+counts identical pairs, the second <code>awk</code> emits one JSON object per line,
+and <code>jq -s</code> ("slurp") reads all of those separate JSON lines into a single
+sorted array.</p>
+<h2 id="converting-csv-to-json-and-back-with-jq">Converting CSV to JSON and back with jq<a class="headerlink" href="#converting-csv-to-json-and-back-with-jq" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># CSV -&gt; JSON (first row is the header)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>awk<span class="w"> </span>-F,<span class="w"> </span><span class="s1">&#39;NR==1 { split($0, h, &quot;,&quot;); next }</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="s1">         { printf &quot;{&quot;; for (i=1; i&lt;=NF; i++)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="s1">               printf &quot;\&quot;%s\&quot;:\&quot;%s\&quot;%s&quot;, h[i], $i, (i&lt;NF ? &quot;,&quot; : &quot;&quot;);</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s1">           print &quot;}&quot; }&#39;</span><span class="w"> </span>data.csv<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-s<span class="w"> </span><span class="s1">&#39;.&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># JSON -&gt; CSV (array of flat objects, using the first object&#39;s keys as the header)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;(.[0] | keys_unsorted) as $keys | $keys, (.[] | [.[$keys[]]]) | @csv&#39;</span><span class="w"> </span>data.json
+</code></pre></div>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>grep</code></td>
+<td>filtering lines by pattern</td>
+</tr>
+<tr>
+<td><code>awk</code></td>
+<td>field extraction, math, reports</td>
+</tr>
+<tr>
+<td><code>sed</code></td>
+<td>line-based text substitution/reshaping</td>
+</tr>
+<tr>
+<td><code>jq</code></td>
+<td>querying/transforming JSON</td>
+</tr>
+<tr>
+<td><code>jq -r</code></td>
+<td>raw (unquoted) string output</td>
+</tr>
+<tr>
+<td><code>jq -s</code></td>
+<td>slurp multiple JSON lines/values into one array</td>
+</tr>
+<tr>
+<td><code>sort \| uniq -c</code></td>
+<td>count duplicate lines</td>
+</tr>
+<tr>
+<td><code>@csv</code> (in jq)</td>
+<td>render an array as a CSV row</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Given an <code>access.log</code> in Common Log Format, write a single pipeline that
+extracts the requested path and status code, keeps only 4xx/5xx responses,
+counts occurrences per path, and emits the result as a JSON array of
+<code>{"path": ..., "count": ...}</code> objects sorted by count descending. Verify
+the output is valid JSON by piping it through <code>jq length</code>.</p>
 
 
 

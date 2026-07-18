@@ -1682,6 +1682,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Building Full CLI Tools
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1698,6 +1716,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-shape-of-a-real-cli-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The shape of a real CLI tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-flag-parsing-simple-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual flag parsing (simple cases)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getopts-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getopts deep dive
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combining-getopts-with-long-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combining getopts with long options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-parsing-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argument-parsing frameworks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes-and-standard-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit codes and standard streams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1983,6 +2108,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-shape-of-a-real-cli-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The shape of a real CLI tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-flag-parsing-simple-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual flag parsing (simple cases)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getopts-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getopts deep dive
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combining-getopts-with-long-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combining getopts with long options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-parsing-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argument-parsing frameworks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes-and-standard-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit codes and standard streams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2002,13 +2223,207 @@
 
 
 <h1 id="01-building-full-cli-tools">01 · Building Full CLI Tools<a class="headerlink" href="#01-building-full-cli-tools" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Argument-parsing frameworks, help-text conventions, <code>getopts</code> deep dive.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>A script that only works when called exactly one way isn't a tool, it's a
+trap. This module covers what turns a script into something other people
+(including future you) can pick up and use: consistent flag parsing,
+<code>--help</code> text that actually helps, and <code>getopts</code> as the standard way to
+parse short options in POSIX-compatible shells.</p>
+<h2 id="the-shape-of-a-real-cli-tool">The shape of a real CLI tool<a class="headerlink" href="#the-shape-of-a-real-cli-tool" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/usr/bin/env bash</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># deploy.sh — example of a well-shaped CLI tool</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">PROG</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">VERSION</span><span class="o">=</span><span class="s2">&quot;1.2.0&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>usage<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span>cat<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="s">Usage: $PROG [OPTIONS] &lt;target&gt;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="s">Deploy the application to a target environment.</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="s">Arguments:</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="s">  target            environment name (staging|production)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="s">Options:</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="s">  -e, --env FILE    load environment variables from FILE</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="s">  -f, --force       skip confirmation prompts</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="s">  -v, --verbose     print detailed progress</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="s">  -h, --help        show this help and exit</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="s">      --version     show version and exit</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="s">Examples:</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="s">  $PROG staging</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="s">  $PROG --force --env prod.env production</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="s">EOF</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="o">}</span>
+</code></pre></div>
+<p>A predictable <code>usage()</code> function is the single biggest readability win you
+can add to a script. Every flag, every argument, one example — that's the
+convention this module builds toward.</p>
+<h2 id="manual-flag-parsing-simple-cases">Manual flag parsing (simple cases)<a class="headerlink" href="#manual-flag-parsing-simple-cases" title="Permanent link">&para;</a></h2>
+<p>For a handful of long-only flags, a plain <code>while</code>/<code>case</code> loop is often
+enough and needs no extra library:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">verbose</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">force</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">while</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span>--verbose<span class="o">)</span><span class="w"> </span><span class="nv">verbose</span><span class="o">=</span>true<span class="p">;</span><span class="w"> </span><span class="nb">shift</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span>--force<span class="o">)</span><span class="w">   </span><span class="nv">force</span><span class="o">=</span>true<span class="p">;</span><span class="w"> </span><span class="nb">shift</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span>--help<span class="o">)</span><span class="w">    </span>usage<span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span>--<span class="o">)</span><span class="w">        </span>shift<span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="w"> </span><span class="p">;;</span><span class="w">      </span><span class="c1"># explicit end-of-options marker</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span>-*<span class="o">)</span><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Unknown option: </span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span>usage<span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span>*<span class="o">)</span><span class="w">         </span><span class="k">break</span><span class="w"> </span><span class="p">;;</span><span class="w">              </span><span class="c1"># first positional argument</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="k">esac</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="k">done</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nv">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>This scales poorly once you need combined short flags (<code>-vf</code>) or flags
+with attached values (<code>-e prod.env</code>) — that's where <code>getopts</code> earns its
+keep.</p>
+<h2 id="getopts-deep-dive"><code>getopts</code> deep dive<a class="headerlink" href="#getopts-deep-dive" title="Permanent link">&para;</a></h2>
+<p><code>getopts</code> is the POSIX-standard way to parse short options and is built
+into <code>sh</code>, <code>bash</code>, and <code>zsh</code>. The option string encodes which flags take
+an argument: a letter followed by <code>:</code> means "this flag consumes the next
+word as its value."</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ch">#!/usr/bin/env bash</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nv">env_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nv">force</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nv">verbose</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># &quot;e:fvh&quot; — &#39;e&#39; takes a value (the &#39;:&#39;), f/v/h are boolean switches</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span><span class="s2">&quot;:e:fvh&quot;</span><span class="w"> </span>opt<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$opt</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span>e<span class="o">)</span><span class="w"> </span><span class="nv">env_file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$OPTARG</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;;</span><span class="w">      </span><span class="c1"># OPTARG holds the value after -e</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span>f<span class="o">)</span><span class="w"> </span><span class="nv">force</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span>v<span class="o">)</span><span class="w"> </span><span class="nv">verbose</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span>h<span class="o">)</span><span class="w"> </span>usage<span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="se">\?</span><span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Invalid option: -</span><span class="nv">$OPTARG</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span>usage<span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">        </span>:<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Option -</span><span class="nv">$OPTARG</span><span class="s2"> requires an argument&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="k">esac</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="k">done</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="nb">shift</span><span class="w"> </span><span class="k">$((</span><span class="nv">OPTIND</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="k">))</span><span class="w">   </span><span class="c1"># drop parsed options, leaving positional args in $@</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="nv">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: &lt;target&gt; is required&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span>usage<span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+</code></pre></div>
+<p>Key details:</p>
+<ul>
+<li>The <strong>leading <code>:</code></strong> in <code>":e:fvh"</code> switches <code>getopts</code> into "silent error"
+  mode, so you handle bad flags yourself via the <code>\?</code> and <code>:</code> cases
+  instead of it printing its own message.</li>
+<li><strong><code>OPTIND</code></strong> tracks the index of the next argument to process; resetting
+  the positional parameters with <code>shift $((OPTIND - 1))</code> is what makes
+  <code>$1</code>, <code>$2</code>, ... refer to the real positional arguments afterward.</li>
+<li><code>getopts</code> only understands <strong>short options</strong> (<code>-e</code>) and bundled short
+  flags (<code>-vf</code> = <code>-v -f</code>); it has no built-in notion of <code>--long-options</code>.</li>
+</ul>
+<h2 id="combining-getopts-with-long-options">Combining getopts with long options<a class="headerlink" href="#combining-getopts-with-long-options" title="Permanent link">&para;</a></h2>
+<p>A common pattern is to translate long flags to short ones before the
+<code>getopts</code> loop runs, giving you both without a third-party library:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">args</span><span class="o">=()</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">for</span><span class="w"> </span>arg<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$arg</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span>--env<span class="o">)</span><span class="w">     </span><span class="nv">args</span><span class="o">+=(</span><span class="s2">&quot;-e&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span>--force<span class="o">)</span><span class="w">   </span><span class="nv">args</span><span class="o">+=(</span><span class="s2">&quot;-f&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span>--verbose<span class="o">)</span><span class="w"> </span><span class="nv">args</span><span class="o">+=(</span><span class="s2">&quot;-v&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span>--help<span class="o">)</span><span class="w">    </span><span class="nv">args</span><span class="o">+=(</span><span class="s2">&quot;-h&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span>*<span class="o">)</span><span class="w">         </span><span class="nv">args</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$arg</span><span class="s2">&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">esac</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">done</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nb">set</span><span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">args</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">   </span><span class="c1"># replace $@ with the translated argument list</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span><span class="s2">&quot;:e:fvh&quot;</span><span class="w"> </span>opt<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="c1"># ... same as above</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span>:
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="k">done</span>
+</code></pre></div>
+<h2 id="argument-parsing-frameworks">Argument-parsing frameworks<a class="headerlink" href="#argument-parsing-frameworks" title="Permanent link">&para;</a></h2>
+<p>For larger tools, hand-rolled parsing gets unwieldy. Two common approaches:</p>
+<p><strong><code>docopt</code>-style</strong> — write the <code>usage()</code> text first, generate the parser
+from it (via a language binding), so help text and behavior can never
+drift apart.</p>
+<p><strong>Reusable parse function</strong> — define an associative array of flag specs
+and loop over it once, keeping every script's parsing logic identical:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span><span class="nv">OPTS</span><span class="o">=(</span><span class="w"> </span><span class="o">[</span>force<span class="o">]=</span><span class="nb">false</span><span class="w"> </span><span class="o">[</span>verbose<span class="o">]=</span><span class="nb">false</span><span class="w"> </span><span class="o">[</span>env<span class="o">]=</span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>parse_args<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span>--force<span class="o">)</span><span class="w">   </span>OPTS<span class="o">[</span>force<span class="o">]=</span>true<span class="p">;</span><span class="w"> </span><span class="nb">shift</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span>--verbose<span class="o">)</span><span class="w"> </span>OPTS<span class="o">[</span>verbose<span class="o">]=</span>true<span class="p">;</span><span class="w"> </span><span class="nb">shift</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span>--env<span class="o">)</span><span class="w">     </span>OPTS<span class="o">[</span>env<span class="o">]=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">shift</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span>*<span class="o">)</span><span class="w">         </span><span class="nv">POSITIONAL</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="o">)</span><span class="p">;</span><span class="w"> </span><span class="nb">shift</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="k">esac</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">done</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="o">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nv">POSITIONAL</span><span class="o">=()</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>parse_args<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="nb">set</span><span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">POSITIONAL</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>This is worth extracting into a shared <code>lib/args.sh</code> once you maintain
+more than two or three CLI tools, so every tool parses flags the same way.</p>
+<h2 id="exit-codes-and-standard-streams">Exit codes and standard streams<a class="headerlink" href="#exit-codes-and-standard-streams" title="Permanent link">&para;</a></h2>
+<p>A well-behaved CLI tool follows two conventions that make it composable
+with other tools:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># errors and diagnostics go to stderr, not stdout</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: config file not found&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># exit codes communicate success/failure to calling scripts and CI</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">exit</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="c1"># success</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1"># generic failure</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nb">exit</span><span class="w"> </span><span class="m">2</span><span class="w">   </span><span class="c1"># usage error (bad arguments) — a common convention</span>
+</code></pre></div>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>while [[ $# -gt 0 ]]; do case "$1" in ...</code></td>
+<td>manual parsing for long-only flags</td>
+</tr>
+<tr>
+<td><code>getopts ":e:fvh" opt</code></td>
+<td>POSIX short-option parsing, <code>e:</code> = takes a value</td>
+</tr>
+<tr>
+<td><code>$OPTARG</code></td>
+<td>value attached to the current <code>getopts</code> flag</td>
+</tr>
+<tr>
+<td><code>$OPTIND</code></td>
+<td>index of the next unparsed argument</td>
+</tr>
+<tr>
+<td><code>shift $((OPTIND - 1))</code></td>
+<td>drop parsed flags, leaving positionals in <code>$@</code></td>
+</tr>
+<tr>
+<td><code>--</code></td>
+<td>conventional "end of options" marker</td>
+</tr>
+<tr>
+<td><code>exit 2</code></td>
+<td>usage-error convention (vs. <code>1</code> for general failure)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write <code>greet.sh</code>, a CLI tool that accepts <code>-n NAME</code> (required), <code>-g GREETING</code>
+(optional, default <code>"Hello"</code>), and <code>-h</code>/<code>--help</code>. Parse the flags with
+<code>getopts</code>, print a proper <code>usage()</code> block on <code>-h</code> or on missing <code>-n</code>, and
+have the tool print <code>"$GREETING, $NAME!"</code> on success. Test it with
+<code>./greet.sh -n Alice</code>, <code>./greet.sh -n Bob -g Hi</code>, and <code>./greet.sh</code> (which
+should fail with a usage error and exit code <code>2</code>).</p>
 
 
 

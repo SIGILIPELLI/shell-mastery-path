@@ -1308,6 +1308,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Advanced sed & awk
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1324,6 +1342,157 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sed-substitution-recap-and-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: substitution recap and flags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed-addressing-specific-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: addressing specific lines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed-in-place-editing-with-a-safety-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: in-place editing (with a safety net)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed-multi-line-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: multi-line processing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed-capture-groups-and-backreferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: capture groups and backreferences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-the-field-based-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: the field-based model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-patterns-and-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: patterns and actions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-built-in-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: built-in variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-full-scripts-with-beginend-and-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: full scripts with BEGIN/END and variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-a-practical-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: a practical report
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1983,6 +2152,146 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sed-substitution-recap-and-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: substitution recap and flags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed-addressing-specific-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: addressing specific lines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed-in-place-editing-with-a-safety-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: in-place editing (with a safety net)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed-multi-line-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: multi-line processing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed-capture-groups-and-backreferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed: capture groups and backreferences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-the-field-based-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: the field-based model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-patterns-and-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: patterns and actions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-built-in-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: built-in variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-full-scripts-with-beginend-and-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: full scripts with BEGIN/END and variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awk-a-practical-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk: a practical report
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2002,13 +2311,179 @@
 
 
 <h1 id="01-advanced-sed-awk">01 · Advanced sed &amp; awk<a class="headerlink" href="#01-advanced-sed-awk" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Multi-line processing, full awk scripts, in-place editing patterns.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p><code>sed</code> (stream editor) and <code>awk</code> (a full text-processing language) can
+replace long chains of <code>grep</code>/<code>cut</code>/<code>sort</code> with a single, precise command.
+This module goes beyond Level 1's basics into multi-line processing, full
+awk scripts, and safe in-place editing.</p>
+<h2 id="sed-substitution-recap-and-flags">sed: substitution recap and flags<a class="headerlink" href="#sed-substitution-recap-and-flags" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sed<span class="w"> </span><span class="s1">&#39;s/foo/bar/&#39;</span><span class="w"> </span>file.txt<span class="w">        </span><span class="c1"># replace first match per line</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sed<span class="w"> </span><span class="s1">&#39;s/foo/bar/g&#39;</span><span class="w"> </span>file.txt<span class="w">        </span><span class="c1"># replace ALL matches per line</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sed<span class="w"> </span><span class="s1">&#39;s/foo/bar/2&#39;</span><span class="w"> </span>file.txt<span class="w">         </span><span class="c1"># replace only the 2nd match per line</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sed<span class="w"> </span><span class="s1">&#39;s/foo/bar/gi&#39;</span><span class="w"> </span>file.txt<span class="w">         </span><span class="c1"># case-insensitive, all matches</span>
+</code></pre></div>
+<h2 id="sed-addressing-specific-lines">sed: addressing specific lines<a class="headerlink" href="#sed-addressing-specific-lines" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sed<span class="w"> </span><span class="s1">&#39;3d&#39;</span><span class="w"> </span>file.txt<span class="w">              </span><span class="c1"># delete line 3</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sed<span class="w"> </span><span class="s1">&#39;2,4d&#39;</span><span class="w"> </span>file.txt<span class="w">              </span><span class="c1"># delete lines 2 through 4</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sed<span class="w"> </span><span class="s1">&#39;/^#/d&#39;</span><span class="w"> </span>file.txt<span class="w">              </span><span class="c1"># delete lines starting with #  (comments)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;5,10p&#39;</span><span class="w"> </span>file.txt<span class="w">            </span><span class="c1"># print ONLY lines 5-10 (-n suppresses default output)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sed<span class="w"> </span><span class="s1">&#39;$d&#39;</span><span class="w"> </span>file.txt<span class="w">                    </span><span class="c1"># delete the LAST line</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>sed<span class="w"> </span><span class="s1">&#39;1!d&#39;</span><span class="w"> </span>file.txt<span class="w">                    </span><span class="c1"># print only line 1 (opposite of 1d)</span>
+</code></pre></div>
+<h2 id="sed-in-place-editing-with-a-safety-net">sed: in-place editing (with a safety net)<a class="headerlink" href="#sed-in-place-editing-with-a-safety-net" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sed<span class="w"> </span>-i.bak<span class="w"> </span><span class="s1">&#39;s/localhost/production.example.com/g&#39;</span><span class="w"> </span>config.ini
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># .bak suffix keeps a backup — config.ini.bak — before overwriting the original</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># GNU sed (Linux): no space between -i and the suffix</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sed<span class="w"> </span>-i.bak<span class="w"> </span><span class="s1">&#39;s/foo/bar/&#39;</span><span class="w"> </span>file.txt
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># BSD sed (macOS): same syntax, but -i REQUIRES an argument (even &#39;&#39; for none)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="s1">&#39;s/foo/bar/&#39;</span><span class="w"> </span>file.txt
+</code></pre></div>
+<p>Always test a <code>sed -i</code> command without <code>-i</code> first (let it print to stdout)
+to confirm the pattern matches what you expect — an in-place edit that goes
+wrong has no undo unless you kept a <code>.bak</code>.</p>
+<h2 id="sed-multi-line-processing">sed: multi-line processing<a class="headerlink" href="#sed-multi-line-processing" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># join every 2 lines into 1 (N appends the next line into the pattern space)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sed<span class="w"> </span><span class="s1">&#39;N;s/\n/ /&#39;</span><span class="w"> </span>file.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># delete a block of lines between two markers (inclusive)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sed<span class="w"> </span><span class="s1">&#39;/START/,/END/d&#39;</span><span class="w"> </span>file.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># print only the text BETWEEN two markers, excluding the markers themselves</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;/START/,/END/{/START/d;/END/d;p}&#39;</span><span class="w"> </span>file.txt
+</code></pre></div>
+<h2 id="sed-capture-groups-and-backreferences">sed: capture groups and backreferences<a class="headerlink" href="#sed-capture-groups-and-backreferences" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;John Smith&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/([A-Za-z]+) ([A-Za-z]+)/\2, \1/&#39;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># Smith, John</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;2026-07-18&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/([0-9]{4})-([0-9]{2})-([0-9]{2})/\3\/\2\/\1/&#39;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># 18/07/2026</span>
+</code></pre></div>
+<p><code>-E</code> enables extended regex (matching <code>grep -E</code> from Level 2); <code>\1</code>, <code>\2</code>,
+... refer to each parenthesized capture group in the replacement.</p>
+<h2 id="awk-the-field-based-model">awk: the field-based model<a class="headerlink" href="#awk-the-field-based-model" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># awk automatically splits each line into $1, $2, ... by whitespace ($0 = whole line)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;alice 30 engineer&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $1, $3 }&#39;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># alice engineer</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>awk<span class="w"> </span>-F,<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="w"> </span>data.csv<span class="w">        </span><span class="c1"># -F sets the field separator (comma here)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>awk<span class="w"> </span>-F:<span class="w"> </span><span class="s1">&#39;{ print $1 }&#39;</span><span class="w"> </span>/etc/passwd<span class="w">       </span><span class="c1"># list usernames</span>
+</code></pre></div>
+<h2 id="awk-patterns-and-actions">awk: patterns and actions<a class="headerlink" href="#awk-patterns-and-actions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># pattern { action } — action runs only on lines matching the pattern</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>awk<span class="w"> </span><span class="s1">&#39;/ERROR/ { print $0 }&#39;</span><span class="w"> </span>app.log<span class="w">             </span><span class="c1"># print lines containing ERROR</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>awk<span class="w"> </span><span class="s1">&#39;$3 &gt; 100 { print $1, $3 }&#39;</span><span class="w"> </span>data.txt<span class="w">         </span><span class="c1"># print rows where field 3 exceeds 100</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>awk<span class="w"> </span><span class="s1">&#39;NR == 1 { print }&#39;</span><span class="w"> </span>file.txt<span class="w">                    </span><span class="c1"># print only the first line (NR = record/line number)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>awk<span class="w"> </span><span class="s1">&#39;NF &gt; 3&#39;</span><span class="w"> </span>file.txt<span class="w">                                 </span><span class="c1"># print lines with more than 3 fields</span>
+</code></pre></div>
+<h2 id="awk-built-in-variables">awk: built-in variables<a class="headerlink" href="#awk-built-in-variables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$0</code></td>
+<td>the whole current line</td>
+</tr>
+<tr>
+<td><code>$1</code>, <code>$2</code>, ...</td>
+<td>individual fields</td>
+</tr>
+<tr>
+<td><code>NF</code></td>
+<td>number of fields on the current line</td>
+</tr>
+<tr>
+<td><code>NR</code></td>
+<td>current line/record number (across all input)</td>
+</tr>
+<tr>
+<td><code>FS</code></td>
+<td>input field separator (default: whitespace)</td>
+</tr>
+<tr>
+<td><code>OFS</code></td>
+<td>output field separator (used when reassembling <code>$0</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="awk-full-scripts-with-beginend-and-variables">awk: full scripts with BEGIN/END and variables<a class="headerlink" href="#awk-full-scripts-with-beginend-and-variables" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>awk<span class="w"> </span><span class="s1">&#39;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="s1">BEGIN { FS = &quot;,&quot;; OFS = &quot;\t&quot;; total = 0 }</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="s1">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="s1">    total += $3</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="s1">    print $1, $2, $3</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="s1">}</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="s1">END { print &quot;TOTAL:&quot;, total }</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="s1">&#39;</span><span class="w"> </span>sales.csv
+</code></pre></div>
+<p><code>BEGIN</code> runs once before any input is read (good for setting up separators
+and initial values); <code>END</code> runs once after all input is processed (good for
+final totals/summaries); the middle block runs once per line.</p>
+<h2 id="awk-a-practical-report">awk: a practical report<a class="headerlink" href="#awk-a-practical-report" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># summarize response codes from a web server log, sorted by count</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>awk<span class="w"> </span><span class="s1">&#39;{ count[$9]++ } END { for (code in count) print code, count[code] }&#39;</span><span class="w"> </span>access.log<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-k2<span class="w"> </span>-rn
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># compute the average of column 2 across a CSV</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>awk<span class="w"> </span>-F,<span class="w"> </span><span class="s1">&#39;{ sum += $2; n++ } END { if (n &gt; 0) print &quot;average:&quot;, sum/n }&#39;</span><span class="w"> </span>data.csv
+</code></pre></div>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sed 's/x/y/'</code></td>
+<td>substitute first match per line</td>
+</tr>
+<tr>
+<td><code>sed 's/x/y/g'</code></td>
+<td>substitute all matches per line</td>
+</tr>
+<tr>
+<td><code>sed -n 'N,Mp'</code></td>
+<td>print only lines N through M</td>
+</tr>
+<tr>
+<td><code>sed -i.bak 's/x/y/'</code></td>
+<td>in-place edit with a backup</td>
+</tr>
+<tr>
+<td><code>sed '/A/,/B/d'</code></td>
+<td>delete a block between two markers</td>
+</tr>
+<tr>
+<td><code>awk '{print $N}'</code></td>
+<td>print field N</td>
+</tr>
+<tr>
+<td><code>awk -F, ...</code></td>
+<td>set the field separator</td>
+</tr>
+<tr>
+<td><code>awk 'pattern {action}'</code></td>
+<td>run action only on matching lines</td>
+</tr>
+<tr>
+<td><code>awk 'BEGIN{...} {...} END{...}'</code></td>
+<td>setup / per-line / final summary</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Given a CSV file <code>employees.csv</code> with columns <code>name,department,salary</code>,
+write a single <code>awk</code> command that prints the average salary per department
+(hint: use a per-department running total and count in two associative
+arrays, then loop over them in <code>END</code>). Then write a <code>sed</code> one-liner that
+converts every line's <code>department</code> field to uppercase.</p>
 
 
 

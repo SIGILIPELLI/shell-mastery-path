@@ -1878,6 +1878,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Logging & Observability for Scripts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1894,6 +1912,146 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-structured-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why structured logging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-structured-logging-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A structured logging function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-levels-and-filtering-verbosity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log levels and filtering verbosity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correlation-ids-for-tracing-one-run-across-log-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlation IDs for tracing one run across log lines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-structured-logs-with-jq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Querying structured logs with jq
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-logs-to-syslog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sending logs to syslog
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emitting-metrics-for-a-monitoring-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emitting metrics for a monitoring system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heartbeats-and-dead-mans-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heartbeats and dead man's switches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alerting-on-failure-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alerting on failure automatically
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1983,6 +2141,135 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-structured-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why structured logging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-structured-logging-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A structured logging function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-levels-and-filtering-verbosity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log levels and filtering verbosity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correlation-ids-for-tracing-one-run-across-log-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlation IDs for tracing one run across log lines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-structured-logs-with-jq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Querying structured logs with jq
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-logs-to-syslog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sending logs to syslog
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emitting-metrics-for-a-monitoring-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emitting metrics for a monitoring system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heartbeats-and-dead-mans-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heartbeats and dead man's switches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alerting-on-failure-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alerting on failure automatically
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2002,13 +2289,170 @@
 
 
 <h1 id="08-logging-observability-for-scripts">08 · Logging &amp; Observability for Scripts<a class="headerlink" href="#08-logging-observability-for-scripts" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Structured logging, integrating scripts with monitoring systems.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>A script that fails silently at 3am is worse than one that fails loudly.
+This module covers structured (JSON) logging, log levels and correlation
+IDs, and wiring scripts into the monitoring, metrics, and alerting systems
+that actually watch production.</p>
+<h2 id="why-structured-logging">Why structured logging<a class="headerlink" href="#why-structured-logging" title="Permanent link">&para;</a></h2>
+<p>Plain-text logs ("started backup at 3am") are fine for a human tailing a
+file, but painful for a machine to parse reliably. Structured logs emit
+one JSON object per line instead — every field is queryable without
+fragile regexes.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># plain text — easy to read, hard to query
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2026-07-18 09:00:00 backup failed: disk full
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># structured — one JSON object per line, trivially queryable with jq
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>{&quot;time&quot;:&quot;2026-07-18T09:00:00Z&quot;,&quot;level&quot;:&quot;error&quot;,&quot;msg&quot;:&quot;backup failed: disk full&quot;}
+</code></pre></div>
+<h2 id="a-structured-logging-function">A structured logging function<a class="headerlink" href="#a-structured-logging-function" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">LOG_FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">LOG_FILE</span><span class="k">:-</span><span class="p">/var/log/myscript.log</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>log<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">level</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">shift</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">message</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span>timestamp
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nv">timestamp</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-u<span class="w"> </span>+%Y-%m-%dT%H:%M:%SZ<span class="k">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;{&quot;time&quot;:&quot;%s&quot;,&quot;level&quot;:&quot;%s&quot;,&quot;script&quot;:&quot;%s&quot;,&quot;pid&quot;:%d,&quot;msg&quot;:&quot;%s&quot;}\n&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="s2">&quot;</span><span class="nv">$timestamp</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$level</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$$</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$message</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="o">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>log_info<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>log<span class="w"> </span><span class="s2">&quot;info&quot;</span><span class="w">  </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>log_warn<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>log<span class="w"> </span><span class="s2">&quot;warn&quot;</span><span class="w">  </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>log_error<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>log<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>log_info<span class="w"> </span><span class="s2">&quot;starting job&quot;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>log_error<span class="w"> </span><span class="s2">&quot;failed to connect to database&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{&quot;time&quot;:&quot;2026-07-18T09:00:00Z&quot;,&quot;level&quot;:&quot;info&quot;,&quot;script&quot;:&quot;myscript.sh&quot;,&quot;pid&quot;:4210,&quot;msg&quot;:&quot;starting job&quot;}
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{&quot;time&quot;:&quot;2026-07-18T09:00:01Z&quot;,&quot;level&quot;:&quot;error&quot;,&quot;script&quot;:&quot;myscript.sh&quot;,&quot;pid&quot;:4210,&quot;msg&quot;:&quot;failed to connect to database&quot;}
+</code></pre></div>
+<h2 id="log-levels-and-filtering-verbosity">Log levels and filtering verbosity<a class="headerlink" href="#log-levels-and-filtering-verbosity" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">LOG_LEVEL</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">LOG_LEVEL</span><span class="k">:-</span><span class="nv">info</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">     </span><span class="c1"># debug &lt; info &lt; warn &lt; error</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>should_log<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">level</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_LEVEL</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span>debug<span class="o">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span>info<span class="o">)</span><span class="w">  </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$level</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span>warn<span class="o">)</span><span class="w">  </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$level</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;warn&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$level</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span>error<span class="o">)</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$level</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="k">esac</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="o">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>log<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">level</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">shift</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span>should_log<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$level</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;{&quot;time&quot;:&quot;%s&quot;,&quot;level&quot;:&quot;%s&quot;,&quot;msg&quot;:&quot;%s&quot;}\n&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="s2">&quot;</span><span class="k">$(</span>date<span class="w"> </span>-u<span class="w"> </span>+%Y-%m-%dT%H:%M:%SZ<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$level</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="o">}</span>
+</code></pre></div>
+<h2 id="correlation-ids-for-tracing-one-run-across-log-lines">Correlation IDs for tracing one run across log lines<a class="headerlink" href="#correlation-ids-for-tracing-one-run-across-log-lines" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">RUN_ID</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">RUN_ID</span><span class="k">:-$(</span>uuidgen<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>date<span class="w"> </span>+%s%N<span class="k">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>log<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">level</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">shift</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;{&quot;time&quot;:&quot;%s&quot;,&quot;level&quot;:&quot;%s&quot;,&quot;run_id&quot;:&quot;%s&quot;,&quot;msg&quot;:&quot;%s&quot;}\n&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="s2">&quot;</span><span class="k">$(</span>date<span class="w"> </span>-u<span class="w"> </span>+%Y-%m-%dT%H:%M:%SZ<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$level</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RUN_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="o">}</span>
+</code></pre></div>
+<p>Exporting <code>RUN_ID</code> before calling downstream scripts (<code>export RUN_ID; ./step2.sh</code>)
+lets every step of a multi-script job share the same ID, so a log
+aggregator can join all of them into one trace by filtering on <code>run_id</code>.</p>
+<h2 id="querying-structured-logs-with-jq">Querying structured logs with jq<a class="headerlink" href="#querying-structured-logs-with-jq" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>jq<span class="w"> </span><span class="s1">&#39;select(.level == &quot;error&quot;)&#39;</span><span class="w"> </span>/var/log/myscript.log
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;select(.run_id == &quot;abc123&quot;) | .msg&#39;</span><span class="w"> </span>/var/log/myscript.log
+</code></pre></div>
+<h2 id="sending-logs-to-syslog">Sending logs to syslog<a class="headerlink" href="#sending-logs-to-syslog" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>logger<span class="w"> </span>-t<span class="w"> </span>myscript<span class="w"> </span><span class="s2">&quot;job started&quot;</span><span class="w">                          </span><span class="c1"># tags each line with &quot;myscript&quot; in syslog</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>logger<span class="w"> </span>-t<span class="w"> </span>myscript<span class="w"> </span>-p<span class="w"> </span>user.err<span class="w"> </span><span class="s2">&quot;job failed: </span><span class="nv">$reason</span><span class="s2">&quot;</span><span class="w">       </span><span class="c1"># set a syslog priority</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># view it</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>journalctl<span class="w"> </span>-t<span class="w"> </span>myscript<span class="w"> </span>-f
+</code></pre></div>
+<h2 id="emitting-metrics-for-a-monitoring-system">Emitting metrics for a monitoring system<a class="headerlink" href="#emitting-metrics-for-a-monitoring-system" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Prometheus node_exporter &quot;textfile collector&quot; pattern — no long-running exporter needed</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">METRICS_FILE</span><span class="o">=</span><span class="s2">&quot;/var/lib/node_exporter/textfile_collector/myscript.prom&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>write_metric<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">value</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">METRICS_FILE</span><span class="si">}</span><span class="s2">.</span><span class="nv">$$</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span>mv<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">METRICS_FILE</span><span class="si">}</span><span class="s2">.</span><span class="nv">$$</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$METRICS_FILE</span><span class="s2">&quot;</span><span class="w">    </span><span class="c1"># atomic — never a half-written file</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="o">}</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nv">start_time</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%s<span class="k">)</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1"># ... do the actual work ...</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="nv">end_time</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%s<span class="k">)</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>write_metric<span class="w"> </span><span class="s2">&quot;myscript_last_run_timestamp_seconds&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$end_time</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>write_metric<span class="w"> </span><span class="s2">&quot;myscript_duration_seconds&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$((</span><span class="w"> </span><span class="nv">end_time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">start_time</span><span class="w"> </span><span class="k">))</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>write_metric<span class="w"> </span><span class="s2">&quot;myscript_last_run_success&quot;</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+</code></pre></div>
+<h2 id="heartbeats-and-dead-mans-switches">Heartbeats and dead man's switches<a class="headerlink" href="#heartbeats-and-dead-mans-switches" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># push a heartbeat — an external monitor alerts if this stops arriving on schedule</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>curl<span class="w"> </span>-fsS<span class="w"> </span>-m<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="s2">&quot;https://hc-ping.com/your-check-id&quot;</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># or simpler: touch a file a monitoring agent watches for staleness</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>touch<span class="w"> </span>/var/run/myscript.heartbeat
+</code></pre></div>
+<p>A "dead man's switch" flips the usual alerting logic: instead of alerting
+when something goes wrong, it alerts when the expected success signal
+<em>stops showing up</em> — the only reliable way to catch a cron job that
+silently stopped running altogether.</p>
+<h2 id="alerting-on-failure-automatically">Alerting on failure automatically<a class="headerlink" href="#alerting-on-failure-automatically" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>notify_failure<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span>curl<span class="w"> </span>-fsS<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span>-d<span class="w"> </span><span class="s2">&quot;{\&quot;text\&quot;:\&quot;myscript failed — check logs (run_id=</span><span class="nv">$RUN_ID</span><span class="s2">)\&quot;}&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">        </span><span class="s2">&quot;</span><span class="nv">$ALERT_WEBHOOK_URL</span><span class="s2">&quot;</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="o">}</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;log_error &quot;script failed at line $LINENO&quot;; notify_failure&#39;</span><span class="w"> </span>ERR
+</code></pre></div>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSON log lines</td>
+<td>machine-parseable structured logging</td>
+</tr>
+<tr>
+<td>log levels (<code>debug</code>/<code>info</code>/<code>warn</code>/<code>error</code>)</td>
+<td>control verbosity</td>
+</tr>
+<tr>
+<td>a <code>run_id</code>/correlation ID</td>
+<td>trace one execution across log lines/systems</td>
+</tr>
+<tr>
+<td><code>logger -t tag</code></td>
+<td>send lines to syslog/journald</td>
+</tr>
+<tr>
+<td>textfile-collector <code>.prom</code> file</td>
+<td>expose metrics to Prometheus without a daemon</td>
+</tr>
+<tr>
+<td>heartbeat file/ping</td>
+<td>detect when a scheduled job silently stopped running</td>
+</tr>
+<tr>
+<td><code>trap ... ERR</code> + webhook</td>
+<td>alert immediately on failure</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Add structured JSON logging with <code>debug</code>/<code>info</code>/<code>warn</code>/<code>error</code> levels and a
+<code>run_id</code> to Level 1's <code>backup.sh</code>. Then add a Prometheus textfile-collector
+metric recording the backup's duration and success/failure, and a
+<code>trap ... ERR</code> that posts a failure notification to a webhook URL read from
+an environment variable.</p>
 
 
 

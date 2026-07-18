@@ -1336,6 +1336,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Process Substitution & Here-Docs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1352,6 +1370,135 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-substitution-treat-command-output-as-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process substitution: &lt;(...) — treat command output as a file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-substitution-with-while-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process substitution with while read
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-substitution-treat-a-command-as-a-writable-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process substitution: &gt;(...) — treat a command as a writable file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#here-documents-multi-line-input-embedded-in-the-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Here-documents: multi-line input, embedded in the script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suppressing-expansion-quoted-delimiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suppressing expansion: quoted delimiter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-stripping-leading-tabs-for-clean-indentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;&lt;- — stripping leading tabs for clean indentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-file-with-a-here-doc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing a file with a here-doc
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#here-strings-a-single-line-shortcut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Here-strings — a single-line shortcut
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1983,6 +2130,124 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#process-substitution-treat-command-output-as-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process substitution: &lt;(...) — treat command output as a file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-substitution-with-while-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process substitution with while read
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-substitution-treat-a-command-as-a-writable-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process substitution: &gt;(...) — treat a command as a writable file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#here-documents-multi-line-input-embedded-in-the-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Here-documents: multi-line input, embedded in the script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suppressing-expansion-quoted-delimiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suppressing expansion: quoted delimiter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-stripping-leading-tabs-for-clean-indentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;&lt;- — stripping leading tabs for clean indentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-file-with-a-here-doc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing a file with a here-doc
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#here-strings-a-single-line-shortcut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Here-strings — a single-line shortcut
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2002,13 +2267,140 @@
 
 
 <h1 id="02-process-substitution-here-docs">02 · Process Substitution &amp; Here-Docs<a class="headerlink" href="#02-process-substitution-here-docs" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-<code>&lt;(...)</code> / <code>&gt;(...)</code> process substitution, here-documents (<code>&lt;&lt;EOF</code>).</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Two techniques that make scripts dramatically more compact: <strong>process
+substitution</strong> (<code>&lt;(...)</code>/<code>&gt;(...)</code>), which lets a command's output act like a
+file, and <strong>here-documents</strong> (<code>&lt;&lt;EOF</code>), which embed multi-line text directly
+in a script.</p>
+<h2 id="process-substitution-treat-command-output-as-a-file">Process substitution: <code>&lt;(...)</code> — treat command output as a file<a class="headerlink" href="#process-substitution-treat-command-output-as-a-file" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>diff<span class="w"> </span>&lt;<span class="o">(</span>sort<span class="w"> </span>file1.txt<span class="o">)</span><span class="w"> </span>&lt;<span class="o">(</span>sort<span class="w"> </span>file2.txt<span class="o">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># compares the SORTED versions of both files without ever writing a temp file</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>diff<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://api.example.com/v1/config<span class="o">)</span><span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://api.example.com/v2/config<span class="o">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># diff two live API responses directly</span>
+</code></pre></div>
+<p><code>&lt;(command)</code> runs <code>command</code>, and substitutes a path (actually a named pipe
+or <code>/dev/fd/N</code> entry) that other tools can open and read from as if it were
+a regular file — many commands like <code>diff</code> and <code>comm</code> need two real file
+arguments, and process substitution lets you feed them command output
+instead.</p>
+<h2 id="process-substitution-with-while-read">Process substitution with <code>while read</code><a class="headerlink" href="#process-substitution-with-while-read" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># feeding a command&#39;s output into a while loop WITHOUT a subshell</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">count</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">while</span><span class="w"> </span><span class="nv">IFS</span><span class="o">=</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>line<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="o">((</span>count++<span class="o">))</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>&lt;<span class="o">(</span>grep<span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="w"> </span>app.log<span class="o">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;found </span><span class="nv">$count</span><span class="s2"> error lines&quot;</span>
+</code></pre></div>
+<p>Compare this to <code>grep "ERROR" app.log | while read -r line; do ((count++)); done</code> —
+piping into a <code>while</code> loop runs the loop in a <strong>subshell</strong>, so <code>count</code>
+would reset to 0 outside the loop. Using <code>&lt; &lt;(...)</code> keeps the loop in the
+current shell, so variables it sets are still visible afterward.</p>
+<h2 id="process-substitution-treat-a-command-as-a-writable-file">Process substitution: <code>&gt;(...)</code> — treat a command as a writable file<a class="headerlink" href="#process-substitution-treat-a-command-as-a-writable-file" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># split a stream to two different processing pipelines at once</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>some_command<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>&gt;<span class="o">(</span>grep<span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>errors.txt<span class="o">)</span><span class="w"> </span>&gt;<span class="o">(</span>grep<span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>warnings.txt<span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span>all_output.txt
+</code></pre></div>
+<p><code>&gt;(command)</code> gives you a "file" that, when written to, feeds its content as
+stdin to <code>command</code> — combined with <code>tee</code>, this fans a single stream out to
+multiple simultaneous consumers.</p>
+<h2 id="here-documents-multi-line-input-embedded-in-the-script">Here-documents: multi-line input, embedded in the script<a class="headerlink" href="#here-documents-multi-line-input-embedded-in-the-script" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="s">This is line one.</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s">Today&#39;s date is $(date +%F).</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s">This is line three.</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s">EOF</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># feeding a here-doc as input to a command</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s">USE mydb;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s">SELECT COUNT(*) FROM users;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s">EOF</span>
+</code></pre></div>
+<p>Everything between <code>&lt;&lt;EOF</code> and the closing <code>EOF</code> is passed as stdin (or, in
+the <code>cat</code> example, as arguments to print) — variables and command
+substitution <strong>are</strong> expanded inside a here-doc by default.</p>
+<h2 id="suppressing-expansion-quoted-delimiter">Suppressing expansion: quoted delimiter<a class="headerlink" href="#suppressing-expansion-quoted-delimiter" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">This $variable will NOT be expanded.</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s">Neither will this: $(command substitution)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">EOF</span>
+</code></pre></div>
+<p>Quoting the delimiter (<code>&lt;&lt;'EOF'</code> instead of <code>&lt;&lt;EOF</code>) makes bash treat the
+whole block as a literal string — essential when writing a template file
+that itself contains <code>$</code> characters meant literally (like a script that
+generates <em>another</em> script).</p>
+<h2 id="-stripping-leading-tabs-for-clean-indentation"><code>&lt;&lt;-</code> — stripping leading tabs for clean indentation<a class="headerlink" href="#-stripping-leading-tabs-for-clean-indentation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">if</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span>cat<span class="w"> </span><span class="s">&lt;&lt;-EOF</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s">    This line can be indented with TABS to match the code around it,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s">    and the leading tabs are stripped from the output.</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s">    EOF</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">fi</span>
+</code></pre></div>
+<p><code>&lt;&lt;-</code> strips <strong>leading tab characters</strong> (not spaces) from each line and from
+the closing delimiter — useful for keeping a here-doc visually indented
+inside an <code>if</code>/function without that indentation ending up in the output.</p>
+<h2 id="writing-a-file-with-a-here-doc">Writing a file with a here-doc<a class="headerlink" href="#writing-a-file-with-a-here-doc" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>deploy_config.yml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="s">app_name: myservice</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s">environment: ${DEPLOY_ENV:-production}</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s">replicas: 3</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s">generated_at: $(date -u +%Y-%m-%dT%H:%M:%SZ)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s">EOF</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;wrote deploy_config.yml&quot;</span>
+</code></pre></div>
+<p>This is a common pattern for generating config files, Dockerfiles, or
+templated scripts from a shell script, filling in values from variables and
+command substitution.</p>
+<h2 id="here-strings-a-single-line-shortcut">Here-strings — a single-line shortcut<a class="headerlink" href="#here-strings-a-single-line-shortcut" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>grep<span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span>/etc/passwd<span class="k">)</span><span class="s2">&quot;</span><span class="w">     </span><span class="c1"># from Level 1 — a single value as stdin</span>
+</code></pre></div>
+<p><code>&lt;&lt;&lt;</code> (a "here-string") is the single-line cousin of a here-document — use
+it when you just need to feed one existing string/variable as stdin,
+reaching for <code>&lt;&lt;EOF</code> only when you need genuinely multi-line literal text.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;(cmd)</code></td>
+<td>run <code>cmd</code>, expose its stdout as a readable "file"</td>
+</tr>
+<tr>
+<td><code>&gt;(cmd)</code></td>
+<td>expose a writable "file" whose content becomes <code>cmd</code>'s stdin</td>
+</tr>
+<tr>
+<td><code>cmd &lt;&lt;EOF ... EOF</code></td>
+<td>here-document: multi-line stdin, <code>$vars</code> expanded</td>
+</tr>
+<tr>
+<td><code>cmd &lt;&lt;'EOF' ... EOF</code></td>
+<td>here-document with NO expansion (literal)</td>
+</tr>
+<tr>
+<td><code>cmd &lt;&lt;-EOF ... EOF</code></td>
+<td>here-document, strips leading tabs</td>
+</tr>
+<tr>
+<td><code>cmd &lt;&lt;&lt; "$string"</code></td>
+<td>here-string: a single value as stdin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write a script <code>compare_dirs.sh</code> that takes two directory paths and uses
+<code>diff</code> with process substitution to compare the <em>sorted</em> output of
+<code>find dir -type f -printf '%f\n'</code> for each directory (i.e., compare which
+filenames exist in one but not the other) without writing any temp files.
+Then write a second script that generates a <code>docker-compose.yml</code> file using
+a here-doc, filling in the service name and port from script arguments.</p>
 
 
 

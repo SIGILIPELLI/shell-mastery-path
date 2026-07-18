@@ -1794,6 +1794,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Cross-Shell Compatibility
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1810,6 +1828,146 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#picking-the-right-shebang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Picking the right shebang
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bash-only-features-that-break-in-posix-sh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash-only features that break in POSIX sh
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posix-safe-equivalents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POSIX-safe equivalents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [[ ]] vs [ ]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zsh-specific-gotchas-vs-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        zsh-specific gotchas (vs. bash)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-scripts-that-work-in-all-three" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing scripts that work in all three
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pipefail-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The pipefail problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-which-shell-youre-actually-running-under" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detecting which shell you're actually running under
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1983,6 +2141,135 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#picking-the-right-shebang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Picking the right shebang
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bash-only-features-that-break-in-posix-sh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash-only features that break in POSIX sh
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posix-safe-equivalents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POSIX-safe equivalents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [[ ]] vs [ ]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zsh-specific-gotchas-vs-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        zsh-specific gotchas (vs. bash)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-scripts-that-work-in-all-three" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing scripts that work in all three
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pipefail-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The pipefail problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-which-shell-youre-actually-running-under" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detecting which shell you're actually running under
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2002,13 +2289,207 @@
 
 
 <h1 id="05-cross-shell-compatibility">05 · Cross-Shell Compatibility<a class="headerlink" href="#05-cross-shell-compatibility" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-POSIX <code>sh</code> vs bash vs zsh differences and portability tips.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Not every system where your script runs has bash, and not every bash is
+the same version. This module covers the practical differences between
+POSIX <code>sh</code>, bash, and zsh, and how to write scripts that either run
+correctly everywhere or fail with a clear message instead of a confusing
+one.</p>
+<h2 id="why-this-matters">Why this matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h2>
+<p><code>#!/bin/sh</code> on Debian/Ubuntu is <code>dash</code>, not bash — a strict POSIX shell
+with none of bash's extensions. macOS ships an old bash 3.2 (licensing,
+not neglect) but makes zsh the default interactive shell. Alpine Linux
+containers (common in Docker images) often have <em>only</em> <code>sh</code> (BusyBox
+ash), no bash at all. A script that assumes "bash everywhere" will break
+silently — or loudly — on any of these.</p>
+<h2 id="picking-the-right-shebang">Picking the right shebang<a class="headerlink" href="#picking-the-right-shebang" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/sh</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Use this when your script only needs POSIX features — most portable,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># runs on dash, ash, bash, and zsh&#39;s sh-compatibility mode.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">#!/usr/bin/env bash</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Use this when you need bash-specific features (arrays, [[ ]], etc.)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># `env` finds bash on $PATH rather than assuming /bin/bash exists.</span>
+</code></pre></div>
+<p>Never write <code>#!/bin/bash</code> directly on scripts meant to be portable —
+bash isn't guaranteed to live at <code>/bin/bash</code> on every system (NixOS,
+some BSDs). <code>#!/usr/bin/env bash</code> is the safer bash shebang.</p>
+<h2 id="bash-only-features-that-break-in-posix-sh">Bash-only features that break in POSIX <code>sh</code><a class="headerlink" href="#bash-only-features-that-break-in-posix-sh" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># arrays — NOT in POSIX sh, works in bash/zsh</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">names</span><span class="o">=(</span>alice<span class="w"> </span>bob<span class="w"> </span>carol<span class="o">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">names</span><span class="p">[1]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">          </span><span class="c1"># bob</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># [[ ]] extended test — NOT in POSIX sh, use [ ] instead</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*foo*<span class="w"> </span><span class="o">]]</span><span class="w">       </span><span class="c1"># bash/zsh only</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">str</span><span class="p">#*foo*</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w">  </span><span class="c1"># POSIX-portable equivalent (rough)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># string manipulation shortcuts — NOT in POSIX sh</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">var</span><span class="p">^^</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">              </span><span class="c1"># bash 4+ only: uppercase</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">var</span><span class="p">,,</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">               </span><span class="c1"># bash 4+ only: lowercase</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># process substitution — NOT in POSIX sh</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>diff<span class="w"> </span>&lt;<span class="o">(</span>sort<span class="w"> </span>file1<span class="o">)</span><span class="w"> </span>&lt;<span class="o">(</span>sort<span class="w"> </span>file2<span class="o">)</span><span class="w">   </span><span class="c1"># bash/zsh only</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1"># `local` is common but technically not POSIX (widely supported anyway)</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>my_func<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">x</span><span class="o">=</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+</code></pre></div>
+<h2 id="posix-safe-equivalents">POSIX-safe equivalents<a class="headerlink" href="#posix-safe-equivalents" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># instead of arrays, use a space/newline-separated string or positional params</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">names</span><span class="o">=</span><span class="s2">&quot;alice bob carol&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">for</span><span class="w"> </span>name<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$names</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">done</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># instead of [[ == glob ]], use case, which IS POSIX</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span>*foo*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;matched&quot;</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">esac</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># instead of ${var^^} (uppercase), use tr — works everywhere</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nv">upper</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;[:lower:]&#39;</span><span class="w"> </span><span class="s1">&#39;[:upper:]&#39;</span><span class="k">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># instead of process substitution, use temp files or pipes</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>sort<span class="w"> </span>file1<span class="w"> </span>&gt;<span class="w"> </span>/tmp/s1
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>sort<span class="w"> </span>file2<span class="w"> </span>&gt;<span class="w"> </span>/tmp/s2
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>diff<span class="w"> </span>/tmp/s1<span class="w"> </span>/tmp/s2
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>rm<span class="w"> </span>-f<span class="w"> </span>/tmp/s1<span class="w"> </span>/tmp/s2
+</code></pre></div>
+<h2 id="vs"><code>[[ ]]</code> vs <code>[ ]</code><a class="headerlink" href="#vs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># [ ] is the POSIX test command — an ordinary program, needs careful quoting</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hi alice&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w">           </span><span class="c1"># true if $var is empty — ALWAYS quote $var in [ ]</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># [[ ]] is a bash/zsh/ksh keyword — safer (no word-splitting surprises),</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># supports pattern matching and &amp;&amp; / || directly, but not portable to sh</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$id</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hi&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+</code></pre></div>
+<p>If a script must run under <code>sh</code>, use <code>[ ]</code> and combine conditions with
+separate <code>[ ]</code> tests joined by <code>&amp;&amp;</code>/<code>||</code> rather than relying on <code>[[ ]]</code>.</p>
+<h2 id="zsh-specific-gotchas-vs-bash">zsh-specific gotchas (vs. bash)<a class="headerlink" href="#zsh-specific-gotchas-vs-bash" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># zsh does NOT word-split unquoted variables by default (bash does)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">files</span><span class="o">=</span><span class="s2">&quot;a.txt b.txt&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$files</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># bash: two iterations (a.txt, b.txt)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># zsh:  ONE iteration (&quot;a.txt b.txt&quot;) unless `setopt SH_WORD_SPLIT` is set</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># array indexing: bash arrays are 0-indexed, zsh arrays are 1-indexed by default</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nv">arr</span><span class="o">=(</span>a<span class="w"> </span>b<span class="w"> </span>c<span class="o">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">arr</span><span class="p">[1]</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># bash: &quot;b&quot;   (index 1 is the second element)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># zsh:  &quot;a&quot;   (index 1 is the FIRST element)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1"># zsh has no `getopts`-free equivalent gap, but option-parsing built-ins</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># (zparseopts) differ from bash&#39;s getopts entirely</span>
+</code></pre></div>
+<p>If a codebase must support both, avoid relying on either shell's default
+word-splitting or array-indexing behavior — use explicit quoting and
+<code>"${arr[@]}"</code>-style expansion, which behaves consistently in both.</p>
+<h2 id="writing-scripts-that-work-in-all-three">Writing scripts that work in all three<a class="headerlink" href="#writing-scripts-that-work-in-all-three" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/sh</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># portable-example.sh — runs under sh, bash, and zsh identically</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">set</span><span class="w"> </span>-eu<span class="w">   </span><span class="c1"># note: no `pipefail` — it&#39;s not POSIX; see below</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">world</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="s2">&quot;&quot;</span><span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;name must not be empty&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">esac</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, </span><span class="nv">$name</span><span class="s2">!&quot;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="nv">count</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span>one<span class="w"> </span>two<span class="w"> </span>three<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nv">count</span><span class="o">=</span><span class="k">$((</span><span class="nv">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$count</span><span class="s2">: </span><span class="nv">$item</span><span class="s2">&quot;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="k">done</span>
+</code></pre></div>
+<h2 id="the-pipefail-problem">The <code>pipefail</code> problem<a class="headerlink" href="#the-pipefail-problem" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># `set -o pipefail` is a bash/zsh/ksh extension — NOT in POSIX sh (dash</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># silently ignores it rather than erroring, which is its own trap)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail<span class="w">   </span><span class="c1"># fine in bash, but do not rely on it under #!/bin/sh</span>
+</code></pre></div>
+<p>If a script must be POSIX-portable AND needs pipeline-failure detection,
+check each command in the pipeline separately, or use
+<code>PIPESTATUS</code>/<code>pipestatus</code> (bash/zsh only, different array names) instead
+of <code>pipefail</code>.</p>
+<h2 id="detecting-which-shell-youre-actually-running-under">Detecting which shell you're actually running under<a class="headerlink" href="#detecting-which-shell-youre-actually-running-under" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BASH_VERSION</span><span class="k">:-</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;running under bash </span><span class="nv">$BASH_VERSION</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">ZSH_VERSION</span><span class="k">:-</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;running under zsh </span><span class="nv">$ZSH_VERSION</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">else</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;running under a plain POSIX sh&quot;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">fi</span>
+</code></pre></div>
+<p>This is useful in shared library scripts (<code>source</code>d from <code>.bashrc</code> and
+<code>.zshrc</code> alike) that need to branch on shell-specific syntax.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align: center;">POSIX <code>sh</code></th>
+<th style="text-align: center;">bash</th>
+<th style="text-align: center;">zsh (default opts)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arrays <code>arr=(a b)</code></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes, 0-indexed</td>
+<td style="text-align: center;">yes, 1-indexed</td>
+</tr>
+<tr>
+<td><code>[[ ]]</code> extended test</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr>
+<td><code>${var^^}</code> / <code>${var,,}</code></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes (bash 4+)</td>
+<td style="text-align: center;">no</td>
+</tr>
+<tr>
+<td>Process substitution <code>&lt;(...)</code></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr>
+<td><code>set -o pipefail</code></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr>
+<td>Unquoted var word-splitting</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">no (needs <code>SH_WORD_SPLIT</code>)</td>
+</tr>
+<tr>
+<td><code>local</code> in functions</td>
+<td style="text-align: center;">not POSIX, widely supported</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr>
+<td>Safe cross-shell test</td>
+<td style="text-align: center;"><code>case</code>/<code>[ ]</code></td>
+<td style="text-align: center;">anything</td>
+<td style="text-align: center;">anything except relying on word-splitting</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Take the <code>backup.sh</code> script from Level 1 (or any bash script you've
+written) and identify every bash-only construct it uses (arrays,
+<code>[[ ]]</code>, <code>${var^^}</code>, etc.). Rewrite a POSIX-<code>sh</code>-compatible version using
+only <code>case</code>, <code>[ ]</code>, and <code>tr</code>/<code>sed</code> as needed, then verify it with
+<code>sh ./backup-posix.sh</code> (or <code>dash ./backup-posix.sh</code> if installed) to
+confirm it runs without bash-specific errors.</p>
 
 
 

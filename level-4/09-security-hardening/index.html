@@ -1906,6 +1906,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Security Hardening for Production Scripts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1922,6 +1940,146 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-secrets-do-not-belong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where secrets do NOT belong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables-better-but-still-leak-further-than-youd-expect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment variables: better, but still leak further than you'd expect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secret-files-the-standard-production-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secret files: the standard production pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-managers-vault-style-tool-agnostic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets managers (Vault-style, tool-agnostic)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-secrets-out-of-logs-and-traces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping secrets out of logs and traces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#least-privilege-execution-dedicated-service-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Least-privilege execution: dedicated service accounts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dropping-privileges-inside-a-script-that-must-start-as-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dropping privileges inside a script that must start as root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd-sandboxing-directives-defense-in-depth-for-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        systemd sandboxing directives (defense in depth for services)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-hardening-checklist-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A hardening checklist script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1983,6 +2141,135 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-secrets-do-not-belong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where secrets do NOT belong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables-better-but-still-leak-further-than-youd-expect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment variables: better, but still leak further than you'd expect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secret-files-the-standard-production-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secret files: the standard production pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-managers-vault-style-tool-agnostic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets managers (Vault-style, tool-agnostic)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-secrets-out-of-logs-and-traces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping secrets out of logs and traces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#least-privilege-execution-dedicated-service-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Least-privilege execution: dedicated service accounts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dropping-privileges-inside-a-script-that-must-start-as-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dropping privileges inside a script that must start as root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd-sandboxing-directives-defense-in-depth-for-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        systemd sandboxing directives (defense in depth for services)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-hardening-checklist-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A hardening checklist script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2002,13 +2289,179 @@
 
 
 <h1 id="09-security-hardening-for-production-scripts">09 · Security Hardening for Production Scripts<a class="headerlink" href="#09-security-hardening-for-production-scripts" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-Secrets handling, least-privilege execution, hardening checklists.</p>
-</div>
-<p>Check the task ledger or ask your virtual employee for a status update on
-remaining content.</p>
+<p>Production scripts run unattended, often with elevated access to real
+data. This module turns Level 3's security considerations into a concrete
+production checklist: where secrets belong, how to run with the least
+privilege a script actually needs, and a hardening audit you can run
+against any script before it ships.</p>
+<h2 id="where-secrets-do-not-belong">Where secrets do NOT belong<a class="headerlink" href="#where-secrets-do-not-belong" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># BAD — visible in shell history and any `ps aux` listing while it runs</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-pSuperSecret123<span class="w"> </span>mydb
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># BAD — committed to version control forever, even if later removed</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">API_KEY</span><span class="o">=</span><span class="s2">&quot;sk_live_abc123&quot;</span>
+</code></pre></div>
+<h2 id="environment-variables-better-but-still-leak-further-than-youd-expect">Environment variables: better, but still leak further than you'd expect<a class="headerlink" href="#environment-variables-better-but-still-leak-further-than-youd-expect" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">API_KEY</span><span class="o">=</span><span class="s2">&quot;sk_live_abc123&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>some_command<span class="w">      </span><span class="c1"># API_KEY is visible to some_command and anything IT spawns,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">                   </span><span class="c1"># and readable via /proc/&lt;pid&gt;/environ by the same user or root</span>
+</code></pre></div>
+<h2 id="secret-files-the-standard-production-pattern">Secret files: the standard production pattern<a class="headerlink" href="#secret-files-the-standard-production-pattern" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>install<span class="w"> </span>-m<span class="w"> </span><span class="m">600</span><span class="w"> </span>-o<span class="w"> </span>svcacct<span class="w"> </span>-g<span class="w"> </span>svcacct<span class="w"> </span>api_key.secret<span class="w"> </span>/run/secrets/api_key<span class="w">   </span><span class="c1"># owner-only, no group/world access</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>read_secret<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">path</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="o">[[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$path</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;secret file &#39;</span><span class="nv">$path</span><span class="s2">&#39; not found&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span>perms
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nv">perms</span><span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;%a&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$path</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>stat<span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;%Lp&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$path</span><span class="s2">&quot;</span><span class="k">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$perms</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;600&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$perms</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;400&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;refusing to read &#39;</span><span class="nv">$path</span><span class="s2">&#39; — permissions are </span><span class="nv">$perms</span><span class="s2">, expected 600/400&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span>cat<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$path</span><span class="s2">&quot;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="o">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nv">api_key</span><span class="o">=</span><span class="k">$(</span>read_secret<span class="w"> </span>/run/secrets/api_key<span class="k">)</span>
+</code></pre></div>
+<h2 id="secrets-managers-vault-style-tool-agnostic">Secrets managers (Vault-style, tool-agnostic)<a class="headerlink" href="#secrets-managers-vault-style-tool-agnostic" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># most secrets managers boil down to: fetch at runtime, never persist longer than needed</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">api_key</span><span class="o">=</span><span class="k">$(</span>vault<span class="w"> </span>kv<span class="w"> </span>get<span class="w"> </span>-field<span class="o">=</span>api_key<span class="w"> </span>secret/myapp<span class="k">)</span><span class="w">      </span><span class="c1"># HashiCorp Vault CLI</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># or a cloud secrets manager:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">api_key</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>secretsmanager<span class="w"> </span>get-secret-value<span class="w"> </span>--secret-id<span class="w"> </span>myapp/api_key<span class="w"> </span>--query<span class="w"> </span>SecretString<span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="si">${</span><span class="nv">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>https://api.example.com
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">unset</span><span class="w"> </span>api_key<span class="w">    </span><span class="c1"># scrub it from this shell&#39;s variable table once you&#39;re done</span>
+</code></pre></div>
+<h2 id="keeping-secrets-out-of-logs-and-traces">Keeping secrets out of logs and traces<a class="headerlink" href="#keeping-secrets-out-of-logs-and-traces" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">set</span><span class="w"> </span>+x<span class="w">    </span><span class="c1"># NEVER trace around secret-handling code — `-x` prints argument values verbatim</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>redact<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="c1"># strip anything that looks like a bearer token or &quot;token=...&quot; before logging a line</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/(Bearer|token=)[A-Za-z0-9._-]+/\1[REDACTED]/g&#39;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="o">}</span>
+</code></pre></div>
+<h2 id="least-privilege-execution-dedicated-service-accounts">Least-privilege execution: dedicated service accounts<a class="headerlink" href="#least-privilege-execution-dedicated-service-accounts" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>useradd<span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span>/usr/sbin/nologin<span class="w"> </span>deploy_svc
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>install<span class="w"> </span>-o<span class="w"> </span>deploy_svc<span class="w"> </span>-g<span class="w"> </span>deploy_svc<span class="w"> </span>-m<span class="w"> </span><span class="m">700</span><span class="w"> </span>-d<span class="w"> </span>/opt/myapp
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># run the script as that account instead of root, even during manual testing</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sudo<span class="w"> </span>-u<span class="w"> </span>deploy_svc<span class="w"> </span>/opt/myapp/bin/deploy.sh
+</code></pre></div>
+<h2 id="dropping-privileges-inside-a-script-that-must-start-as-root">Dropping privileges inside a script that must start as root<a class="headerlink" href="#dropping-privileges-inside-a-script-that-must-start-as-root" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ch">#!/usr/bin/env bash</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="c1"># exec replaces this process — everything after this line runs as deploy_svc, not root</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nb">exec</span><span class="w"> </span>setpriv<span class="w"> </span>--reuid<span class="o">=</span>deploy_svc<span class="w"> </span>--regid<span class="o">=</span>deploy_svc<span class="w"> </span>--init-groups<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">fi</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;running as: </span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h2 id="systemd-sandboxing-directives-defense-in-depth-for-services">systemd sandboxing directives (defense in depth for services)<a class="headerlink" href="#systemd-sandboxing-directives-defense-in-depth-for-services" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[Service]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">User</span><span class="o">=</span><span class="s">deploy_svc</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">NoNewPrivileges</span><span class="o">=</span><span class="s">true</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">ProtectSystem</span><span class="o">=</span><span class="s">strict</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="na">ProtectHome</span><span class="o">=</span><span class="s">true</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="na">PrivateTmp</span><span class="o">=</span><span class="s">true</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="na">ReadWritePaths</span><span class="o">=</span><span class="s">/opt/myapp/data</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="na">CapabilityBoundingSet</span><span class="o">=</span>
+</code></pre></div>
+<p>Each directive removes something the service doesn't need:
+<code>NoNewPrivileges</code> blocks escalation via setuid binaries, <code>ProtectSystem=strict</code>
+makes the whole filesystem read-only except explicit <code>ReadWritePaths</code>, and
+an empty <code>CapabilityBoundingSet</code> strips every Linux capability — so even a
+fully compromised process is boxed in.</p>
+<h2 id="a-hardening-checklist-script">A hardening checklist script<a class="headerlink" href="#a-hardening-checklist-script" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="ch">#!/usr/bin/env bash</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># harden_check.sh — audit a script for common production hardening gaps</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nv">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nv">issues</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>check<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">description</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">shift</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  [ok]   </span><span class="nv">$description</span><span class="s2">&quot;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  [FAIL] </span><span class="nv">$description</span><span class="s2">&quot;</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">        </span><span class="nv">issues</span><span class="o">=</span><span class="k">$((</span><span class="nv">issues</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="o">}</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>has_strict_mode<span class="o">()</span><span class="w">      </span><span class="o">{</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;set -euo pipefail&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>not_world_writable<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span>perms
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="nv">perms</span><span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;%a&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>stat<span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;%Lp&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span><span class="k">)</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$perms</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span>*2<span class="w"> </span><span class="o">]]</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="o">}</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>no_hardcoded_secrets<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>!<span class="w"> </span>grep<span class="w"> </span>-qiE<span class="w"> </span><span class="s1">&#39;(password|api_key)=[^$]&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>no_eval_calls<span class="o">()</span><span class="w">             </span><span class="o">{</span><span class="w"> </span>!<span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;eval &#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hardening check: </span><span class="nv">$target</span><span class="s2">&quot;</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>check<span class="w"> </span><span class="s2">&quot;has &#39;set -euo pipefail&#39;&quot;</span><span class="w">                </span>has_strict_mode
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>check<span class="w"> </span><span class="s2">&quot;not world-writable&quot;</span><span class="w">                        </span>not_world_writable
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>check<span class="w"> </span><span class="s2">&quot;no hardcoded password=/api_key=&quot;</span><span class="w">  </span>no_hardcoded_secrets
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>check<span class="w"> </span><span class="s2">&quot;no bare eval calls&quot;</span><span class="w">                        </span>no_eval_calls
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$issues</span><span class="s2"> issue(s) found&quot;</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="nb">exit</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$issues</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Notice the checklist script itself follows its own rules — no <code>eval</code>, no
+hardcoded secrets, <code>set -euo pipefail</code> at the top — a hardening tool that
+fails its own audit isn't trustworthy.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>never hardcode secrets in source</td>
+<td>leaks via version control, <code>ps</code>, logs</td>
+</tr>
+<tr>
+<td>secret files, mode 600, owned by the service account</td>
+<td>standard least-exposure pattern</td>
+</tr>
+<tr>
+<td>secrets managers (Vault, cloud KMS)</td>
+<td>short-lived, centrally audited credentials</td>
+</tr>
+<tr>
+<td><code>set +x</code> around secret handling</td>
+<td>prevents <code>-x</code> tracing from leaking values</td>
+</tr>
+<tr>
+<td>dedicated non-root service account</td>
+<td>limits blast radius of a compromised script</td>
+</tr>
+<tr>
+<td><code>setpriv</code>/<code>sudo -u</code> to drop privileges</td>
+<td>run as root only as long as strictly necessary</td>
+</tr>
+<tr>
+<td>systemd sandboxing directives</td>
+<td>defense in depth even if the script is compromised</td>
+</tr>
+<tr>
+<td>a hardening-check script in CI</td>
+<td>catches regressions automatically, not just at review time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Run (or adapt) a hardening-check script like the one above against Level
+1's <code>backup.sh</code> and Level 3's <code>taskctl</code>. Fix any findings — in particular,
+confirm neither script would leak a secret if invoked with <code>bash -x</code>, and
+add a dedicated <code>backup_svc</code> system user that the backup script could run
+as instead of your personal account.</p>
 
 
 
