@@ -2,186 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/privacy/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/01-setup/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/02-variables-data-types/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/03-control-flow/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/04-loops/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/05-functions-arguments/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/06-files-directories/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/07-pipes-redirection/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/08-text-processing/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/09-exit-codes-error-handling/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-1/10-project-backup-script/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/01-arrays/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/02-string-manipulation/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/03-regular-expressions/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/04-process-management/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/05-best-practices/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/06-debugging/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/07-scheduling-automation/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/08-environment-config/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/09-testing-shell-scripts/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-2/10-project-log-monitor/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/01-advanced-sed-awk/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/02-process-substitution-heredocs/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/03-signal-handling/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/04-parallelism/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/05-robust-production-scripts/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/06-git-hooks-ci/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/07-security-considerations/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/08-packaging-distributing/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/09-networking/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-3/10-project-cli-tool/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/01-building-cli-tools/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/02-advanced-patterns/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/03-performance-optimization/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/04-devops-automation/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/05-cross-shell-compatibility/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/06-text-processing-pipelines/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/07-sysadmin-scripting/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/08-logging-observability/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/09-security-hardening/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
     <url>
          <loc>https://sigilipelli.github.io/shell-mastery-path/level-4/10-capstone-project/</loc>
-         <lastmod>2026-07-24</lastmod>
+         <lastmod>2026-07-26</lastmod>
     </url>
 </urlset>
