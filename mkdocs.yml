@@ -1,8 +1,8 @@
 site_name: Shell Mastery Path
 site_description: A structured, module-wise Bash/shell scripting training program from entry level to master level.
-site_url: https://sigilipelli.github.io/shell-skillmastery/
-repo_url: https://github.com/SIGILIPELLI/shell-skillmastery
-repo_name: shell-skillmastery
+site_url: https://sigilipelli.github.io/shell-mastery-path/
+repo_url: https://github.com/SIGILIPELLI/shell-mastery-path
+repo_name: shell-mastery-path
 
 theme:
   name: material
