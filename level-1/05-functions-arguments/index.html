@@ -907,6 +907,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2474,6 +2496,24 @@ function-local state with <code>local</code>.</p>
 <a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>require_args<span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="w">          </span><span class="c1"># prints usage to stderr, returns 1</span>
 <a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>require_args<span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="w"> </span><span class="m">30</span><span class="w">       </span><span class="c1"># Ada is 30 years old</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A shell function is not a subprocess — calling <code>greet "Ada"</code> does <strong>not</strong>
+fork. Bash just pushes a new entry onto its internal call stack, temporarily
+rebinds the positional parameters (<code>$1</code>, <code>$2</code>, <code>$#</code>, <code>$@</code>) to the function's
+own arguments, executes the function body's commands directly in the
+<em>current</em> shell process, and then restores the caller's positional
+parameters when the function returns. This is why a function can <code>cd</code> or set
+a variable that persists after it returns (unless you explicitly <code>local</code>
+it), unlike a script you call as a separate command, which runs in its own
+forked/exec'd process and can never affect the parent shell's variables.</p>
+<p><code>local</code> allocates the variable in a scope frame tied to that specific
+function-call stack entry; when the function returns, bash pops the frame
+and any <code>local</code> bindings simply disappear, while unmarked assignments write
+directly into the shell's single global variable table.</p>
+<p><code>return</code> sets the function's exit status (<code>$?</code>) the same way a process exit
+does, but it's purely an internal stack-unwind signal understood by the bash
+interpreter — no <code>wait()</code> syscall is involved because no child process was
+ever created.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

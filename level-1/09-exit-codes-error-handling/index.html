@@ -1030,6 +1030,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2338,6 +2349,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2489,6 +2511,30 @@ scripts gracefully.)</p>
 <p>A small <code>die</code> helper like this keeps error paths short and readable, and
 sends the message to stderr where it belongs (not stdout, which might be
 piped into something else).</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Every process, on exit, reports a single 8-bit integer (0–255) back to its
+parent through the <code>_exit(2)</code>/<code>exit(2)</code> syscall's status argument. The
+parent shell retrieves it with <code>wait()</code>/<code>waitpid()</code> and bash stores it in the
+special variable <code>$?</code>. Because it's only 8 bits, exit codes wrap
+modulo 256 — a script that does <code>exit 256</code> actually reports <code>0</code>, and
+<code>exit -1</code> reports <code>255</code>; this is a hardware/kernel limit inherited from the
+Unix process model, not a bash quirk.</p>
+<p><code>set -e</code> (<code>errexit</code>) changes bash's own control flow: after each simple
+command completes, bash checks its exit status and, if nonzero, immediately
+terminates the shell — but only for commands where bash considers the
+failure "unhandled." Commands that are already part of an <code>if</code>/<code>while</code>
+condition, the left side of <code>&amp;&amp;</code>/<code>||</code>, or preceded by <code>!</code> are exempt,
+because their exit status is being deliberately tested rather than ignored.
+This is also why <code>cmd1 | cmd2</code> under plain <code>set -e</code> doesn't stop the script
+if <code>cmd1</code> fails but <code>cmd2</code> succeeds — the pipeline's reported status is
+<code>cmd2</code>'s exit code unless <code>set -o pipefail</code> is also enabled, which changes
+bash's internal pipeline-status calculation to return the last <em>nonzero</em>
+status among all stages (or 0 if all succeeded).</p>
+<p><code>trap ... EXIT</code> registers a handler in bash's internal signal/event table
+that fires when the shell's own exit sequence begins, regardless of whether
+it got there via a normal fall-through, an explicit <code>exit</code>, or <code>set -e</code>
+aborting — because all three paths funnel through the same internal
+"shell is exiting now" hook before the process finally calls <code>_exit(2)</code>.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

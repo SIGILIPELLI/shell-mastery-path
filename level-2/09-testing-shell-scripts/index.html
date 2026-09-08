@@ -1384,6 +1384,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2479,6 +2501,28 @@ contract users depend on, independent of implementation details.</p>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span>assert_output<span class="w"> </span><span class="s2">&quot;Hello, Ada!&quot;</span>
 <a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="o">}</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A Bats test file is itself a bash script — <code>@test</code> is a Bats-defined shell
+function wrapper that, at run time, <code>fork()</code>s a fresh subshell for <em>each</em>
+test body, runs your commands there, and inspects that subshell's final
+<code>$status</code> (its exit code) and captured <code>$output</code> (stdout+stderr merged via
+redirection Bats sets up before invoking your code) to decide pass/fail.
+Running every test in its own subshell is what gives you test isolation:
+variables, <code>cd</code>, and <code>trap</code>s set in one test can't leak into the next,
+because each one starts life as a brand-new forked process image.</p>
+<p><code>run some_command</code> inside a test doesn't invoke <code>some_command</code> directly —
+it's a Bats helper function that itself forks/execs (or calls, for
+functions) the command with its own stdout/stderr temporarily redirected
+into files, captures the resulting exit status, and stores both in the
+<code>$status</code>/<code>$output</code> variables <em>before</em> your assertions run — which is why
+<code>run</code> can capture the exit code of something that would otherwise crash the
+whole test file via <code>set -e</code>.</p>
+<p>Mocking a command in Bats generally works by manipulating <code>$PATH</code> inside
+the test's subshell — the shell's command lookup is just a linear scan of
+<code>$PATH</code> directories, so prepending a directory containing a fake executable
+of the same name intercepts every subsequent call, because search order
+(not the name itself) is all that determines which binary the shell finds
+first.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

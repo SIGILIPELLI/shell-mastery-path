@@ -851,6 +851,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2480,6 +2502,23 @@ anything not caught above it. Patterns support globs (<code>*</code>, <code>?</c
 </code></pre></div>
 <p><code>&amp;&amp;</code> runs the right side only if the left side succeeded; <code>||</code> runs the right
 side only if the left side failed. This is covered more in Module 7.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>if</code>, <code>[[ ]]</code>, and <code>[ ]</code> all ultimately reduce to one thing bash cares about:
+an <strong>exit status</strong>. <code>if command; then</code> doesn't evaluate a boolean — it runs
+<code>command</code> as a real child process (or builtin), waits for it, and checks
+whether the integer exit status stored in <code>$?</code> is exactly <code>0</code> (success) or
+nonzero (failure). <code>[[ $age -lt 13 ]]</code> looks like syntax but <code>[[</code> is a shell
+keyword handled entirely inside bash's parser (no fork needed), while the
+older <code>[ $age -lt 13 ]</code> is literally a command named <code>[</code> (an alias for
+<code>test</code>) that gets forked and exec'd like any external program on systems
+where it isn't a builtin — that's also why <code>[ ]</code> needs the closing <code>]</code> as a
+literal final argument.</p>
+<p><code>elif</code> is just sugar for a nested <code>else if</code>; the parser builds a single
+compound command internally. <code>&amp;&amp;</code> and <code>||</code> are short-circuit control
+operators evaluated left to right at parse time into a pipeline list — bash
+only executes the right-hand command if the left-hand one's exit status
+makes it necessary, so <code>mkdir dir &amp;&amp; cd dir</code> skips the <code>cd</code> entirely if
+<code>mkdir</code> returns nonzero, without any explicit <code>if</code>.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write <code>check_age.sh</code> that reads an age from user input with <code>read -rp</code>, then
 uses <code>if/elif/else</code> to print <code>"child"</code> (under 13), <code>"teenager"</code> (13–19), or

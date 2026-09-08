@@ -2085,6 +2085,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2360,6 +2371,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2483,6 +2505,31 @@ sorted array.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># JSON -&gt; CSV (array of flat objects, using the first object&#39;s keys as the header)</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;(.[0] | keys_unsorted) as $keys | $keys, (.[] | [.[$keys[]]]) | @csv&#39;</span><span class="w"> </span>data.json
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Converting between CSV and JSON with <code>jq</code> highlights a fundamental
+difference from the line-oriented tools (<code>sed</code>/<code>awk</code>/<code>grep</code>) used
+elsewhere in this course: <code>jq</code> must parse its entire input into an
+in-memory abstract syntax tree representing the full JSON document
+structure before it can evaluate a filter against it, because JSON values
+can nest arbitrarily and a filter like <code>.[] | .name</code> needs the complete
+structure to know where object boundaries are — this is why <code>jq</code> isn't
+naturally streaming the way <code>grep</code> is, and why <code>jq</code>'s <code>--stream</code> mode
+(which does support incremental processing) has to represent the input as
+a flat sequence of path/leaf-value events instead of the friendlier nested
+filter syntax.</p>
+<p>Chaining <code>jq</code> in a pipeline with <code>sed</code>/<code>awk</code> still uses the same kernel
+pipe mechanism as any other pipeline stage — the difference is purely in
+each tool's <em>internal</em> buffering model (line-oriented and streaming for
+<code>sed</code>/<code>awk</code>, whole-document for plain <code>jq</code>), which is why a <code>jq</code> stage in
+an otherwise-streaming pipeline can introduce a full stop-and-wait point:
+nothing downstream sees any output until <code>jq</code> has consumed its entire
+input and finished evaluating.</p>
+<p>Multi-stage text pipelines that mix formats (CSV → TSV → JSON) are, at the
+OS level, indistinguishable from any other pipeline — the kernel just
+moves undifferentiated bytes through pipe buffers; all the "format"
+awareness lives entirely in each tool's own parsing logic, which is why a
+subtly malformed delimiter (an unescaped comma inside a CSV field) breaks
+downstream tools with no signal from the kernel that anything went wrong.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

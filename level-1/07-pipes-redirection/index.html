@@ -974,6 +974,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2338,6 +2349,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2477,6 +2499,28 @@ Level 3's "Process Substitution &amp; Here-Docs" module.)</p>
 <p><code>$( ... )</code> runs the command inside and substitutes its stdout output as text
 — the modern, nestable replacement for the older backtick syntax
 <code>`command`</code>.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A pipe (<code>cmd1 | cmd2</code>) is built on the <code>pipe(2)</code> syscall, which gives the
+shell a pair of connected file descriptors — one for writing, one for
+reading — backed by a fixed-size kernel buffer (commonly 64KB on Linux). The
+shell <code>fork()</code>s once per pipeline stage, and in each child rewires file
+descriptor 1 (stdout) or 0 (stdin) onto the pipe's ends via <code>dup2(2)</code> before
+<code>exec</code>ing the command. All stages then run <strong>concurrently</strong>, not
+sequentially — <code>cmd1</code> blocks on <code>write()</code> once the kernel buffer fills, and
+<code>cmd2</code> blocks on <code>read()</code> when the buffer is empty, so the pipeline behaves
+like a bounded producer/consumer queue with the kernel doing the scheduling.</p>
+<p>Redirection (<code>&gt;</code>, <code>&gt;&gt;</code>, <code>&lt;</code>, <code>2&gt;&amp;1</code>) works by manipulating file descriptors
+<em>before</em> <code>exec</code>: <code>&gt;</code> opens the target file (truncating it, <code>O_TRUNC</code>) and
+<code>dup2</code>s it onto fd 1; <code>2&gt;&amp;1</code> duplicates whatever fd 1 currently points to
+onto fd 2, which is why the <em>order</em> of redirections matters — <code>cmd &gt; f 2&gt;&amp;1</code>
+sends both to <code>f</code>, but <code>cmd 2&gt;&amp;1 &gt; f</code> sends stderr to the terminal (fd 2
+still pointed at fd 1's <em>old</em> target when the duplication happened) and only
+stdout to <code>f</code>.</p>
+<p>Command substitution <code>$(cmd)</code> also uses a pipe internally: bash forks a
+subshell, redirects its stdout into the write end of an internal pipe, reads
+everything from the other end into a buffer, and — critically — strips
+trailing newlines from the captured string before substituting it into the
+command line.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

@@ -1810,6 +1810,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2327,6 +2338,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2598,6 +2620,31 @@ the commit is blocked until it's resolved or properly logged.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A dispatch-style CLI (<code>tool.sh subcommand args...</code>) relies on the shell
+mechanics covered throughout this course working together: the positional
+parameters (<code>$1</code>, <code>$2</code>, <code>"$@"</code>) are populated the moment the script's own
+process is <code>exec</code>'d by whatever forked it, argument parsing with <code>getopts</code>
+or a manual <code>case</code> loop consumes them by re-assigning <code>$@</code> via <code>shift</code>
+(which mutates bash's internal positional-parameter array in place, not a
+copy), and each subcommand is typically dispatched either as a function
+call (no fork — same process, same variable scope minus <code>local</code>s) or by
+<code>exec</code>ing a separate script file for that subcommand (a real process
+replacement, useful for plugin-style tools that want independent
+subprocesses).</p>
+<p><code>getopts</code> maintains its scanning position across calls in the <code>OPTIND</code>
+variable specifically because option parsing has to be resumable — each
+invocation of <code>getopts</code> inside its <code>while</code> loop picks up exactly where the
+last one left off in <code>$@</code>, which is internal state bash tracks per-shell
+(not per-call), which is why forgetting to reset <code>OPTIND</code> when reusing
+<code>getopts</code> across multiple argument-parsing passes in the same shell session
+is a classic bug.</p>
+<p>Error handling that exits with distinct codes per failure type works
+because, as covered earlier, the kernel only ever sees an 8-bit integer at
+process exit — a CLI tool's "exit code contract" with its callers (scripts,
+CI systems, other tools) is entirely a userspace convention layered on top
+of that one raw integer, with no enforcement beyond documentation and
+discipline.</p>
 <h2 id="stretch-goals">Stretch goals<a class="headerlink" href="#stretch-goals" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Add a <code>taskctl edit &lt;id&gt; &lt;new description&gt;</code> subcommand.</li>

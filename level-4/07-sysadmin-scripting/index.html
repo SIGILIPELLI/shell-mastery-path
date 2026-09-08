@@ -2102,6 +2102,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2338,6 +2349,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2513,6 +2535,33 @@ manual <code>kill -0</code> checks, no stale pid files after a crash.</p>
 (<code>Type=oneshot</code>) — the timer only decides <em>when</em> to start it, while
 systemd's own logging, restart, and dependency handling give you more than
 a raw crontab line does.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A systemd timer doesn't replace cron's model so much as split it into two
+cooperating unit files evaluated by a much more capable central daemon
+(<code>systemd</code> as PID 1's service manager) — the <code>.timer</code> unit registers a
+wake condition with systemd's internal event scheduler (calendar-based like
+cron, or monotonic like "5 minutes after boot"), and when it fires, systemd
+starts the paired <code>.service</code> unit using the exact same <code>fork()</code>+<code>execve()</code>
+process-creation path as any other systemd service, but critically inside a
+cgroup systemd creates and tracks — which is why systemd can enforce
+resource limits, capture structured logs via the journal, and know
+definitively whether the job succeeded, in ways a bare cron-spawned process
+cannot.</p>
+<p>Because each timer-triggered service is its own tracked systemd unit, its
+environment is defined entirely by the unit file (<code>Environment=</code>,
+<code>EnvironmentFile=</code>) rather than inherited from an interactive shell at
+all — there's no <code>.bashrc</code>/login-shell ambiguity like with cron, because
+systemd never spawns anything through a login shell in the first place; the
+"minimal environment" surprise from cron becomes, under systemd, an
+explicit and inspectable configuration rather than an implicit inheritance
+quirk.</p>
+<p>Log rotation tools like <code>logrotate</code> rely on the same
+delete-doesn't-immediately-free-space inode behavior covered earlier: they
+typically rename the current log out of the way and signal (via <code>SIGHUP</code> or
+a reload command) the writing process to reopen its log file by path,
+because the old file descriptor the process is still holding keeps pointing
+at the renamed (soon rotated-away) inode until it's explicitly told to
+reopen and get a fresh descriptor onto the new path.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

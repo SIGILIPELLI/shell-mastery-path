@@ -1216,6 +1216,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2453,6 +2475,25 @@ pull structured fields out of a line of text without spawning <code>awk</code>.<
 <p>Note <code>is_ipv4</code> here only checks <em>shape</em>, not that each octet is <code>&lt;= 255</code> —
 real validation would combine the regex with a numeric range check per
 octet.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>[[ $str =~ $pattern ]]</code> compiles <code>$pattern</code> using the C library's POSIX
+extended regular expression engine (<code>regcomp(3)</code>/<code>regexec(3)</code>), the same
+regex engine glibc exposes to any C program — bash itself contains no regex
+matcher of its own. This is why bash's <code>=~</code> supports ERE syntax
+(<code>+</code>, <code>?</code>, <code>|</code>, <code>{n,m}</code>) but not Perl-style features like non-greedy
+quantifiers or lookahead: those aren't in POSIX ERE, so the underlying
+<code>regcomp</code> call would reject them.</p>
+<p>On a successful <code>=~</code> match, bash populates the <code>BASH_REMATCH</code> array
+directly from the <code>regmatch_t</code> capture-group offsets that <code>regexec</code> returns
+— <code>BASH_REMATCH[0]</code> is the whole match, <code>[1]</code> is the first parenthesized
+group, and so on, all computed as byte offsets into the original string and
+then sliced out by bash after the C call returns.</p>
+<p><code>grep -E</code> and <code>sed -E</code> invoke <em>their own</em>, separate regex implementations as
+independent processes — this matters because <code>grep</code>'s ERE dialect can differ
+subtly from glibc's <code>regcomp</code> (BRE vs ERE handling of escapes, POSIX
+character classes like <code>[[:alpha:]]</code>), so a pattern that matches under <code>=~</code>
+isn't guaranteed to match identically when piped through <code>grep -E</code>, and vice
+versa, even though both claim "extended regular expressions."</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

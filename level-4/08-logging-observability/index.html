@@ -2141,6 +2141,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2360,6 +2371,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2521,6 +2543,30 @@ silently stopped running altogether.</p>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;log_error &quot;script failed at line $LINENO&quot;; notify_failure&#39;</span><span class="w"> </span>ERR
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Structured logging (emitting JSON lines instead of free text) doesn't
+change anything about how the shell delivers output — it's still just
+bytes written to fd 1/2 and possibly piped or redirected — the entire
+value is in making the log line <em>parseable by downstream tools</em> like <code>jq</code>,
+turning what would otherwise require fragile regex-based <code>grep</code>/<code>awk</code>
+extraction into a structural query, because now a proper JSON parser (not
+just line-oriented pattern matching) can walk each entry.</p>
+<p>Buffering behavior directly affects how "real-time" observability actually
+is: as noted earlier, a process writing to a pipe (rather than an
+interactive terminal) typically switches its C library stdio layer from
+line-buffered to fully block-buffered — meaning log lines can sit in a
+user-space buffer for seconds before actually reaching the <code>write(2)</code>
+syscall, which is precisely why log-forwarding pipelines can appear to
+"lag" behind real events even though nothing is actually stuck at the
+kernel or network layer; the delay lives in unflushed userspace buffers
+inside the logging process itself.</p>
+<p>Alerting scripts that watch exit codes or <code>journalctl</code>/log output for
+failure patterns and then fire a notification are, mechanically, just
+another instance of the same signal-and-exit-status vocabulary from this
+whole course — a monitoring script forks a check, inspects <code>$?</code> or greps
+recent log output, and its "alert" action is itself just another forked
+process (curl to a webhook, <code>mail</code>, etc.), chained together with the exact
+same <code>&amp;&amp;</code>/<code>if</code> control-flow primitives used everywhere else in bash.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

@@ -1255,6 +1255,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2468,6 +2490,35 @@ them — is the simplest form of shell-level concurrency (Level 3's
 <p>Without <code>nohup</code>, a background job normally receives <code>SIGHUP</code> and dies when
 its parent terminal closes — <code>nohup</code> (and redirecting its I/O) is the
 standard way to launch something that should outlive your session.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Every process the kernel schedules carries a <strong>process ID (PID)</strong> and,
+crucially here, a <strong>process group ID (PGID)</strong>. When you run <code>cmd &amp;</code>, bash
+forks a child, and depending on job control settings, that child (and any
+processes it itself forks) is placed in its own process group separate from
+the interactive shell's foreground group. This is the actual mechanism
+behind foreground/background: the terminal driver only delivers keyboard
+signals like <code>Ctrl-C</code> (<code>SIGINT</code>) to whichever process group currently "owns"
+the terminal (tracked via <code>tcsetpgrp(3)</code>) — a background job's group simply
+isn't listening.</p>
+<p><code>jobs</code> reads bash's own internal job table, a list the shell maintains of
+PIDs/PGIDs it personally forked and is tracking — it has no visibility into
+processes started by other shells or sessions. <code>ps</code>, by contrast, walks
+<code>/proc</code> (on Linux) or queries the kernel's process table directly, which is
+why it sees every process on the system regardless of which shell spawned
+it.</p>
+<p><code>kill -9</code> (<code>SIGKILL</code>) and <code>kill -15</code> (<code>SIGTERM</code>, the default) both just call
+the <code>kill(2)</code> syscall to deliver a signal number to a PID — the difference
+is entirely in the kernel: <code>SIGTERM</code> is delivered to the process for its own
+handler to catch and clean up after, while <code>SIGKILL</code> is special-cased by the
+kernel to never be delivered to userspace at all — the kernel tears the
+process down unconditionally, which is why a stuck process can ignore <code>-15</code>
+but never <code>-9</code>.</p>
+<p><code>nohup</code> works by having the process ignore <code>SIGHUP</code> (the signal the kernel
+sends to every process in a terminal's session when that terminal closes),
+while <code>disown</code> instead removes the job from <em>bash's own tracking table</em> so
+the shell won't try to signal it — they solve the same "survive terminal
+close" problem at two different layers, one via a signal disposition, one
+via bash's internal bookkeeping.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

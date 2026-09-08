@@ -1715,6 +1715,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2460,6 +2482,33 @@ entirely.</p>
 tracing, error messages, or logs don't accidentally leak a token or
 password — Level 4's "Security Hardening" module goes further into secrets
 management for production systems.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Command injection is possible because bash's parser doesn't distinguish
+"data" from "code" at the string level — if untrusted input reaches a
+context where the parser performs word splitting, globbing, or (worse)
+where it's interpolated into a string later passed to <code>eval</code> or a <code>-c</code>
+invocation of another shell, the parser will happily treat metacharacters
+like <code>;</code>, <code>|</code>, <code>`</code>, or <code>$(...)</code> in that input as syntax to execute, not
+literal text. Quoting a variable (<code>"$input"</code>) defeats this specifically
+because double quotes suppress the word-splitting and globbing expansion
+passes — but they do <em>not</em> suppress command or parameter substitution, so
+<code>"$( $input )"</code>-style constructs can still be dangerous depending on
+exactly which expansion touches the untrusted string.</p>
+<p>Handling secrets safely comes down to which storage layer a value passes
+through: an environment variable is visible to every process that can read
+<code>/proc/&lt;pid&gt;/environ</code> for its own children (and, depending on OS
+permissions, sometimes to other users), while a value only ever read from a
+file with restrictive permissions (<code>chmod 600</code>) and piped directly into a
+program's stdin never touches the process table or environment block at
+all — this is why <code>--password-stdin</code>-style flags exist on many CLI tools,
+specifically to avoid a secret ever appearing in <code>ps aux</code> output (which
+shows a process's <code>argv</code>, readable by other users on many systems) or in
+the environment block.</p>
+<p><code>set -x</code> tracing and shell history files are both security-relevant for the
+same reason: both persistently record the <em>expanded</em> command line,
+meaning a secret interpolated into a command's arguments can end up
+readable in a debug log or <code>~/.bash_history</code> even if it was never written
+to a file on purpose.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

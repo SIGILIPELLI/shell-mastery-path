@@ -1434,6 +1434,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2327,6 +2338,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2618,6 +2640,28 @@ testing from this whole level.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>tail -f</code> doesn't poll by re-reading the whole file — it keeps the file
+open, remembers its current byte offset, and (on Linux) typically uses
+<code>inotify(7)</code> to be woken by the kernel the instant new bytes are appended,
+then reads only the newly written region starting from its saved offset.
+This is also why <code>tail -f</code> can get "stuck" if a log is rotated by
+delete-and-recreate rather than truncate-in-place: the inode it's watching
+is gone, so it keeps watching a now-orphaned file with no new writers,
+unless you use <code>tail -F</code> which additionally watches for the filename to
+reappear.</p>
+<p>Piping <code>tail -f logfile | grep ERROR</code> sets up the same producer/consumer
+kernel pipe described elsewhere, but with a subtlety: many tools, <code>grep</code>
+included, switch to fully block-buffered stdout when their output isn't a
+terminal (i.e., when it's a pipe), meaning <code>grep</code> might hold matched lines
+in an internal buffer rather than flushing them immediately — this is why
+real-time log monitors often need <code>grep --line-buffered</code> to force a flush
+after every matched line instead of waiting for the buffer to fill.</p>
+<p>The locking/cron mechanics from earlier in this course apply directly to a
+long-running monitor script too — if it's meant to run continuously rather
+than periodically, a <code>trap ... EXIT</code> handler is what guarantees the lock
+file or watch state gets cleaned up even if the process is stopped with
+<code>Ctrl-C</code> or a <code>SIGTERM</code> from the process manager.</p>
 <h2 id="stretch-goals">Stretch goals<a class="headerlink" href="#stretch-goals" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Add a <code>--since &lt;timestamp&gt;</code> flag to only scan lines newer than a given

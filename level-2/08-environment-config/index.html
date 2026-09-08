@@ -1356,6 +1356,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2465,6 +2487,27 @@ script's logic at all.</p>
 <p><code>${!var_name}</code> is <strong>indirect expansion</strong> — it looks up the variable whose
 <em>name</em> is stored in <code>var_name</code>, which is how you can validate an arbitrary
 list of required env vars in a loop.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>The environment is a flat block of <code>NAME=value\0</code> strings that the kernel
+copies into a new process's address space as part of <code>execve(2)</code> — every
+<code>export</code>ed variable in your shell gets serialized into this block at the
+moment you launch a child, and the child receives its own private copy, not
+a live link back to the parent. Setting <code>export FOO=bar</code> after a child has
+already started never affects that already-running child; it only affects
+processes forked <em>afterward</em>.</p>
+<p>Startup files (<code>.bashrc</code>, <code>.bash_profile</code>, <code>.profile</code>) are read according to
+rules baked into bash itself based on how it was invoked: a <em>login</em> shell
+reads <code>.bash_profile</code> (falling back to <code>.profile</code>), while a plain
+<em>interactive, non-login</em> shell reads <code>.bashrc</code> — bash decides which mode it's
+in by checking how <code>argv[0]</code> was set and whether <code>-l</code>/<code>--login</code> was passed,
+which is why the exact same terminal emulator can source different files
+depending on whether it launches bash as a login shell or not.</p>
+<p><code>.bashrc</code> deliberately does <strong>not</strong> run for non-interactive shells (like
+scripts, or the shell cron spawns), because bash checks whether its stdin
+is attached to a terminal (an interactive check) before sourcing it — this
+is precisely why exporting a variable only in <code>.bashrc</code> "disappears" for
+cron jobs or scripts, and why config meant for scripts belongs in something
+explicitly sourced or in <code>/etc/environment</code>-style files instead.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

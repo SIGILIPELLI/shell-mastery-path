@@ -1025,6 +1025,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2261,6 +2272,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2456,6 +2478,25 @@ and error handling.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>This script's execution is a chain of <code>fork()</code>/<code>execve()</code> calls stitched
+together by the parent bash process: each external command (<code>tar</code>, <code>date</code>,
+<code>find</code>, <code>mkdir</code>) becomes a separate short-lived process, while <code>wait()</code>
+calls between them (implicit in sequential execution) make sure step <em>N</em>
+fully finishes — including all its buffered writes reaching disk via the
+kernel's file cache — before step <em>N+1</em> starts reading its output.</p>
+<p><code>tar</code> streams file data through its own internal buffer as it walks the
+directory tree with <code>readdir(2)</code>/<code>stat(2)</code> calls; when combined with a
+compressor like <code>gzip</code> via a pipe, the two run concurrently exactly as
+described for pipelines elsewhere in this course — <code>tar</code> never waits for the
+whole archive to be built before compression starts, it's compressed in a
+continuous stream.</p>
+<p>Timestamped filenames built from <code>$(date +%F)</code> rely on command substitution:
+bash spawns <code>date</code> in a subshell, captures its stdout through an internal
+pipe, strips the trailing newline, and splices the result into the string
+being assigned — all of that happens once, at the moment the assignment
+line executes, so every reference to that variable later in the script uses
+the frozen value rather than re-invoking <code>date</code>.</p>
 <h2 id="stretch-goals">Stretch goals<a class="headerlink" href="#stretch-goals" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Add a <code>--dry-run</code> flag that logs what <em>would</em> happen without creating an

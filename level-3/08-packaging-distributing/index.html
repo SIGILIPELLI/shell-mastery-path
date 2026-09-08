@@ -1732,6 +1732,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2480,6 +2502,30 @@ install with one command:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>brew<span class="w"> </span>install<span class="w"> </span>--build-from-source<span class="w"> </span>./mytool.rb<span class="w">        </span><span class="c1"># test locally</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>brew<span class="w"> </span>tap<span class="w"> </span>you/tap<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>mytool<span class="w">               </span><span class="c1"># after publishing the tap</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A single-file self-extracting installer that bundles a shebang plus an
+embedded archive works by exploiting the fact that <code>execve</code> and the bash
+parser both only care about finding a newline-terminated shebang line and
+then reading the rest of the file as script source until they hit whatever
+marker the script itself defines (often something like <code>exit 0</code> followed by
+a binary payload) — bash reads and executes the script text sequentially
+and simply never reaches the binary bytes appended after the <code>exit</code>,
+while a separate <code>tail -n +N</code> (or similar) call <em>does</em> read past that same
+line, extracting the payload — one file serving two completely different
+read patterns to two different tools.</p>
+<p>Packaging via a package manager (apt/yum/homebrew formula) shifts execution
+away from a raw shebang-and-run model entirely: the package manager itself
+<code>fork()</code>/<code>exec()</code>s pre/post-install scripts you provide, at points defined
+by <em>its</em> internal lifecycle rather than bash's, and typically records the
+list of installed files so a later uninstall step knows exactly what to
+<code>unlink(2)</code> — which is the actual difference between "just copy a script
+somewhere" and "properly package it": lifecycle hooks and a manifest, not
+the script content itself.</p>
+<p>Version pinning and checksums matter because package installation is just
+"run some code with elevated privileges, sourced from wherever the manifest
+points" at the OS level — a checksum comparison (typically SHA-256) is a
+cheap way to detect a payload that changed between when a maintainer signed
+off on it and when it's actually fetched and executed.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

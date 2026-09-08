@@ -812,6 +812,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2350,6 +2361,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2485,6 +2507,25 @@ own <code>#</code>.</p>
 <p><code>read -r</code> reads a line from standard input into a variable; <code>-r</code> disables
 backslash escaping so backslashes in the input are kept literally — almost
 always what you want.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>When you run <code>./script.sh</code>, the kernel doesn't magically know it's a shell
+script. It reads the first two bytes of the file looking for a <code>#!</code> (the
+"shebang" magic number). If it finds one, it takes the rest of that first
+line — <code>/usr/bin/env bash</code> — as the interpreter, and re-executes the file as
+<code>interpreter path/to/script.sh</code> via the <code>execve()</code> system call. Without a
+shebang (or without the execute bit set via <code>chmod +x</code>), the kernel refuses
+to run the file directly and you'd have to invoke <code>bash script.sh</code> yourself.</p>
+<p><code>#!/usr/bin/env bash</code> vs <code>#!/bin/bash</code> matters because <code>env</code> performs a
+<code>$PATH</code> search for <code>bash</code> at run time, so the script follows whichever bash
+a user has installed (useful on machines where bash lives outside
+<code>/bin</code>), while a hardcoded <code>#!/bin/bash</code> always uses that exact binary.</p>
+<p>When you type a command at an interactive prompt, the shell itself doesn't
+"run" anything for builtins like <code>cd</code> or <code>echo</code> — those execute inside the
+shell's own process. For an external command like <code>ls</code>, the shell calls
+<code>fork()</code> to clone itself (a near-instant copy-on-write duplicate of its
+memory pages), then the child calls <code>execve()</code> to replace its own process
+image with the <code>ls</code> binary, and the parent shell calls <code>wait()</code> to block
+until that child exits and reports an exit status back through <code>$?</code>.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

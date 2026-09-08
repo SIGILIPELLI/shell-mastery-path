@@ -991,6 +991,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2431,6 +2453,29 @@ with <code>$0</code> meaning the whole line):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Extract, filter, and reformat: usernames with UID &gt;= 1000</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>awk<span class="w"> </span>-F:<span class="w"> </span><span class="s1">&#39;$3 &gt;= 1000 { print $1 }&#39;</span><span class="w"> </span>/etc/passwd<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>grep</code>, <code>sort</code>, <code>cut</code>, and <code>wc</code> are separate executables, not shell
+builtins — each one you chain with <code>|</code> is its own <code>fork()</code>+<code>execve()</code>
+process reading a byte stream from stdin and writing one to stdout, which is
+why piping them together is fundamentally an assembly of small, independent
+kernel-scheduled processes rather than one program calling functions inside
+another.</p>
+<p>Most of these tools process input <strong>line by line</strong>, buffering only what
+they need — <code>grep</code> reads until it sees a newline byte, tests the line
+against its pattern, and moves on, which is why <code>grep</code> can search a
+multi-gigabyte file in bounded memory instead of loading it all at once.
+<code>sort</code>, by contrast, is not streaming: it must read the entire input before
+it can emit the first line of output, because any later line could sort
+before an earlier one; for inputs bigger than memory it spills sorted runs
+to temporary files and merges them (an external merge sort), which is also
+why sorting a huge file is slower and touches disk even when your data
+technically "fits."</p>
+<p>Word splitting on <code>$IFS</code> (used implicitly when you loop over unquoted
+command output) happens as a distinct expansion phase in bash — the shell
+scans the expanded string for characters in <code>$IFS</code> (default: space, tab,
+newline) and slices it into separate words <em>before</em> the loop body sees any
+of them, which is why an unquoted <code>$(cat file)</code> full of spaces can silently
+turn one intended line into several loop iterations.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

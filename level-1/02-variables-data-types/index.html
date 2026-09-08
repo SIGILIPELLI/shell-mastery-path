@@ -834,6 +834,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2327,6 +2338,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2467,6 +2489,28 @@ process the shell starts (like scripts it runs, or other programs).</p>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>:<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PORT</span><span class="p">:=8080</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">               </span><span class="c1"># if PORT is unset, SET it to 8080</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PORT</span><span class="s2">&quot;</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Bash variables are stored in the shell's own process memory as a flat table
+of name/value string pairs — there's no int, float, or boolean type at the
+storage layer. <code>age=30</code> stores the two-character string <code>"30"</code>. Arithmetic
+contexts like <code>$(( ))</code>, <code>let</code>, and <code>[[ ... -lt ... ]]</code> don't change that
+storage; they just ask bash's arithmetic evaluator to parse the string as a
+number for the duration of that one expression, using base-10 by default
+(a leading <code>0</code> triggers octal, <code>0x</code> triggers hex).</p>
+<p><code>export</code>ing a variable doesn't change how it's stored inside bash — it flags
+that name/value pair to be copied into the <strong>environment block</strong> that gets
+handed to every child process at <code>fork()</code>/<code>execve()</code> time. That's why a
+non-exported variable is invisible to a subshell script you invoke, and why
+each child gets its own private copy: environment variables are passed by
+value at process-creation time, not shared memory, so a child mutating its
+copy of <code>$PATH</code> never affects the parent shell.</p>
+<p>Parameter expansion (<code>${name}</code>, <code>${name:-default}</code>) happens during the
+shell's <strong>word expansion</strong> pass, which runs in a fixed order every time a
+command line is parsed: brace expansion, tilde expansion, parameter/variable
+expansion, arithmetic expansion, and command substitution all happen before
+word splitting and globbing. That's why quoting matters — expansions inside
+double quotes still happen, but the <em>result</em> is protected from the later
+word-splitting and pathname-expansion steps.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write <code>bmi.sh</code> that sets <code>weight_kg=70</code> and <code>height_m=1.75</code> as variables,
 computes BMI using <code>awk</code> (since it needs decimals), and prints a sentence

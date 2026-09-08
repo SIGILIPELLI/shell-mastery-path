@@ -1648,6 +1648,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2469,6 +2491,25 @@ debugging it — without editing the script itself.</p>
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">fi</span>
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>log<span class="w"> </span>INFO<span class="w"> </span><span class="s2">&quot;deploy verified healthy&quot;</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Preconditions and postconditions in shell are enforced entirely through
+exit-status checks and <code>set -e</code>/explicit <code>if</code> guards — bash has no
+compile-time contract system, so "robustness" here means the script author
+manually reproducing what a type system or assertion framework would give
+you for free in another language, by checking <code>$?</code>, argument counts, and
+file existence at each step before trusting the state they imply.</p>
+<p>Idempotency (safe to re-run) usually comes down to how a script interacts
+with the filesystem's actual guarantees: <code>mkdir -p</code> is idempotent because
+<code>mkdir(2)</code> with the "parents" logic checks each path component's existence
+before creating it, while a bare <code>&gt;</code> redirect is inherently idempotent for
+"ensure this file has this content" (it always truncates and rewrites) but
+<code>&gt;&gt;</code> is not (each run appends again) — the safety isn't a shell feature, it's
+a property of which syscall a given operation maps to.</p>
+<p>Retry-with-backoff logic sits directly on <code>$?</code> and <code>sleep</code>: each attempt is
+a real forked process whose exit status is inspected, and <code>sleep N</code> blocks
+the parent shell by having it call <code>nanosleep(2)</code> (or similar) and simply
+do nothing until the kernel wakes it — there's no shell-level timer or
+event loop, just a process voluntarily descheduling itself.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

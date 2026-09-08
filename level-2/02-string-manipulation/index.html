@@ -1210,6 +1210,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2338,6 +2349,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2490,6 +2512,27 @@ clearer.</p>
 </code></pre></div>
 <p><code>"${parts[*]}"</code> (unlike <code>"${parts[@]}"</code>) joins elements using the first
 character of <code>IFS</code>, which is exactly what's needed here.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Bash's built-in string operations (<code>${var#pattern}</code>, <code>${var%pattern}</code>,
+<code>${var/find/replace}</code>, <code>${var:offset:length}</code>) are all handled inside the
+bash parser itself as parameter expansion — no external process is forked,
+which is why using <code>${var#prefix}</code> is dramatically faster in a loop than
+piping through <code>sed</code> or <code>cut</code>, each of which requires a full <code>fork()</code> +
+<code>execve()</code> + process teardown per call.</p>
+<p><code>#</code> and <code>##</code> (and <code>%</code>/<code>%%</code>) implement glob-style pattern matching, not
+regex — the single-character form removes the <em>shortest</em> match from the
+front/back, the doubled form removes the <em>longest</em>. Internally bash runs the
+same glob-matching engine used for pathname expansion against the string,
+just anchored to one end, which is why <code>*</code> inside these patterns behaves
+like a filename wildcard (matching any characters) rather than a regex
+quantifier.</p>
+<p>Substring extraction <code>${var:offset:length}</code> operates on bash's internal
+string representation. When bash is running in a UTF-8 locale, characters
+are still ultimately manipulated by byte-aware C library string functions
+under the hood, but bash's <code>LC_ALL</code>/<code>LC_CTYPE</code>-aware mode tracks multi-byte
+sequences so offsets are counted in characters rather than raw bytes —
+change the locale and the same script can slice a multi-byte string
+differently, because the counting rule bash applies changes with it.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

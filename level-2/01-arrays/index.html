@@ -1171,6 +1171,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2472,6 +2494,28 @@ without triggering an "unbound variable" error under <code>set -u</code>.</p>
 <a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c1"># fox: 2</span>
 <a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c1"># ...</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Bash indexed arrays are not stored as contiguous memory like a C array —
+internally, bash keeps them as a sparse structure (effectively a linked list
+of index/value pairs), which is why you can do <code>arr[100]=x</code> on an otherwise
+empty array without allocating 100 slots, and why <code>${#arr[@]}</code> (the element
+<em>count</em>) can differ from one plus the highest index. Each element is itself
+stored as a string, same as scalar variables — there's no array of integers
+at the storage layer, only strings that get reinterpreted numerically in
+arithmetic context.</p>
+<p><code>"${arr[@]}"</code> vs <code>"${arr[*]}"</code> differ in how they interact with word
+splitting: <code>"${arr[@]}"</code> expands to as many separate, individually-quoted
+words as there are elements (this is hardcoded special behavior for <code>@</code>
+inside double quotes, not a general word-splitting rule), while
+<code>"${arr[*]}"</code> joins every element into a single string using the first
+character of <code>$IFS</code> as glue. This is exactly why <code>for x in "${arr[@]}"</code>
+safely preserves elements containing spaces while <code>for x in ${arr[*]}</code> (or
+even quoted <code>*</code>) collapses them into one iteration.</p>
+<p>Associative arrays (<code>declare -A</code>) are backed by an actual hash table inside
+bash for O(1)-ish key lookup, distinct from indexed arrays' linked
+structure — which is also why associative arrays must be declared with
+<code>-A</code> before use: bash needs to know up front which internal data structure
+to allocate.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

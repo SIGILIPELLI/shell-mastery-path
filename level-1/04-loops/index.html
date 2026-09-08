@@ -868,6 +868,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2427,6 +2449,25 @@ project).</p>
 <p>The second form avoids the word-splitting pitfalls of <code>for x in $(...)</code> when
 values can contain spaces — prefer <code>while read</code> for anything beyond simple,
 space-free tokens.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>for x in a b c; do ... done</code> is not a numeric loop under the hood — bash
+first performs word expansion (and if unquoted, word splitting and
+globbing) on the list after <code>in</code>, materializing it into a fixed array of
+words <em>before</em> the loop body ever runs once. That's why <code>for f in *.txt</code>
+works even for filenames containing spaces if quoted, but breaks silently on
+an unquoted glob that matches nothing (it expands to the literal string
+<code>*.txt</code> unless <code>nullglob</code> is set) — the expansion is a one-time, static
+step, not re-evaluated per iteration.</p>
+<p><code>while</code> and <code>until</code> instead re-run their condition command as a real
+subprocess (or builtin test) on every pass, forking a fresh process for
+external test commands each time — which is why a tight <code>while</code> loop that
+shells out per iteration is measurably slower than one using builtins.</p>
+<p><code>break</code> and <code>continue</code> are implemented as non-local control transfers inside
+the bash interpreter itself: they don't send a signal or unwind via the
+kernel, they simply make the interpreter's execution loop jump to the point
+just after (or back to the top of) the enclosing loop structure it's
+currently tracking on an internal loop-nesting stack, which is also why
+<code>break 2</code> can escape multiple nested loop levels in one call.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

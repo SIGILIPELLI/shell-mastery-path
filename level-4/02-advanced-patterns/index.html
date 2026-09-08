@@ -1951,6 +1951,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2534,6 +2556,28 @@ action means adding a config line, not editing the script:</p>
 <a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$fn</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Unknown command: </span><span class="nv">$command</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 <a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="s2">&quot;</span><span class="nv">$fn</span><span class="s2">&quot;</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Driving behavior from a config-defined "action table" (mapping strings to
+function names, then calling <code>"$fn" "$@"</code> or <code>${!fn}</code>-style indirect
+expansion) works because bash treats a function name as just another
+lookup key in the same execution-time symbol resolution it always uses:
+when bash goes to run a simple command, it checks (in order) whether the
+first word matches a defined function, then a builtin, then searches
+<code>$PATH</code> for an executable — indirect dispatch just computes that first-word
+string dynamically instead of it being literal source text, and then feeds
+it through the exact same resolution path.</p>
+<p>Associative-array-based dispatch tables and <code>case</code> statements both resolve
+purely at run time in bash — there's no ahead-of-time optimization or
+jump-table compilation the way a compiled language might do a <code>switch</code>;
+<code>case</code> internally is a sequential pattern-match against each <code>)</code>-terminated
+pattern using the same glob-matching engine as pathname expansion, tried in
+source order until one matches.</p>
+<p>Patterns like a state machine implemented with a <code>while</code> loop and a
+<code>current_state</code> variable rely entirely on ordinary variable mutation and
+loop re-evaluation — there is no separate state-machine primitive in bash;
+"state" is just whatever the shell's variable table currently holds, and
+transitions are just assignment statements executed as part of normal
+sequential command execution.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

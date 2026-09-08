@@ -1283,6 +1283,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2488,6 +2510,29 @@ separated sections make a script far easier to pick back up later.</p>
 <p>Checking every assumption at the top of a function means the rest of the
 logic can trust its inputs completely — no defensive checks scattered
 everywhere else.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>set -euo pipefail</code> at the top of a script changes three separate internal
+bash execution flags: <code>-e</code> makes the interpreter abort after any simple
+command's checked exit status is nonzero (with the caveats described
+elsewhere in this course around conditionals); <code>-u</code> makes referencing an
+unset variable a fatal error at expansion time — the parser normally
+silently substitutes an empty string for an unbound variable name, and <code>-u</code>
+turns that specific substitution path into an immediate error instead; and
+<code>pipefail</code> changes how bash computes the <em>single</em> exit status it reports for
+an entire <code>|</code> pipeline, from "just the last stage" to "the last stage with
+nonzero status, or zero if all succeeded."</p>
+<p>Quoting variables (<code>"$var"</code> vs <code>$var</code>) matters because of the fixed order of
+shell expansions: unquoted parameter expansion is followed by word
+splitting on <code>$IFS</code> and then pathname expansion (globbing) — quoting
+suppresses both of those later steps for that expansion, which is why
+<code>"$var"</code> reliably represents "one argument" while <code>$var</code> might silently
+become zero, one, or many arguments depending on its content and whatever
+files happen to exist in the current directory at that moment.</p>
+<p>Following best practices like <code>local</code> scoping and explicit <code>return</code> codes
+matters precisely because bash has almost no compile-time checking — nearly
+every one of these mistakes (unset variables, word splitting, global leaks
+from functions) is only caught, if at all, at the moment that exact code
+path executes.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

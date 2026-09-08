@@ -924,6 +924,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,6 +2294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2430,6 +2452,28 @@ space will be split into multiple arguments by commands like <code>mkdir</code> 
 <p><code>-print0</code> / <code>-d ''</code> use the NUL byte as a separator instead of newlines — the
 only fully safe way to handle filenames that might contain spaces, or even
 newlines.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Every filesystem operation here maps to a specific syscall: <code>mkdir</code> calls
+<code>mkdir(2)</code>, <code>touch</code> calls <code>open(2)</code> with <code>O_CREAT</code> (or <code>utimensat(2)</code> if the
+file already exists), <code>cp</code> is <code>open</code>+<code>read</code>+<code>write</code> in a loop (or a
+copy-accelerating call like <code>copy_file_range</code> on Linux), and <code>mv</code> tries
+<code>rename(2)</code> first — which is why moving a file within the same filesystem is
+nearly instant (it just repoints a directory entry to the same inode) while
+moving across filesystems silently falls back to a full copy-then-delete,
+because <code>rename(2)</code> can't relink inodes across separate filesystem devices.</p>
+<p>A directory entry isn't the file — it's a name-to-inode mapping. <code>rm</code> doesn't
+erase data; it calls <code>unlink(2)</code>, which removes that name-to-inode link and
+decrements the inode's link count. The underlying blocks are only freed once
+the link count <em>and</em> the count of processes with the file still open both
+hit zero — which is exactly why a program can keep writing to a log file
+after you <code>rm</code> it: the inode survives until every open file descriptor
+referencing it is closed.</p>
+<p>Globbing (<code>*.txt</code>) is expanded entirely by the shell before the command ever
+runs — <code>rm *.txt</code> never passes the string <code>*.txt</code> to <code>rm</code>; bash reads the
+current directory via <code>readdir(2)</code>-style enumeration, matches names against
+the pattern, and hands <code>rm</code> a fully expanded argument list. If nothing
+matches, the literal pattern is passed through unchanged unless <code>nullglob</code>
+or <code>failglob</code> is set — a classic source of "no such file" surprises.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write <code>organize.sh</code> that creates a directory called <code>sorted/</code>, then loops
 over every file in the current directory and moves each one into a

@@ -2007,6 +2007,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2502,6 +2524,29 @@ compared to scrolling through raw tool output looking for the first error.</p>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>jq<span class="w"> </span>-n<span class="w"> </span>--arg<span class="w"> </span>version<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$version</span><span class="s2">&quot;</span><span class="w"> </span>--arg<span class="w"> </span>status<span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="s1">&#39;{version: $version, status: $status}&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>build-metadata.json
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Passing data between pipeline stages in a CI/CD system almost always means
+serializing shell variables to a file and re-sourcing (or explicitly
+parsing) that file in the next stage's process, because — as covered
+throughout this course — each pipeline stage typically runs as its own
+forked (often containerized) process with no shared memory to the previous
+stage; there is no live variable-passing channel between them at the OS
+level, only whatever the CI system's runner explicitly persists to disk (or
+an artifact store) and re-injects.</p>
+<p>A deployment script that <code>ssh host 'commands'</code> is running those commands in
+a completely separate shell process on a remote machine — <code>ssh</code> forwards
+your local terminal's stdin/stdout over an encrypted channel but the remote
+side does its own independent <code>fork()</code>/<code>execve()</code> for each command,
+inheriting the <em>remote</em> machine's environment and <code>$PATH</code>, not anything from
+your local shell, which is the same root cause behind "works locally, fails
+in deploy" as the cron and CI <code>$PATH</code> issues covered earlier in this course.</p>
+<p>Idempotent automation (safe to re-run a deploy script) again comes down to
+which syscalls each step maps to: an operation built on <code>mkdir -p</code>,
+symlink-and-atomic-<code>rename(2)</code> swaps, or checked <code>diff</code>-before-<code>write</code> is
+naturally safe to repeat, while one built on blind <code>&gt;&gt;</code> appends or
+unconditional <code>mkdir</code> (without <code>-p</code>, which errors on existing dirs) is not
+— the safety is a property of the underlying filesystem call, not of
+"automation" as a concept.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

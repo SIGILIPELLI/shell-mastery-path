@@ -1580,6 +1580,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2382,6 +2393,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2544,6 +2566,29 @@ final totals/summaries); the middle block runs once per line.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># compute the average of column 2 across a CSV</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>awk<span class="w"> </span>-F,<span class="w"> </span><span class="s1">&#39;{ sum += $2; n++ } END { if (n &gt; 0) print &quot;average:&quot;, sum/n }&#39;</span><span class="w"> </span>data.csv
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>sed</code> is a <strong>stream editor</strong> implemented as a single-pass state machine: it
+reads one line into a buffer called the <em>pattern space</em>, applies every
+script command in order to that buffer, prints the result (unless <code>-n</code>
+suppresses it), then discards the pattern space and reads the next line —
+it never holds the whole file in memory unless you explicitly append lines
+into the separate <em>hold space</em> to defer output. This is why sed can stream-
+edit files far larger than available RAM, and why commands that need
+cross-line context (like matching a pattern across two lines) require
+manually shuttling data into the hold space with <code>h</code>/<code>H</code>/<code>g</code>/<code>G</code>.</p>
+<p><code>awk</code> structures a program as a loop over <strong>records</strong> (default: lines) split
+into <strong>fields</strong> (default: split on runs of whitespace, controlled by <code>FS</code>);
+internally it re-splits <code>$0</code> into the <code>$1..$NF</code> array every time a new
+record is read, and reassembling <code>$0</code> from the fields happens lazily,
+recomputed with <code>OFS</code> as the separator only when something forces it (like
+assigning to a field or <code>$0</code> itself) — which is why changing <code>OFS</code> alone,
+without touching any field, doesn't retroactively change already-printed
+output.</p>
+<p>Both tools compile their pattern/action scripts once at startup into an
+internal representation before processing begins, which is why a <code>BEGIN</code>
+block runs exactly once, before any record is read, and <code>END</code> runs exactly
+once after the input stream hits EOF — they're structurally distinct from
+the main per-record loop, not just a stylistic convention.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

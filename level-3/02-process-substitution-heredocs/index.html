@@ -1586,6 +1586,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2338,6 +2349,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2472,6 +2494,28 @@ command substitution.</p>
 <p><code>&lt;&lt;&lt;</code> (a "here-string") is the single-line cousin of a here-document — use
 it when you just need to feed one existing string/variable as stdin,
 reaching for <code>&lt;&lt;EOF</code> only when you need genuinely multi-line literal text.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Process substitution <code>&lt;(cmd)</code> is implemented, on Linux, using named FIFOs
+under <code>/dev/fd/</code> (or actual named pipes) — bash forks <code>cmd</code> with its stdout
+connected to one end of a pipe, and substitutes the <em>path</em> to the other end
+into your command line as if it were a real filename. The consuming command
+then just calls <code>open()</code>/<code>read()</code> on that path like any regular file, with
+no idea it's actually reading from a live process's pipe output — this is
+what lets tools that only accept filenames (like <code>diff</code>) compare two
+command outputs directly.</p>
+<p>A heredoc (<code>&lt;&lt;EOF ... EOF</code>) is handled entirely by bash at parse time: bash
+reads everything up to the terminator line, writes it into an anonymous
+temporary file (or an internal pipe, implementation-dependent) and connects
+that as the command's stdin — critically, if the delimiter is unquoted
+(<code>&lt;&lt;EOF</code>), bash performs the same parameter/command substitution on the
+heredoc body that it would on a double-quoted string, but if the delimiter
+is quoted (<code>&lt;&lt;'EOF'</code>), the body is passed through completely literally with
+zero expansion, which is the mechanism (not a special flag) behind heredocs
+that can safely contain <code>$</code> or backticks.</p>
+<p>A here-string (<code>&lt;&lt;&lt; "text"</code>) skips the multi-line reading step entirely —
+bash just writes the expanded string plus a trailing newline into a
+temporary buffer and connects it as stdin, functionally a one-line
+shorthand for the heredoc machinery.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

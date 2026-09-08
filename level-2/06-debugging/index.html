@@ -1311,6 +1311,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2470,6 +2492,26 @@ input.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># print-debugging with clear markers so it&#39;s easy to grep back out later</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;DEBUG: count=</span><span class="nv">$count</span><span class="s2">, status=</span><span class="nv">$status</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>set -x</code> (xtrace) doesn't just print your source lines — it has bash
+reconstruct each command from its internal parsed representation <em>after</em>
+all expansions have happened, then print that reconstruction to stderr
+prefixed with <code>$PS4</code> (default <code>+</code>), immediately before actually executing
+it. That's why <code>set -x</code> output shows you the expanded values (actual
+filenames after globbing, actual variable contents) rather than the literal
+source text — it's tracing the interpreter's execution, not echoing the
+script file.</p>
+<p><code>bash -n</code> performs a <strong>syntax-only parse</strong>: it runs the same parser bash
+always uses to build its internal command tree, checks the tree is
+well-formed, and then throws it away without executing a single command —
+which is why it catches mismatched quotes or missing <code>fi</code>/<code>done</code> but can
+never catch a runtime error like calling an undefined command, since that
+depends on execution, not parsing.</p>
+<p><code>PS4</code> with <code>${BASH_SOURCE}:${LINENO}</code> works because bash tracks source
+file and line number as live internal state as it executes, updating them
+before every command — the debugger doesn't need to instrument your
+script; it just reads variables bash was already maintaining as part of
+normal interpretation.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

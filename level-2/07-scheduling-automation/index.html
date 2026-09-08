@@ -1328,6 +1328,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2459,6 +2481,25 @@ don't belong in the crontab permanently.</p>
 <p>If a job sometimes takes longer than its own interval (a 5-minute cron job
 that occasionally takes 6 minutes), this lock-file pattern prevents two
 copies from running at once and stepping on each other.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>cron</code> is a long-running <strong>daemon</strong> process, entirely separate from any
+interactive shell — it wakes up roughly once a minute, re-reads crontab
+files if their mtimes changed, and for any job whose schedule matches the
+current time, it <code>fork()</code>s and <code>execve()</code>s a <em>new</em>, minimal, non-interactive
+shell to run that one command line. That new shell inherits almost none of
+your interactive environment: no <code>.bashrc</code>, a bare-bones <code>$PATH</code>, and no
+<code>$DISPLAY</code> or other session variables — which is the actual root cause of
+"works when I run it myself, fails under cron," not a cron bug.</p>
+<p>A file lock pattern using <code>mkdir</code> (or <code>flock</code>) for "avoid overlapping runs"
+works because <code>mkdir(2)</code> is atomic at the kernel/filesystem level — the
+kernel guarantees that if two processes race to create the same directory
+name simultaneously, exactly one <code>mkdir</code> call succeeds and the other gets
+<code>EEXIST</code>, with no possibility of both seeing "doesn't exist yet." <code>flock(2)</code>
+achieves the same guarantee more directly via an advisory lock the kernel
+tracks per open file descriptor, released automatically if the holding
+process dies — which is why <code>flock</code>-based locks self-heal after a crash
+while a bare <code>mkdir</code> lock file can be left stale and needs manual or
+timestamp-based cleanup.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
