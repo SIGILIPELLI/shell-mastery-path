@@ -164,6 +164,38 @@ A `.timer` unit pairs with a matching `myapp-backup.service`
 systemd's own logging, restart, and dependency handling give you more than
 a raw crontab line does.
 
+## How It Actually Works
+
+A systemd timer doesn't replace cron's model so much as split it into two
+cooperating unit files evaluated by a much more capable central daemon
+(`systemd` as PID 1's service manager) — the `.timer` unit registers a
+wake condition with systemd's internal event scheduler (calendar-based like
+cron, or monotonic like "5 minutes after boot"), and when it fires, systemd
+starts the paired `.service` unit using the exact same `fork()`+`execve()`
+process-creation path as any other systemd service, but critically inside a
+cgroup systemd creates and tracks — which is why systemd can enforce
+resource limits, capture structured logs via the journal, and know
+definitively whether the job succeeded, in ways a bare cron-spawned process
+cannot.
+
+Because each timer-triggered service is its own tracked systemd unit, its
+environment is defined entirely by the unit file (`Environment=`,
+`EnvironmentFile=`) rather than inherited from an interactive shell at
+all — there's no `.bashrc`/login-shell ambiguity like with cron, because
+systemd never spawns anything through a login shell in the first place; the
+"minimal environment" surprise from cron becomes, under systemd, an
+explicit and inspectable configuration rather than an implicit inheritance
+quirk.
+
+Log rotation tools like `logrotate` rely on the same
+delete-doesn't-immediately-free-space inode behavior covered earlier: they
+typically rename the current log out of the way and signal (via `SIGHUP` or
+a reload command) the writing process to reopen its log file by path,
+because the old file descriptor the process is still holding keeps pointing
+at the renamed (soon rotated-away) inode until it's explicitly told to
+reopen and get a fresh descriptor onto the new path.
+
+
 ## Cheat sheet
 
 | Command | Purpose |

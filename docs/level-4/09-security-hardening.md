@@ -154,6 +154,36 @@ Notice the checklist script itself follows its own rules — no `eval`, no
 hardcoded secrets, `set -euo pipefail` at the top — a hardening tool that
 fails its own audit isn't trustworthy.
 
+## How It Actually Works
+
+A hardening checklist script (checking file permissions, SUID bits, open
+ports) works by querying kernel-maintained metadata directly rather than
+inferring anything: file mode bits come from `stat(2)`, open listening
+ports come from walking `/proc/net/tcp` (or calling into the same data via
+`ss`/`netstat`, which read that same kernel table), and the SUID bit
+specifically tells the kernel to run a binary with the *file owner's*
+effective UID rather than the invoking user's — which is exactly the
+mechanism `sudo` and `passwd` themselves rely on, and exactly why an
+unexpected SUID bit on the wrong binary is a genuine privilege-escalation
+path rather than a cosmetic issue.
+
+Running a script with least privilege (dropping from root as early as
+possible, e.g. via `su`/`setpriv`/dedicated service users) matters because a
+process's effective UID is checked by the kernel on essentially every
+security-relevant syscall (`open`, `chmod`, `kill` targeting another user's
+process, binding to privileged ports below 1024) — a script that never
+needed root for 95% of its work but stays root the whole time means every
+line of that script, including any injected or buggy command, executes with
+full kernel-level permission to bypass file ownership checks.
+
+Sanitizing input before it reaches `eval`, `xargs`, or a subshell isn't a
+style preference — it's addressing the exact mechanism covered in the
+security-considerations module: the bash parser cannot tell trusted script
+text from untrusted data once they're concatenated into the same string
+that later gets re-parsed, so hardening here means never letting untrusted
+bytes reach a second parsing pass.
+
+
 ## Cheat sheet
 
 | Practice | Why |

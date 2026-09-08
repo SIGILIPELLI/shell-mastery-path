@@ -207,6 +207,33 @@ fn="${ACTIONS[$command]:-}"
 "$fn"
 ```
 
+## How It Actually Works
+
+Driving behavior from a config-defined "action table" (mapping strings to
+function names, then calling `"$fn" "$@"` or `${!fn}`-style indirect
+expansion) works because bash treats a function name as just another
+lookup key in the same execution-time symbol resolution it always uses:
+when bash goes to run a simple command, it checks (in order) whether the
+first word matches a defined function, then a builtin, then searches
+`$PATH` for an executable — indirect dispatch just computes that first-word
+string dynamically instead of it being literal source text, and then feeds
+it through the exact same resolution path.
+
+Associative-array-based dispatch tables and `case` statements both resolve
+purely at run time in bash — there's no ahead-of-time optimization or
+jump-table compilation the way a compiled language might do a `switch`;
+`case` internally is a sequential pattern-match against each `)`-terminated
+pattern using the same glob-matching engine as pathname expansion, tried in
+source order until one matches.
+
+Patterns like a state machine implemented with a `while` loop and a
+`current_state` variable rely entirely on ordinary variable mutation and
+loop re-evaluation — there is no separate state-machine primitive in bash;
+"state" is just whatever the shell's variable table currently holds, and
+transitions are just assignment statements executed as part of normal
+sequential command execution.
+
+
 ## Cheat sheet
 
 | Pattern | Purpose |

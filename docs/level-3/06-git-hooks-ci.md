@@ -160,6 +160,33 @@ if [[ "$current_branch" == "$protected_branch" ]]; then
 fi
 ```
 
+## How It Actually Works
+
+A git hook (like `pre-push` or `pre-commit`) is nothing magical to the
+kernel — it's an ordinary executable file under `.git/hooks/` that git
+`fork()`s and `execve()`s at a specific point in its own internal command
+sequence, passing hook-specific data either as command-line arguments or
+piped to the hook's stdin (the exact convention differs per hook type). Git
+then checks that hook process's exit status exactly like a shell checks any
+command: nonzero aborts the git operation before it proceeds, zero lets it
+continue — the hook has no other channel to communicate "stop" back to git.
+
+Because a hook script inherits the environment git itself was invoked with
+(not necessarily your full interactive shell environment, especially when
+git is invoked from a GUI client or CI runner), hooks that rely on tools
+only found via an interactively-configured `$PATH` are a common source of
+"works in my terminal, fails as a hook" bugs — the same root cause as the
+cron `$PATH` issue covered earlier in this course, because both are cases of
+a script executing with a minimal, non-login-shell environment.
+
+CI runners work the same way at a larger scale: each pipeline step is
+typically its own forked process (often inside a fresh container), so
+state like `cd` or exported variables from one script step doesn't persist
+into the next step unless the CI system explicitly serializes and re-injects
+environment files between steps — mirroring exactly why background jobs and
+subshells in bash can't leak state back to their parent.
+
+
 ## Cheat sheet
 
 | Hook/tool | Purpose |

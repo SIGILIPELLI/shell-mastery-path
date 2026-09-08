@@ -173,6 +173,33 @@ load 'bats-assert/load'
 }
 ```
 
+## How It Actually Works
+
+A Bats test file is itself a bash script — `@test` is a Bats-defined shell
+function wrapper that, at run time, `fork()`s a fresh subshell for *each*
+test body, runs your commands there, and inspects that subshell's final
+`$status` (its exit code) and captured `$output` (stdout+stderr merged via
+redirection Bats sets up before invoking your code) to decide pass/fail.
+Running every test in its own subshell is what gives you test isolation:
+variables, `cd`, and `trap`s set in one test can't leak into the next,
+because each one starts life as a brand-new forked process image.
+
+`run some_command` inside a test doesn't invoke `some_command` directly —
+it's a Bats helper function that itself forks/execs (or calls, for
+functions) the command with its own stdout/stderr temporarily redirected
+into files, captures the resulting exit status, and stores both in the
+`$status`/`$output` variables *before* your assertions run — which is why
+`run` can capture the exit code of something that would otherwise crash the
+whole test file via `set -e`.
+
+Mocking a command in Bats generally works by manipulating `$PATH` inside
+the test's subshell — the shell's command lookup is just a linear scan of
+`$PATH` directories, so prepending a directory containing a fake executable
+of the same name intercepts every subsequent call, because search order
+(not the name itself) is all that determines which binary the shell finds
+first.
+
+
 ## Cheat sheet
 
 | Construct | Purpose |

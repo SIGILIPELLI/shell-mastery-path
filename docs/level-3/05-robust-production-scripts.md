@@ -160,6 +160,30 @@ fi
 log INFO "deploy verified healthy"
 ```
 
+## How It Actually Works
+
+Preconditions and postconditions in shell are enforced entirely through
+exit-status checks and `set -e`/explicit `if` guards — bash has no
+compile-time contract system, so "robustness" here means the script author
+manually reproducing what a type system or assertion framework would give
+you for free in another language, by checking `$?`, argument counts, and
+file existence at each step before trusting the state they imply.
+
+Idempotency (safe to re-run) usually comes down to how a script interacts
+with the filesystem's actual guarantees: `mkdir -p` is idempotent because
+`mkdir(2)` with the "parents" logic checks each path component's existence
+before creating it, while a bare `>` redirect is inherently idempotent for
+"ensure this file has this content" (it always truncates and rewrites) but
+`>>` is not (each run appends again) — the safety isn't a shell feature, it's
+a property of which syscall a given operation maps to.
+
+Retry-with-backoff logic sits directly on `$?` and `sleep`: each attempt is
+a real forked process whose exit status is inspected, and `sleep N` blocks
+the parent shell by having it call `nanosleep(2)` (or similar) and simply
+do nothing until the kernel wakes it — there's no shell-level timer or
+event loop, just a process voluntarily descheduling itself.
+
+
 ## Cheat sheet
 
 | Practice | Why |

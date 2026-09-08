@@ -178,6 +178,34 @@ jq -n --arg version "$version" --arg status "success" \
     '{version: $version, status: $status}' > build-metadata.json
 ```
 
+## How It Actually Works
+
+Passing data between pipeline stages in a CI/CD system almost always means
+serializing shell variables to a file and re-sourcing (or explicitly
+parsing) that file in the next stage's process, because — as covered
+throughout this course — each pipeline stage typically runs as its own
+forked (often containerized) process with no shared memory to the previous
+stage; there is no live variable-passing channel between them at the OS
+level, only whatever the CI system's runner explicitly persists to disk (or
+an artifact store) and re-injects.
+
+A deployment script that `ssh host 'commands'` is running those commands in
+a completely separate shell process on a remote machine — `ssh` forwards
+your local terminal's stdin/stdout over an encrypted channel but the remote
+side does its own independent `fork()`/`execve()` for each command,
+inheriting the *remote* machine's environment and `$PATH`, not anything from
+your local shell, which is the same root cause behind "works locally, fails
+in deploy" as the cron and CI `$PATH` issues covered earlier in this course.
+
+Idempotent automation (safe to re-run a deploy script) again comes down to
+which syscalls each step maps to: an operation built on `mkdir -p`,
+symlink-and-atomic-`rename(2)` swaps, or checked `diff`-before-`write` is
+naturally safe to repeat, while one built on blind `>>` appends or
+unconditional `mkdir` (without `-p`, which errors on existing dirs) is not
+— the safety is a property of the underlying filesystem call, not of
+"automation" as a concept.
+
+
 ## Cheat sheet
 
 | Pattern | Purpose |

@@ -112,6 +112,30 @@ Note `is_ipv4` here only checks *shape*, not that each octet is `<= 255` —
 real validation would combine the regex with a numeric range check per
 octet.
 
+## How It Actually Works
+
+`[[ $str =~ $pattern ]]` compiles `$pattern` using the C library's POSIX
+extended regular expression engine (`regcomp(3)`/`regexec(3)`), the same
+regex engine glibc exposes to any C program — bash itself contains no regex
+matcher of its own. This is why bash's `=~` supports ERE syntax
+(`+`, `?`, `|`, `{n,m}`) but not Perl-style features like non-greedy
+quantifiers or lookahead: those aren't in POSIX ERE, so the underlying
+`regcomp` call would reject them.
+
+On a successful `=~` match, bash populates the `BASH_REMATCH` array
+directly from the `regmatch_t` capture-group offsets that `regexec` returns
+— `BASH_REMATCH[0]` is the whole match, `[1]` is the first parenthesized
+group, and so on, all computed as byte offsets into the original string and
+then sliced out by bash after the C call returns.
+
+`grep -E` and `sed -E` invoke *their own*, separate regex implementations as
+independent processes — this matters because `grep`'s ERE dialect can differ
+subtly from glibc's `regcomp` (BRE vs ERE handling of escapes, POSIX
+character classes like `[[:alpha:]]`), so a pattern that matches under `=~`
+isn't guaranteed to match identically when piped through `grep -E`, and vice
+versa, even though both claim "extended regular expressions."
+
+
 ## Cheat sheet
 
 | Pattern | Matches |

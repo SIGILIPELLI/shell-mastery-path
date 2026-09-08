@@ -128,6 +128,32 @@ for anything beyond a raw health check, `curl` is far more robust (handles
 TLS, redirects, compression, retries) — reach for `/dev/tcp` mainly when
 no other tool is guaranteed to be installed.
 
+## How It Actually Works
+
+Bash's `/dev/tcp/host/port` isn't a real device file on disk — it's a
+special path bash's own I/O redirection code intercepts and recognizes
+syntactically, and instead of calling `open(2)` on a filesystem path, bash
+calls `socket(2)`/`connect(2)` directly to establish a TCP connection, then
+hands you a file descriptor that behaves like any other for read/write
+redirection purposes. This is entirely a bash built-in feature (compiled in
+optionally) — there's no actual inode or filesystem entry backing it, which
+is why it doesn't appear if you `ls /dev/tcp`.
+
+`curl`/`wget`, by contrast, are full separate processes that build and parse
+entire HTTP request/response messages on top of their own socket calls —
+they handle TLS handshakes, redirects, and header parsing entirely in their
+own userspace code, whereas bash's `/dev/tcp` gives you nothing but a raw
+byte stream over a connected socket; anything above the TCP layer (like
+constructing valid HTTP) is something *you* have to write into the bytes
+sent over that descriptor yourself.
+
+`nc` (netcat) sits in between: it's a small dedicated process whose whole
+job is proxying a TCP or UDP socket to its own stdin/stdout, which is why
+`nc host port < file` and `nc -l port > file` compose naturally with shell
+pipes — netcat is designed from the ground up to make a socket look, to the
+rest of the shell, like just another file descriptor.
+
+
 ## Cheat sheet
 
 | Task | Command |

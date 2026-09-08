@@ -182,6 +182,35 @@ brew install --build-from-source ./mytool.rb        # test locally
 brew tap you/tap && brew install mytool               # after publishing the tap
 ```
 
+## How It Actually Works
+
+A single-file self-extracting installer that bundles a shebang plus an
+embedded archive works by exploiting the fact that `execve` and the bash
+parser both only care about finding a newline-terminated shebang line and
+then reading the rest of the file as script source until they hit whatever
+marker the script itself defines (often something like `exit 0` followed by
+a binary payload) — bash reads and executes the script text sequentially
+and simply never reaches the binary bytes appended after the `exit`,
+while a separate `tail -n +N` (or similar) call *does* read past that same
+line, extracting the payload — one file serving two completely different
+read patterns to two different tools.
+
+Packaging via a package manager (apt/yum/homebrew formula) shifts execution
+away from a raw shebang-and-run model entirely: the package manager itself
+`fork()`/`exec()`s pre/post-install scripts you provide, at points defined
+by *its* internal lifecycle rather than bash's, and typically records the
+list of installed files so a later uninstall step knows exactly what to
+`unlink(2)` — which is the actual difference between "just copy a script
+somewhere" and "properly package it": lifecycle hooks and a manifest, not
+the script content itself.
+
+Version pinning and checksums matter because package installation is just
+"run some code with elevated privileges, sourced from wherever the manifest
+points" at the OS level — a checksum comparison (typically SHA-256) is a
+cheap way to detect a payload that changed between when a maintainer signed
+off on it and when it's actually fetched and executed.
+
+
 ## Cheat sheet
 
 | Task | Command |

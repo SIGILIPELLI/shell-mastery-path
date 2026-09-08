@@ -239,6 +239,36 @@ git commit -m "wip: more auth"
 | Git hooks (03/06) | `.git/hooks/pre-commit`, `git diff --cached` |
 | Process substitution (02) | `< <(grep -n ... "$file")` |
 
+## How It Actually Works
+
+A dispatch-style CLI (`tool.sh subcommand args...`) relies on the shell
+mechanics covered throughout this course working together: the positional
+parameters (`$1`, `$2`, `"$@"`) are populated the moment the script's own
+process is `exec`'d by whatever forked it, argument parsing with `getopts`
+or a manual `case` loop consumes them by re-assigning `$@` via `shift`
+(which mutates bash's internal positional-parameter array in place, not a
+copy), and each subcommand is typically dispatched either as a function
+call (no fork — same process, same variable scope minus `local`s) or by
+`exec`ing a separate script file for that subcommand (a real process
+replacement, useful for plugin-style tools that want independent
+subprocesses).
+
+`getopts` maintains its scanning position across calls in the `OPTIND`
+variable specifically because option parsing has to be resumable — each
+invocation of `getopts` inside its `while` loop picks up exactly where the
+last one left off in `$@`, which is internal state bash tracks per-shell
+(not per-call), which is why forgetting to reset `OPTIND` when reusing
+`getopts` across multiple argument-parsing passes in the same shell session
+is a classic bug.
+
+Error handling that exits with distinct codes per failure type works
+because, as covered earlier, the kernel only ever sees an 8-bit integer at
+process exit — a CLI tool's "exit code contract" with its callers (scripts,
+CI systems, other tools) is entirely a userspace convention layered on top
+of that one raw integer, with no enforcement beyond documentation and
+discipline.
+
+
 ## Stretch goals
 
 - Add a `taskctl edit <id> <new description>` subcommand.

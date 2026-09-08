@@ -142,6 +142,32 @@ echo "starting with DEPLOY_ENV=$DEPLOY_ENV"
 *name* is stored in `var_name`, which is how you can validate an arbitrary
 list of required env vars in a loop.
 
+## How It Actually Works
+
+The environment is a flat block of `NAME=value\0` strings that the kernel
+copies into a new process's address space as part of `execve(2)` — every
+`export`ed variable in your shell gets serialized into this block at the
+moment you launch a child, and the child receives its own private copy, not
+a live link back to the parent. Setting `export FOO=bar` after a child has
+already started never affects that already-running child; it only affects
+processes forked *afterward*.
+
+Startup files (`.bashrc`, `.bash_profile`, `.profile`) are read according to
+rules baked into bash itself based on how it was invoked: a *login* shell
+reads `.bash_profile` (falling back to `.profile`), while a plain
+*interactive, non-login* shell reads `.bashrc` — bash decides which mode it's
+in by checking how `argv[0]` was set and whether `-l`/`--login` was passed,
+which is why the exact same terminal emulator can source different files
+depending on whether it launches bash as a login shell or not.
+
+`.bashrc` deliberately does **not** run for non-interactive shells (like
+scripts, or the shell cron spawns), because bash checks whether its stdin
+is attached to a terminal (an interactive check) before sourcing it — this
+is precisely why exporting a variable only in `.bashrc` "disappears" for
+cron jobs or scripts, and why config meant for scripts belongs in something
+explicitly sourced or in `/etc/environment`-style files instead.
+
+
 ## Cheat sheet
 
 | Concept | Detail |

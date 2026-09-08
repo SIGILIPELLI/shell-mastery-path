@@ -123,6 +123,30 @@ The second form avoids the word-splitting pitfalls of `for x in $(...)` when
 values can contain spaces — prefer `while read` for anything beyond simple,
 space-free tokens.
 
+## How It Actually Works
+
+`for x in a b c; do ... done` is not a numeric loop under the hood — bash
+first performs word expansion (and if unquoted, word splitting and
+globbing) on the list after `in`, materializing it into a fixed array of
+words *before* the loop body ever runs once. That's why `for f in *.txt`
+works even for filenames containing spaces if quoted, but breaks silently on
+an unquoted glob that matches nothing (it expands to the literal string
+`*.txt` unless `nullglob` is set) — the expansion is a one-time, static
+step, not re-evaluated per iteration.
+
+`while` and `until` instead re-run their condition command as a real
+subprocess (or builtin test) on every pass, forking a fresh process for
+external test commands each time — which is why a tight `while` loop that
+shells out per iteration is measurably slower than one using builtins.
+
+`break` and `continue` are implemented as non-local control transfers inside
+the bash interpreter itself: they don't send a signal or unwind via the
+kernel, they simply make the interpreter's execution loop jump to the point
+just after (or back to the top of) the enclosing loop structure it's
+currently tracking on an internal loop-nesting stack, which is also why
+`break 2` can escape multiple nested loop levels in one call.
+
+
 ## Cheat sheet
 
 | Loop | Runs while... |

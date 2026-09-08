@@ -109,6 +109,33 @@ echo "On $current_date there are $file_count files here"
 — the modern, nestable replacement for the older backtick syntax
 `` `command` ``.
 
+## How It Actually Works
+
+A pipe (`cmd1 | cmd2`) is built on the `pipe(2)` syscall, which gives the
+shell a pair of connected file descriptors — one for writing, one for
+reading — backed by a fixed-size kernel buffer (commonly 64KB on Linux). The
+shell `fork()`s once per pipeline stage, and in each child rewires file
+descriptor 1 (stdout) or 0 (stdin) onto the pipe's ends via `dup2(2)` before
+`exec`ing the command. All stages then run **concurrently**, not
+sequentially — `cmd1` blocks on `write()` once the kernel buffer fills, and
+`cmd2` blocks on `read()` when the buffer is empty, so the pipeline behaves
+like a bounded producer/consumer queue with the kernel doing the scheduling.
+
+Redirection (`>`, `>>`, `<`, `2>&1`) works by manipulating file descriptors
+*before* `exec`: `>` opens the target file (truncating it, `O_TRUNC`) and
+`dup2`s it onto fd 1; `2>&1` duplicates whatever fd 1 currently points to
+onto fd 2, which is why the *order* of redirections matters — `cmd > f 2>&1`
+sends both to `f`, but `cmd 2>&1 > f` sends stderr to the terminal (fd 2
+still pointed at fd 1's *old* target when the duplication happened) and only
+stdout to `f`.
+
+Command substitution `$(cmd)` also uses a pipe internally: bash forks a
+subshell, redirects its stdout into the write end of an internal pipe, reads
+everything from the other end into a buffer, and — critically — strips
+trailing newlines from the captured string before substituting it into the
+command line.
+
+
 ## Cheat sheet
 
 | Syntax | Meaning |

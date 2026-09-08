@@ -149,6 +149,31 @@ echo "resuming, var was: $suspect_var"
 echo "DEBUG: count=$count, status=$status" >&2
 ```
 
+## How It Actually Works
+
+`set -x` (xtrace) doesn't just print your source lines — it has bash
+reconstruct each command from its internal parsed representation *after*
+all expansions have happened, then print that reconstruction to stderr
+prefixed with `$PS4` (default `+`), immediately before actually executing
+it. That's why `set -x` output shows you the expanded values (actual
+filenames after globbing, actual variable contents) rather than the literal
+source text — it's tracing the interpreter's execution, not echoing the
+script file.
+
+`bash -n` performs a **syntax-only parse**: it runs the same parser bash
+always uses to build its internal command tree, checks the tree is
+well-formed, and then throws it away without executing a single command —
+which is why it catches mismatched quotes or missing `fi`/`done` but can
+never catch a runtime error like calling an undefined command, since that
+depends on execution, not parsing.
+
+`PS4` with `${BASH_SOURCE}:${LINENO}` works because bash tracks source
+file and line number as live internal state as it executes, updating them
+before every command — the debugger doesn't need to instrument your
+script; it just reads variables bash was already maintaining as part of
+normal interpretation.
+
+
 ## Cheat sheet
 
 | Tool | Purpose |

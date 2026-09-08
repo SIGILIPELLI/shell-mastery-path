@@ -247,6 +247,33 @@ bats log_monitor.bats
 | 08 Environment config | `REPORT_DIR` overridable via environment variable |
 | 09 Testing | the full `log_monitor.bats` suite |
 
+## How It Actually Works
+
+`tail -f` doesn't poll by re-reading the whole file — it keeps the file
+open, remembers its current byte offset, and (on Linux) typically uses
+`inotify(7)` to be woken by the kernel the instant new bytes are appended,
+then reads only the newly written region starting from its saved offset.
+This is also why `tail -f` can get "stuck" if a log is rotated by
+delete-and-recreate rather than truncate-in-place: the inode it's watching
+is gone, so it keeps watching a now-orphaned file with no new writers,
+unless you use `tail -F` which additionally watches for the filename to
+reappear.
+
+Piping `tail -f logfile | grep ERROR` sets up the same producer/consumer
+kernel pipe described elsewhere, but with a subtlety: many tools, `grep`
+included, switch to fully block-buffered stdout when their output isn't a
+terminal (i.e., when it's a pipe), meaning `grep` might hold matched lines
+in an internal buffer rather than flushing them immediately — this is why
+real-time log monitors often need `grep --line-buffered` to force a flush
+after every matched line instead of waiting for the buffer to fill.
+
+The locking/cron mechanics from earlier in this course apply directly to a
+long-running monitor script too — if it's meant to run continuously rather
+than periodically, a `trap ... EXIT` handler is what guarantees the lock
+file or watch state gets cleaned up even if the process is stopped with
+`Ctrl-C` or a `SIGTERM` from the process manager.
+
+
 ## Stretch goals
 
 - Add a `--since <timestamp>` flag to only scan lines newer than a given

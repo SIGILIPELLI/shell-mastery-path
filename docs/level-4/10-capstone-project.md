@@ -461,6 +461,41 @@ sudo mkdir -p "$DEPLOY_ROOT" && sudo chown "$USER" "$DEPLOY_ROOT"
 | Level 3 — `sed`/`awk` one-liners, CI shell steps, security basics | `sed 's/^/  - /'` in `cmd_status`, `.github/workflows/ci.yml` |
 | Level 4 — CLI subcommands, structured logging, security hardening, jq pipelines | the whole tool: `lib/logging.sh`, `notify_webhook`, `cmd_logs`'s `jq -c` |
 
+## How It Actually Works
+
+This capstone pulls together nearly every mechanism covered across all four
+levels into one running program: argument parsing populates positional
+parameters at process start; subcommand dispatch resolves a string to a
+function or external command through bash's normal command-lookup order
+(function, builtin, then `$PATH` search); any spawned helper processes
+communicate through kernel pipes exactly as described in the pipes and
+parallelism modules, with the kernel — not bash — actually scheduling
+concurrent stages; and structured error handling ultimately still boils
+down to the same single 8-bit exit-status integer every process in this
+course has reported since Level 1.
+
+Where the capstone differs from smaller scripts is in how much *state*
+persists across the tool's lifetime: because each subcommand invocation is
+typically a fresh process (unless implemented as an in-process function),
+anything meant to survive between invocations — config, cached data,
+lock files — has to be explicitly written to and read back from disk, using
+exactly the atomic-rename and lock-file patterns covered in the production-
+scripts and scheduling modules; there is no shared memory or persistent
+interpreter state between separate runs of a shell script, unlike a
+long-lived server process in another language.
+
+Performance and robustness at this scale come down to the same trade-off
+surfaced throughout the course: every external command is a real
+`fork()`+`execve()` with measurable kernel overhead, so a well-built CLI
+tool deliberately minimizes how many of its hot-path operations leave the
+current bash process, reserving actual subprocess calls for operations
+bash genuinely cannot do internally (network I/O, complex text
+transformation, calling other installed tools) — the entire arc of this
+course, from `#!/usr/bin/env bash` on line one of Level 1 through this
+final project, is really about knowing exactly when that trade-off is
+worth making.
+
+
 ## Stretch goals
 
 - Add a `deploy-tool diff` subcommand that shows what changed between the

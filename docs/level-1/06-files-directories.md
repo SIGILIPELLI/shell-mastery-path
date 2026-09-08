@@ -113,6 +113,33 @@ done
 only fully safe way to handle filenames that might contain spaces, or even
 newlines.
 
+## How It Actually Works
+
+Every filesystem operation here maps to a specific syscall: `mkdir` calls
+`mkdir(2)`, `touch` calls `open(2)` with `O_CREAT` (or `utimensat(2)` if the
+file already exists), `cp` is `open`+`read`+`write` in a loop (or a
+copy-accelerating call like `copy_file_range` on Linux), and `mv` tries
+`rename(2)` first — which is why moving a file within the same filesystem is
+nearly instant (it just repoints a directory entry to the same inode) while
+moving across filesystems silently falls back to a full copy-then-delete,
+because `rename(2)` can't relink inodes across separate filesystem devices.
+
+A directory entry isn't the file — it's a name-to-inode mapping. `rm` doesn't
+erase data; it calls `unlink(2)`, which removes that name-to-inode link and
+decrements the inode's link count. The underlying blocks are only freed once
+the link count *and* the count of processes with the file still open both
+hit zero — which is exactly why a program can keep writing to a log file
+after you `rm` it: the inode survives until every open file descriptor
+referencing it is closed.
+
+Globbing (`*.txt`) is expanded entirely by the shell before the command ever
+runs — `rm *.txt` never passes the string `*.txt` to `rm`; bash reads the
+current directory via `readdir(2)`-style enumeration, matches names against
+the pattern, and hands `rm` a fully expanded argument list. If nothing
+matches, the literal pattern is passed through unchanged unless `nullglob`
+or `failglob` is set — a classic source of "no such file" surprises.
+
+
 ## Exercise
 
 Write `organize.sh` that creates a directory called `sorted/`, then loops

@@ -184,6 +184,34 @@ exit 1   # generic failure
 exit 2   # usage error (bad arguments) — a common convention
 ```
 
+## How It Actually Works
+
+Standard streams are not shell concepts, they're kernel bookkeeping: every
+process starts life with file descriptors 0, 1, and 2 already open (stdin,
+stdout, stderr), inherited from whatever `fork()`'d it, pointing at
+whatever the parent had them pointed at — a terminal device, a pipe, or a
+regular file. A well-behaved CLI tool writing normal output to fd 1 and
+diagnostics to fd 2 is purely a *convention*, but it's one the kernel and
+shell both silently support: it's the reason `tool 2>/dev/null` can discard
+just error chatter without touching real output, because the two streams
+are genuinely separate descriptors, not a single stream tagged by severity.
+
+Exit codes as a structured contract (0 = success, distinct nonzero values
+per failure category) work precisely because, as covered elsewhere, that's
+literally all the kernel preserves across `wait()` — a single 8-bit integer
+— so any richer error information a well-designed CLI wants to convey has
+to either be encoded into that narrow range, printed to stderr as text, or
+written to a separate structured-output stream (like `--json` output on
+stdout) for the calling script to parse.
+
+Detecting whether output is going to a terminal (to decide on color/progress
+bars) is done via `isatty(3)`/`[ -t 1 ]`, which asks the kernel directly
+whether a given file descriptor refers to a TTY device — this is how tools
+know to suppress ANSI color codes automatically the moment their output is
+redirected into a pipe or file, since a regular file or pipe fails that
+check.
+
+
 ## Cheat sheet
 
 | Pattern | Purpose |

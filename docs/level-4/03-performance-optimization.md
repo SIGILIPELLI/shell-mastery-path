@@ -179,6 +179,34 @@ benchmark "loop+wc"  bash -c 'for f in *.log; do wc -l < "$f"; done'
 benchmark "single-awk" awk '{c++} END{print c}' *.log
 ```
 
+## How It Actually Works
+
+The single biggest performance lever in shell scripting is avoiding
+unnecessary `fork()`+`execve()` pairs: every external command invocation
+(a `sed`, `awk`, `grep`, or even `[` if it's not bash's `[[` builtin) costs
+kernel time to duplicate the process's page tables, set up a new memory
+image, and load a fresh binary — on the order of hundreds of microseconds
+to low milliseconds depending on the system — which is trivial once but
+adds up dramatically inside a tight loop executed thousands of times,
+compared to bash's built-in parameter expansion or arithmetic evaluation,
+which never leaves the current process at all.
+
+`$(...)` command substitution is exactly the same fork cost paid again for
+capturing output, which is why replacing `x=$(echo "$y" | tr 'a-z' 'A-Z')`
+in a loop with the builtin `${y^^}` (bash 4+ case conversion) can turn N
+loop iterations from N pairs of forked processes into zero.
+
+Benchmarking with `time` reports three numbers because the kernel tracks
+CPU time and wall-clock time separately per process: `real` is wall-clock
+elapsed time (includes time blocked on I/O or waiting for other processes),
+`user` is CPU time spent executing in the process's own userspace code, and
+`sys` is CPU time spent inside kernel code on that process's behalf (syscalls
+like `read`, `write`, `fork`) — a script dominated by forking many small
+processes typically shows disproportionately high `sys` time relative to
+`user`, which is itself a diagnostic clue pointing at process-creation
+overhead as the bottleneck.
+
+
 ## Cheat sheet
 
 | Slow pattern | Fast alternative |

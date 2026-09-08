@@ -165,6 +165,34 @@ fi
 This is useful in shared library scripts (`source`d from `.bashrc` and
 `.zshrc` alike) that need to branch on shell-specific syntax.
 
+## How It Actually Works
+
+Detecting which shell you're running under (`$BASH_VERSION` vs `$ZSH_VERSION`
+vs POSIX `sh`) works because each shell implementation sets its own
+distinguishing internal variables at startup as part of populating its
+variable table — there's no universal, portable "which shell am I" API;
+scripts probe for these shell-specific fingerprints because the shells
+themselves don't agree on a common introspection mechanism.
+
+`#!/bin/sh` is especially tricky because `/bin/sh` is frequently a symlink
+to a *different* binary depending on the OS — dash on Debian/Ubuntu, bash
+running in POSIX-compatibility mode on macOS/RHEL, or even a genuine minimal
+sh — and the kernel's `execve()` shebang resolution doesn't care what's
+behind that symlink, it just execs whatever `/bin/sh` currently points at.
+This is precisely why arrays, `[[ ]]`, and `local` (all bash extensions, not
+POSIX) can silently parse differently or error out depending purely on
+which physical binary that symlink resolves to on a given machine, with
+zero warning at write time.
+
+Word splitting, glob behavior, and even `[ ]` test operator support differ
+subtly between POSIX-mode shells because each interpreter has its own
+independent parser and expansion engine implementing the POSIX shell
+grammar — they're separate codebases aiming at the same specification, not
+one engine with compatibility flags, so edge cases in expansion order or
+undefined-behavior corners of the spec are where the actual divergence
+between bash, dash, and zsh shows up.
+
+
 ## Cheat sheet
 
 | Feature | POSIX `sh` | bash | zsh (default opts) |

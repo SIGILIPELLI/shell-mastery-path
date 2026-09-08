@@ -135,6 +135,34 @@ awk '{ count[$9]++ } END { for (code in count) print code, count[code] }' access
 awk -F, '{ sum += $2; n++ } END { if (n > 0) print "average:", sum/n }' data.csv
 ```
 
+## How It Actually Works
+
+`sed` is a **stream editor** implemented as a single-pass state machine: it
+reads one line into a buffer called the *pattern space*, applies every
+script command in order to that buffer, prints the result (unless `-n`
+suppresses it), then discards the pattern space and reads the next line —
+it never holds the whole file in memory unless you explicitly append lines
+into the separate *hold space* to defer output. This is why sed can stream-
+edit files far larger than available RAM, and why commands that need
+cross-line context (like matching a pattern across two lines) require
+manually shuttling data into the hold space with `h`/`H`/`g`/`G`.
+
+`awk` structures a program as a loop over **records** (default: lines) split
+into **fields** (default: split on runs of whitespace, controlled by `FS`);
+internally it re-splits `$0` into the `$1..$NF` array every time a new
+record is read, and reassembling `$0` from the fields happens lazily,
+recomputed with `OFS` as the separator only when something forces it (like
+assigning to a field or `$0` itself) — which is why changing `OFS` alone,
+without touching any field, doesn't retroactively change already-printed
+output.
+
+Both tools compile their pattern/action scripts once at startup into an
+internal representation before processing begins, which is why a `BEGIN`
+block runs exactly once, before any record is read, and `END` runs exactly
+once after the input stream hits EOF — they're structurally distinct from
+the main per-record loop, not just a stylistic convention.
+
+
 ## Cheat sheet
 
 | Command | Purpose |

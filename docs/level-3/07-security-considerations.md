@@ -137,6 +137,38 @@ tracing, error messages, or logs don't accidentally leak a token or
 password — Level 4's "Security Hardening" module goes further into secrets
 management for production systems.
 
+## How It Actually Works
+
+Command injection is possible because bash's parser doesn't distinguish
+"data" from "code" at the string level — if untrusted input reaches a
+context where the parser performs word splitting, globbing, or (worse)
+where it's interpolated into a string later passed to `eval` or a `-c`
+invocation of another shell, the parser will happily treat metacharacters
+like `;`, `|`, `` ` ``, or `$(...)` in that input as syntax to execute, not
+literal text. Quoting a variable (`"$input"`) defeats this specifically
+because double quotes suppress the word-splitting and globbing expansion
+passes — but they do *not* suppress command or parameter substitution, so
+`"$( $input )"`-style constructs can still be dangerous depending on
+exactly which expansion touches the untrusted string.
+
+Handling secrets safely comes down to which storage layer a value passes
+through: an environment variable is visible to every process that can read
+`/proc/<pid>/environ` for its own children (and, depending on OS
+permissions, sometimes to other users), while a value only ever read from a
+file with restrictive permissions (`chmod 600`) and piped directly into a
+program's stdin never touches the process table or environment block at
+all — this is why `--password-stdin`-style flags exist on many CLI tools,
+specifically to avoid a secret ever appearing in `ps aux` output (which
+shows a process's `argv`, readable by other users on many systems) or in
+the environment block.
+
+`set -x` tracing and shell history files are both security-relevant for the
+same reason: both persistently record the *expanded* command line,
+meaning a secret interpolated into a command's arguments can end up
+readable in a debug log or `~/.bash_history` even if it was never written
+to a file on purpose.
+
+
 ## Cheat sheet
 
 | Risk | Mitigation |

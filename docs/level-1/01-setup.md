@@ -110,6 +110,30 @@ chmod +x greet.sh
 backslash escaping so backslashes in the input are kept literally — almost
 always what you want.
 
+## How It Actually Works
+
+When you run `./script.sh`, the kernel doesn't magically know it's a shell
+script. It reads the first two bytes of the file looking for a `#!` (the
+"shebang" magic number). If it finds one, it takes the rest of that first
+line — `/usr/bin/env bash` — as the interpreter, and re-executes the file as
+`interpreter path/to/script.sh` via the `execve()` system call. Without a
+shebang (or without the execute bit set via `chmod +x`), the kernel refuses
+to run the file directly and you'd have to invoke `bash script.sh` yourself.
+
+`#!/usr/bin/env bash` vs `#!/bin/bash` matters because `env` performs a
+`$PATH` search for `bash` at run time, so the script follows whichever bash
+a user has installed (useful on machines where bash lives outside
+`/bin`), while a hardcoded `#!/bin/bash` always uses that exact binary.
+
+When you type a command at an interactive prompt, the shell itself doesn't
+"run" anything for builtins like `cd` or `echo` — those execute inside the
+shell's own process. For an external command like `ls`, the shell calls
+`fork()` to clone itself (a near-instant copy-on-write duplicate of its
+memory pages), then the child calls `execve()` to replace its own process
+image with the `ls` binary, and the parent shell calls `wait()` to block
+until that child exits and reports an exit status back through `$?`.
+
+
 ## Cheat sheet
 
 | Command | Purpose |

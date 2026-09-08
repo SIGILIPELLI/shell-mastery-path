@@ -117,6 +117,36 @@ awk -F, 'NR==1 { split($0, h, ","); next }
 jq -r '(.[0] | keys_unsorted) as $keys | $keys, (.[] | [.[$keys[]]]) | @csv' data.json
 ```
 
+## How It Actually Works
+
+Converting between CSV and JSON with `jq` highlights a fundamental
+difference from the line-oriented tools (`sed`/`awk`/`grep`) used
+elsewhere in this course: `jq` must parse its entire input into an
+in-memory abstract syntax tree representing the full JSON document
+structure before it can evaluate a filter against it, because JSON values
+can nest arbitrarily and a filter like `.[] | .name` needs the complete
+structure to know where object boundaries are — this is why `jq` isn't
+naturally streaming the way `grep` is, and why `jq`'s `--stream` mode
+(which does support incremental processing) has to represent the input as
+a flat sequence of path/leaf-value events instead of the friendlier nested
+filter syntax.
+
+Chaining `jq` in a pipeline with `sed`/`awk` still uses the same kernel
+pipe mechanism as any other pipeline stage — the difference is purely in
+each tool's *internal* buffering model (line-oriented and streaming for
+`sed`/`awk`, whole-document for plain `jq`), which is why a `jq` stage in
+an otherwise-streaming pipeline can introduce a full stop-and-wait point:
+nothing downstream sees any output until `jq` has consumed its entire
+input and finished evaluating.
+
+Multi-stage text pipelines that mix formats (CSV → TSV → JSON) are, at the
+OS level, indistinguishable from any other pipeline — the kernel just
+moves undifferentiated bytes through pipe buffers; all the "format"
+awareness lives entirely in each tool's own parsing logic, which is why a
+subtly malformed delimiter (an unescaped comma inside a CSV field) breaks
+downstream tools with no signal from the kernel that anything went wrong.
+
+
 ## Cheat sheet
 
 | Tool | Best for |

@@ -119,6 +119,41 @@ Without `nohup`, a background job normally receives `SIGHUP` and dies when
 its parent terminal closes — `nohup` (and redirecting its I/O) is the
 standard way to launch something that should outlive your session.
 
+## How It Actually Works
+
+Every process the kernel schedules carries a **process ID (PID)** and,
+crucially here, a **process group ID (PGID)**. When you run `cmd &`, bash
+forks a child, and depending on job control settings, that child (and any
+processes it itself forks) is placed in its own process group separate from
+the interactive shell's foreground group. This is the actual mechanism
+behind foreground/background: the terminal driver only delivers keyboard
+signals like `Ctrl-C` (`SIGINT`) to whichever process group currently "owns"
+the terminal (tracked via `tcsetpgrp(3)`) — a background job's group simply
+isn't listening.
+
+`jobs` reads bash's own internal job table, a list the shell maintains of
+PIDs/PGIDs it personally forked and is tracking — it has no visibility into
+processes started by other shells or sessions. `ps`, by contrast, walks
+`/proc` (on Linux) or queries the kernel's process table directly, which is
+why it sees every process on the system regardless of which shell spawned
+it.
+
+`kill -9` (`SIGKILL`) and `kill -15` (`SIGTERM`, the default) both just call
+the `kill(2)` syscall to deliver a signal number to a PID — the difference
+is entirely in the kernel: `SIGTERM` is delivered to the process for its own
+handler to catch and clean up after, while `SIGKILL` is special-cased by the
+kernel to never be delivered to userspace at all — the kernel tears the
+process down unconditionally, which is why a stuck process can ignore `-15`
+but never `-9`.
+
+`nohup` works by having the process ignore `SIGHUP` (the signal the kernel
+sends to every process in a terminal's session when that terminal closes),
+while `disown` instead removes the job from *bash's own tracking table* so
+the shell won't try to signal it — they solve the same "survive terminal
+close" problem at two different layers, one via a signal disposition, one
+via bash's internal bookkeeping.
+
+
 ## Cheat sheet
 
 | Command | Purpose |

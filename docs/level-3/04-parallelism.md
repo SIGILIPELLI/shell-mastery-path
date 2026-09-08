@@ -139,6 +139,35 @@ variable in the parent shell) are a classic source of subtle, hard-to-
 reproduce bugs — give each parallel worker its own output, and merge
 afterward.
 
+## How It Actually Works
+
+Backgrounding several jobs with `&` and collecting them with `wait` relies
+on the kernel's process scheduler doing real preemptive multitasking across
+however many CPU cores are available — each `&` forks an independent
+process with its own PID, and the kernel is free to run them
+simultaneously on separate cores (true parallelism) or time-slice them on
+one core (concurrency without parallelism); bash itself doesn't schedule
+anything, it just tracks the PIDs in its job table and calls
+`waitpid()` on each in turn (or all outstanding children, for a bare
+`wait`).
+
+`xargs -P N` and GNU `parallel` maintain a fixed-size pool of forked worker
+slots: each reads one chunk of input, forks a child to process it, and as
+soon as any child exits (detected via `waitpid()` in a loop), immediately
+forks a replacement to keep exactly N processes in flight — this is a
+manual implementation of a worker-pool pattern that many higher-level
+languages provide as a library primitive.
+
+A key limitation this reveals: shell variables set inside a backgrounded
+subshell (or inside a pipeline stage, which also runs in a subshell) never
+propagate back to the parent shell, because each `&`'d command is a
+completely separate forked process with copy-on-write *private* memory —
+"copy-on-write" means the child conceptually gets its own copy of the
+parent's memory pages at fork time (physically shared and copied lazily
+only if written to), so mutations inside it are invisible to the parent no
+matter how quickly they happen.
+
+
 ## Cheat sheet
 
 | Command | Purpose |

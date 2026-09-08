@@ -123,6 +123,29 @@ If a job sometimes takes longer than its own interval (a 5-minute cron job
 that occasionally takes 6 minutes), this lock-file pattern prevents two
 copies from running at once and stepping on each other.
 
+## How It Actually Works
+
+`cron` is a long-running **daemon** process, entirely separate from any
+interactive shell — it wakes up roughly once a minute, re-reads crontab
+files if their mtimes changed, and for any job whose schedule matches the
+current time, it `fork()`s and `execve()`s a *new*, minimal, non-interactive
+shell to run that one command line. That new shell inherits almost none of
+your interactive environment: no `.bashrc`, a bare-bones `$PATH`, and no
+`$DISPLAY` or other session variables — which is the actual root cause of
+"works when I run it myself, fails under cron," not a cron bug.
+
+A file lock pattern using `mkdir` (or `flock`) for "avoid overlapping runs"
+works because `mkdir(2)` is atomic at the kernel/filesystem level — the
+kernel guarantees that if two processes race to create the same directory
+name simultaneously, exactly one `mkdir` call succeeds and the other gets
+`EEXIST`, with no possibility of both seeing "doesn't exist yet." `flock(2)`
+achieves the same guarantee more directly via an advisory lock the kernel
+tracks per open file descriptor, released automatically if the holding
+process dies — which is why `flock`-based locks self-heal after a crash
+while a bare `mkdir` lock file can be left stale and needs manual or
+timestamp-based cleanup.
+
+
 ## Cheat sheet
 
 | Command | Purpose |

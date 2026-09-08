@@ -143,6 +143,35 @@ A small `die` helper like this keeps error paths short and readable, and
 sends the message to stderr where it belongs (not stdout, which might be
 piped into something else).
 
+## How It Actually Works
+
+Every process, on exit, reports a single 8-bit integer (0–255) back to its
+parent through the `_exit(2)`/`exit(2)` syscall's status argument. The
+parent shell retrieves it with `wait()`/`waitpid()` and bash stores it in the
+special variable `$?`. Because it's only 8 bits, exit codes wrap
+modulo 256 — a script that does `exit 256` actually reports `0`, and
+`exit -1` reports `255`; this is a hardware/kernel limit inherited from the
+Unix process model, not a bash quirk.
+
+`set -e` (`errexit`) changes bash's own control flow: after each simple
+command completes, bash checks its exit status and, if nonzero, immediately
+terminates the shell — but only for commands where bash considers the
+failure "unhandled." Commands that are already part of an `if`/`while`
+condition, the left side of `&&`/`||`, or preceded by `!` are exempt,
+because their exit status is being deliberately tested rather than ignored.
+This is also why `cmd1 | cmd2` under plain `set -e` doesn't stop the script
+if `cmd1` fails but `cmd2` succeeds — the pipeline's reported status is
+`cmd2`'s exit code unless `set -o pipefail` is also enabled, which changes
+bash's internal pipeline-status calculation to return the last *nonzero*
+status among all stages (or 0 if all succeeded).
+
+`trap ... EXIT` registers a handler in bash's internal signal/event table
+that fires when the shell's own exit sequence begins, regardless of whether
+it got there via a normal fall-through, an explicit `exit`, or `set -e`
+aborting — because all three paths funnel through the same internal
+"shell is exiting now" hook before the process finally calls `_exit(2)`.
+
+
 ## Cheat sheet
 
 | Construct | Purpose |

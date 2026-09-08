@@ -147,6 +147,29 @@ require_args "Ada"          # prints usage to stderr, returns 1
 require_args "Ada" 30       # Ada is 30 years old
 ```
 
+## How It Actually Works
+
+A shell function is not a subprocess — calling `greet "Ada"` does **not**
+fork. Bash just pushes a new entry onto its internal call stack, temporarily
+rebinds the positional parameters (`$1`, `$2`, `$#`, `$@`) to the function's
+own arguments, executes the function body's commands directly in the
+*current* shell process, and then restores the caller's positional
+parameters when the function returns. This is why a function can `cd` or set
+a variable that persists after it returns (unless you explicitly `local`
+it), unlike a script you call as a separate command, which runs in its own
+forked/exec'd process and can never affect the parent shell's variables.
+
+`local` allocates the variable in a scope frame tied to that specific
+function-call stack entry; when the function returns, bash pops the frame
+and any `local` bindings simply disappear, while unmarked assignments write
+directly into the shell's single global variable table.
+
+`return` sets the function's exit status (`$?`) the same way a process exit
+does, but it's purely an internal stack-unwind signal understood by the bash
+interpreter — no `wait()` syscall is involved because no child process was
+ever created.
+
+
 ## Cheat sheet
 
 | Symbol | Meaning inside a function |

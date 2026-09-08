@@ -145,6 +145,27 @@ mkdir -p /tmp/mydir || echo "could not create directory"
 `&&` runs the right side only if the left side succeeded; `||` runs the right
 side only if the left side failed. This is covered more in Module 7.
 
+## How It Actually Works
+
+`if`, `[[ ]]`, and `[ ]` all ultimately reduce to one thing bash cares about:
+an **exit status**. `if command; then` doesn't evaluate a boolean — it runs
+`command` as a real child process (or builtin), waits for it, and checks
+whether the integer exit status stored in `$?` is exactly `0` (success) or
+nonzero (failure). `[[ $age -lt 13 ]]` looks like syntax but `[[` is a shell
+keyword handled entirely inside bash's parser (no fork needed), while the
+older `[ $age -lt 13 ]` is literally a command named `[` (an alias for
+`test`) that gets forked and exec'd like any external program on systems
+where it isn't a builtin — that's also why `[ ]` needs the closing `]` as a
+literal final argument.
+
+`elif` is just sugar for a nested `else if`; the parser builds a single
+compound command internally. `&&` and `||` are short-circuit control
+operators evaluated left to right at parse time into a pipeline list — bash
+only executes the right-hand command if the left-hand one's exit status
+makes it necessary, so `mkdir dir && cd dir` skips the `cd` entirely if
+`mkdir` returns nonzero, without any explicit `if`.
+
+
 ## Exercise
 
 Write `check_age.sh` that reads an age from user input with `read -rp`, then

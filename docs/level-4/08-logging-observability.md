@@ -152,6 +152,35 @@ notify_failure() {
 trap 'log_error "script failed at line $LINENO"; notify_failure' ERR
 ```
 
+## How It Actually Works
+
+Structured logging (emitting JSON lines instead of free text) doesn't
+change anything about how the shell delivers output — it's still just
+bytes written to fd 1/2 and possibly piped or redirected — the entire
+value is in making the log line *parseable by downstream tools* like `jq`,
+turning what would otherwise require fragile regex-based `grep`/`awk`
+extraction into a structural query, because now a proper JSON parser (not
+just line-oriented pattern matching) can walk each entry.
+
+Buffering behavior directly affects how "real-time" observability actually
+is: as noted earlier, a process writing to a pipe (rather than an
+interactive terminal) typically switches its C library stdio layer from
+line-buffered to fully block-buffered — meaning log lines can sit in a
+user-space buffer for seconds before actually reaching the `write(2)`
+syscall, which is precisely why log-forwarding pipelines can appear to
+"lag" behind real events even though nothing is actually stuck at the
+kernel or network layer; the delay lives in unflushed userspace buffers
+inside the logging process itself.
+
+Alerting scripts that watch exit codes or `journalctl`/log output for
+failure patterns and then fire a notification are, mechanically, just
+another instance of the same signal-and-exit-status vocabulary from this
+whole course — a monitoring script forks a check, inspects `$?` or greps
+recent log output, and its "alert" action is itself just another forked
+process (curl to a webhook, `mail`, etc.), chained together with the exact
+same `&&`/`if` control-flow primitives used everywhere else in bash.
+
+
 ## Cheat sheet
 
 | Technique | Purpose |

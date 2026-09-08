@@ -147,6 +147,34 @@ wait "$worker_pid"
 echo "worker exited with status $?"
 ```
 
+## How It Actually Works
+
+A Unix signal is an asynchronous notification the kernel delivers to a
+process — not a message queued and read at the process's convenience, but
+an interrupt that (for a running process) causes the kernel to pause normal
+execution and invoke a registered handler, or apply a default action
+(terminate, dump core, stop, ignore) if none is registered. `trap 'cleanup'
+SIGINT` tells *bash itself* to register a handler; bash's internal signal
+disposition table is what actually receives the interrupt from the kernel,
+and bash then schedules your trap command to run — but only when bash is
+between commands (or at points it explicitly checks), which is why a trap
+can appear to be "delayed" until whatever foreground command bash is
+currently blocked on (via `wait()`) returns or is itself interrupted.
+
+`kill -l` enumerates signal numbers versus names because the kernel only
+ever deals in small integers (`SIGINT` = 2, `SIGTERM` = 15, `SIGKILL` = 9 on
+Linux/most Unix) — names are strictly a userspace convenience layer.
+
+`trap ... EXIT` is special-cased inside bash: it isn't a real kernel signal
+at all, it's a pseudo-signal bash fires from its own shutdown sequence
+right before the process actually calls `_exit(2)`, guaranteeing it runs on
+every exit path (normal fall-off, `exit`, or an actual fatal signal that
+bash catches and translates into a shutdown), whereas `SIGKILL` cannot be
+trapped by any process at all — the kernel deliberately never delivers it to
+userspace signal-handling code, tearing the process down at the kernel
+level instead.
+
+
 ## Cheat sheet
 
 | Construct | Purpose |

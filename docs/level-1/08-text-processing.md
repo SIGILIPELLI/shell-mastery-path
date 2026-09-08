@@ -106,6 +106,34 @@ awk '{ print $1 }' access.log | sort | uniq -c | sort -rn | head -5
 awk -F: '$3 >= 1000 { print $1 }' /etc/passwd | sort
 ```
 
+## How It Actually Works
+
+`grep`, `sort`, `cut`, and `wc` are separate executables, not shell
+builtins — each one you chain with `|` is its own `fork()`+`execve()`
+process reading a byte stream from stdin and writing one to stdout, which is
+why piping them together is fundamentally an assembly of small, independent
+kernel-scheduled processes rather than one program calling functions inside
+another.
+
+Most of these tools process input **line by line**, buffering only what
+they need — `grep` reads until it sees a newline byte, tests the line
+against its pattern, and moves on, which is why `grep` can search a
+multi-gigabyte file in bounded memory instead of loading it all at once.
+`sort`, by contrast, is not streaming: it must read the entire input before
+it can emit the first line of output, because any later line could sort
+before an earlier one; for inputs bigger than memory it spills sorted runs
+to temporary files and merges them (an external merge sort), which is also
+why sorting a huge file is slower and touches disk even when your data
+technically "fits."
+
+Word splitting on `$IFS` (used implicitly when you loop over unquoted
+command output) happens as a distinct expansion phase in bash — the shell
+scans the expanded string for characters in `$IFS` (default: space, tab,
+newline) and slices it into separate words *before* the loop body sees any
+of them, which is why an unquoted `$(cat file)` full of spaces can silently
+turn one intended line into several loop iterations.
+
+
 ## Cheat sheet
 
 | Tool | Job |

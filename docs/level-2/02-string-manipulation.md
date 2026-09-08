@@ -121,6 +121,32 @@ echo "$joined"     # 2026-07-18
 `"${parts[*]}"` (unlike `"${parts[@]}"`) joins elements using the first
 character of `IFS`, which is exactly what's needed here.
 
+## How It Actually Works
+
+Bash's built-in string operations (`${var#pattern}`, `${var%pattern}`,
+`${var/find/replace}`, `${var:offset:length}`) are all handled inside the
+bash parser itself as parameter expansion — no external process is forked,
+which is why using `${var#prefix}` is dramatically faster in a loop than
+piping through `sed` or `cut`, each of which requires a full `fork()` +
+`execve()` + process teardown per call.
+
+`#` and `##` (and `%`/`%%`) implement glob-style pattern matching, not
+regex — the single-character form removes the *shortest* match from the
+front/back, the doubled form removes the *longest*. Internally bash runs the
+same glob-matching engine used for pathname expansion against the string,
+just anchored to one end, which is why `*` inside these patterns behaves
+like a filename wildcard (matching any characters) rather than a regex
+quantifier.
+
+Substring extraction `${var:offset:length}` operates on bash's internal
+string representation. When bash is running in a UTF-8 locale, characters
+are still ultimately manipulated by byte-aware C library string functions
+under the hood, but bash's `LC_ALL`/`LC_CTYPE`-aware mode tracks multi-byte
+sequences so offsets are counted in characters rather than raw bytes —
+change the locale and the same script can slice a multi-byte string
+differently, because the counting rule bash applies changes with it.
+
+
 ## Cheat sheet
 
 | Expansion | Meaning |

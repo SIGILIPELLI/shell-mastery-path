@@ -129,6 +129,33 @@ grep "root" <<< "$(cat /etc/passwd)"     # from Level 1 — a single value as st
 it when you just need to feed one existing string/variable as stdin,
 reaching for `<<EOF` only when you need genuinely multi-line literal text.
 
+## How It Actually Works
+
+Process substitution `<(cmd)` is implemented, on Linux, using named FIFOs
+under `/dev/fd/` (or actual named pipes) — bash forks `cmd` with its stdout
+connected to one end of a pipe, and substitutes the *path* to the other end
+into your command line as if it were a real filename. The consuming command
+then just calls `open()`/`read()` on that path like any regular file, with
+no idea it's actually reading from a live process's pipe output — this is
+what lets tools that only accept filenames (like `diff`) compare two
+command outputs directly.
+
+A heredoc (`<<EOF ... EOF`) is handled entirely by bash at parse time: bash
+reads everything up to the terminator line, writes it into an anonymous
+temporary file (or an internal pipe, implementation-dependent) and connects
+that as the command's stdin — critically, if the delimiter is unquoted
+(`<<EOF`), bash performs the same parameter/command substitution on the
+heredoc body that it would on a double-quoted string, but if the delimiter
+is quoted (`<<'EOF'`), the body is passed through completely literally with
+zero expansion, which is the mechanism (not a special flag) behind heredocs
+that can safely contain `$` or backticks.
+
+A here-string (`<<< "text"`) skips the multi-line reading step entirely —
+bash just writes the expanded string plus a trailing newline into a
+temporary buffer and connects it as stdin, functionally a one-line
+shorthand for the heredoc machinery.
+
+
 ## Cheat sheet
 
 | Syntax | Meaning |

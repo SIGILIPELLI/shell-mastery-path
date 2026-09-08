@@ -145,6 +145,34 @@ Checking every assumption at the top of a function means the rest of the
 logic can trust its inputs completely — no defensive checks scattered
 everywhere else.
 
+## How It Actually Works
+
+`set -euo pipefail` at the top of a script changes three separate internal
+bash execution flags: `-e` makes the interpreter abort after any simple
+command's checked exit status is nonzero (with the caveats described
+elsewhere in this course around conditionals); `-u` makes referencing an
+unset variable a fatal error at expansion time — the parser normally
+silently substitutes an empty string for an unbound variable name, and `-u`
+turns that specific substitution path into an immediate error instead; and
+`pipefail` changes how bash computes the *single* exit status it reports for
+an entire `|` pipeline, from "just the last stage" to "the last stage with
+nonzero status, or zero if all succeeded."
+
+Quoting variables (`"$var"` vs `$var`) matters because of the fixed order of
+shell expansions: unquoted parameter expansion is followed by word
+splitting on `$IFS` and then pathname expansion (globbing) — quoting
+suppresses both of those later steps for that expansion, which is why
+`"$var"` reliably represents "one argument" while `$var` might silently
+become zero, one, or many arguments depending on its content and whatever
+files happen to exist in the current directory at that moment.
+
+Following best practices like `local` scoping and explicit `return` codes
+matters precisely because bash has almost no compile-time checking — nearly
+every one of these mistakes (unset variables, word splitting, global leaks
+from functions) is only caught, if at all, at the moment that exact code
+path executes.
+
+
 ## Cheat sheet
 
 | Practice | Why |

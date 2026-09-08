@@ -147,6 +147,30 @@ chmod +x backup.sh
 | 08 Text processing | `cut -f1`, `tail -n +6` |
 | 09 Exit codes & errors | `set -euo pipefail`, `trap ... EXIT`, `die` |
 
+## How It Actually Works
+
+This script's execution is a chain of `fork()`/`execve()` calls stitched
+together by the parent bash process: each external command (`tar`, `date`,
+`find`, `mkdir`) becomes a separate short-lived process, while `wait()`
+calls between them (implicit in sequential execution) make sure step *N*
+fully finishes — including all its buffered writes reaching disk via the
+kernel's file cache — before step *N+1* starts reading its output.
+
+`tar` streams file data through its own internal buffer as it walks the
+directory tree with `readdir(2)`/`stat(2)` calls; when combined with a
+compressor like `gzip` via a pipe, the two run concurrently exactly as
+described for pipelines elsewhere in this course — `tar` never waits for the
+whole archive to be built before compression starts, it's compressed in a
+continuous stream.
+
+Timestamped filenames built from `$(date +%F)` rely on command substitution:
+bash spawns `date` in a subshell, captures its stdout through an internal
+pipe, strips the trailing newline, and splices the result into the string
+being assigned — all of that happens once, at the moment the assignment
+line executes, so every reference to that variable later in the script uses
+the frozen value rather than re-invoking `date`.
+
+
 ## Stretch goals
 
 - Add a `--dry-run` flag that logs what *would* happen without creating an

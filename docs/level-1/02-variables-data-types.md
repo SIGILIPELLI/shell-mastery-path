@@ -119,6 +119,33 @@ echo "$greeting"
 echo "$PORT"
 ```
 
+## How It Actually Works
+
+Bash variables are stored in the shell's own process memory as a flat table
+of name/value string pairs — there's no int, float, or boolean type at the
+storage layer. `age=30` stores the two-character string `"30"`. Arithmetic
+contexts like `$(( ))`, `let`, and `[[ ... -lt ... ]]` don't change that
+storage; they just ask bash's arithmetic evaluator to parse the string as a
+number for the duration of that one expression, using base-10 by default
+(a leading `0` triggers octal, `0x` triggers hex).
+
+`export`ing a variable doesn't change how it's stored inside bash — it flags
+that name/value pair to be copied into the **environment block** that gets
+handed to every child process at `fork()`/`execve()` time. That's why a
+non-exported variable is invisible to a subshell script you invoke, and why
+each child gets its own private copy: environment variables are passed by
+value at process-creation time, not shared memory, so a child mutating its
+copy of `$PATH` never affects the parent shell.
+
+Parameter expansion (`${name}`, `${name:-default}`) happens during the
+shell's **word expansion** pass, which runs in a fixed order every time a
+command line is parsed: brace expansion, tilde expansion, parameter/variable
+expansion, arithmetic expansion, and command substitution all happen before
+word splitting and globbing. That's why quoting matters — expansions inside
+double quotes still happen, but the *result* is protected from the later
+word-splitting and pathname-expansion steps.
+
+
 ## Exercise
 
 Write `bmi.sh` that sets `weight_kg=70` and `height_m=1.75` as variables,

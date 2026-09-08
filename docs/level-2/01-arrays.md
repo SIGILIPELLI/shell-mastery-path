@@ -147,6 +147,33 @@ done | sort -t: -k2 -rn
 # ...
 ```
 
+## How It Actually Works
+
+Bash indexed arrays are not stored as contiguous memory like a C array —
+internally, bash keeps them as a sparse structure (effectively a linked list
+of index/value pairs), which is why you can do `arr[100]=x` on an otherwise
+empty array without allocating 100 slots, and why `${#arr[@]}` (the element
+*count*) can differ from one plus the highest index. Each element is itself
+stored as a string, same as scalar variables — there's no array of integers
+at the storage layer, only strings that get reinterpreted numerically in
+arithmetic context.
+
+`"${arr[@]}"` vs `"${arr[*]}"` differ in how they interact with word
+splitting: `"${arr[@]}"` expands to as many separate, individually-quoted
+words as there are elements (this is hardcoded special behavior for `@`
+inside double quotes, not a general word-splitting rule), while
+`"${arr[*]}"` joins every element into a single string using the first
+character of `$IFS` as glue. This is exactly why `for x in "${arr[@]}"`
+safely preserves elements containing spaces while `for x in ${arr[*]}` (or
+even quoted `*`) collapses them into one iteration.
+
+Associative arrays (`declare -A`) are backed by an actual hash table inside
+bash for O(1)-ish key lookup, distinct from indexed arrays' linked
+structure — which is also why associative arrays must be declared with
+`-A` before use: bash needs to know up front which internal data structure
+to allocate.
+
+
 ## Cheat sheet
 
 | Syntax | Meaning |
