@@ -1,5 +1,10 @@
 # 01 · Setup & First Script
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/vV8EGWxNfzo" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 ## Which shell?
 
 Almost every Linux distro and macOS ships with **Bash**. Check what you have:

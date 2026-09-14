@@ -1,5 +1,10 @@
 # 08 · Basic Text Processing
 
+## 🎥 Video walkthrough
+
+<iframe width="100%" height="400" style="max-width:720px;aspect-ratio:16/9;height:auto;" src="https://www.youtube.com/embed/EmUJ9evVB-A" title="Video walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 Four tools cover the vast majority of everyday shell text processing:
 `grep` (find lines), `cut` (extract columns), `sort` (order lines), and
 `sed`/`awk` (transform lines). This module introduces all of them; Level 3
