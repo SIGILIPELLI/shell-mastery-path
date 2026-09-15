@@ -165,6 +165,10 @@ differently, because the counting rule bash applies changes with it.
 | `${s:-default}` | use default if unset/empty |
 | `${s:=default}` | use AND assign default if unset/empty |
 
+## 🔀 See this in another language
+
+- [C — 03 · Multi-dimensional Arrays & String Manipulation](https://sigilipelli.github.io/c-mastery-path/level-2/03-multidim-arrays-strings/)
+
 ## Exercise
 
 Write `slugify.sh` that takes a string like `"$1"` (e.g. `"Hello, World! It's a Great Day"`),

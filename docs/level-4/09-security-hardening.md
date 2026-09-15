@@ -201,6 +201,10 @@ bytes reach a second parsing pass.
 | systemd sandboxing directives | defense in depth even if the script is compromised |
 | a hardening-check script in CI | catches regressions automatically, not just at review time |
 
+## 🔀 See this in another language
+
+- [PowerShell — 04 · Security Hardening (JEA)](https://sigilipelli.github.io/powershell-mastery-path/level-4/04-security-hardening-jea/)
+
 ## Exercise
 
 Run (or adapt) a hardening-check script like the one above against Level

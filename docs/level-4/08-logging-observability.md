@@ -197,6 +197,11 @@ same `&&`/`if` control-flow primitives used everywhere else in bash.
 | heartbeat file/ping | detect when a scheduled job silently stopped running |
 | `trap ... ERR` + webhook | alert immediately on failure |
 
+## 🔀 See this in another language
+
+- [PowerShell — 09 · Logging & Observability for Scripts](https://sigilipelli.github.io/powershell-mastery-path/level-4/09-logging-observability/)
+- [C# — 08 · Observability (logging, tracing)](https://sigilipelli.github.io/csharp-mastery-path/level-4/08-observability/)
+
 ## Exercise
 
 Add structured JSON logging with `debug`/`info`/`warn`/`error` levels and a

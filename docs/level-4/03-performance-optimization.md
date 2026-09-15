@@ -224,6 +224,12 @@ overhead as the bottleneck.
 | `for f in *; do rm "$f"; done` | `rm -- *` |
 | guessing about speed | `time cmd`, `TIMEFORMAT` |
 
+## 🔀 See this in another language
+
+- [TypeScript — 07 · Performance Optimization](https://sigilipelli.github.io/typescript-mastery-path/level-4/07-performance-optimization/)
+- [C — 03 · Performance Optimization & Profiling](https://sigilipelli.github.io/c-mastery-path/level-4/03-performance-profiling/)
+- [C# — 05 · Performance Profiling & Optimization](https://sigilipelli.github.io/csharp-mastery-path/level-4/05-performance-profiling/)
+
 ## Exercise
 
 Take a directory of at least 1,000 small text files and write two

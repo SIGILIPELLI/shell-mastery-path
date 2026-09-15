@@ -287,3 +287,7 @@ file or watch state gets cleaned up even if the process is stopped with
 - Support scanning multiple log files in one run and merging the summary.
 
 Completing this project means you're ready for **Level 3 · Advanced**.
+
+## 🔀 See this in another language
+
+- [PowerShell — 10 · Project — Log Monitoring Script](https://sigilipelli.github.io/powershell-mastery-path/level-2/10-project-log-monitoring/)

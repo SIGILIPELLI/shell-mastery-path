@@ -153,6 +153,12 @@ versa, even though both claim "extended regular expressions."
 | `a\|b` | alternation: a OR b |
 | `[[ $s =~ regex ]]` | match `$s` against `regex`, populate `BASH_REMATCH` |
 
+## 🔀 See this in another language
+
+- [Python — 06 · Regular Expressions](https://sigilipelli.github.io/python-mastery-path/level-2/06-regular-expressions/)
+- [JavaScript — 06 · Regular Expressions in JS](https://sigilipelli.github.io/javascript-mastery-path/level-2/06-regular-expressions/)
+- [PowerShell — 04 · Regular Expressions in PowerShell](https://sigilipelli.github.io/powershell-mastery-path/level-2/04-regular-expressions/)
+
 ## Exercise
 
 Write `validate_log.sh` that reads a log file line by line, uses `=~` with a
