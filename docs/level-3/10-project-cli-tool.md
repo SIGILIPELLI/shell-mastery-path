@@ -1,3 +1,7 @@
+---
+description: "Project — CLI Tool with Git Hook Integration — The Level 3 capstone: a multi-subcommand CLI tool, taskctl, that manages a plain-text task list — plus a…"
+---
+
 # 10 · Project — CLI Tool with Git Hook Integration
 
 The Level 3 capstone: a multi-subcommand CLI tool, `taskctl`, that manages a

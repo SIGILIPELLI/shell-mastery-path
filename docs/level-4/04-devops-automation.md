@@ -1,3 +1,7 @@
+---
+description: "DevOps Automation — Shell is the glue language of DevOps: it's what runs inside container entrypoints and what stitches together the steps of a CI/CD…"
+---
+
 # 04 · DevOps Automation
 
 Shell is the glue language of DevOps: it's what runs inside container

@@ -1,3 +1,7 @@
+---
+description: "Scheduling & Automation — Scripts are most useful when they run themselves. This module covers cron for recurring jobs and at for one-off scheduled jobs …"
+---
+
 # 07 · Scheduling & Automation
 
 Scripts are most useful when they run themselves. This module covers

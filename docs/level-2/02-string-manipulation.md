@@ -1,3 +1,7 @@
+---
+description: "String Manipulation — Bash's parameter expansion syntax (the ${var...} forms) does an enormous amount of string work — substrings, search-and-replace…"
+---
+
 # 02 · String Manipulation
 
 Bash's **parameter expansion** syntax (the `${var...}` forms) does an

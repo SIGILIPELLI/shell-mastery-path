@@ -1,3 +1,7 @@
+---
+description: "Loops — IFS= (empty) prevents leading/trailing whitespace from being stripped, and read -r prevents backslash escaping — together this is the safest way…"
+---
+
 # 04 · Loops
 
 ## 🎥 Video walkthrough
@@ -162,6 +166,12 @@ currently tracking on an internal loop-nesting stack, which is also why
 | `until [[ cond ]]; do ... done` | condition is false |
 | `break` | — exits the loop immediately |
 | `continue` | — skips to the next iteration |
+
+## 🔀 See this in another language
+
+- [PowerShell — Functions](https://sigilipelli.github.io/powershell-mastery-path/level-1/04-functions/)
+- [C++ — Functions & Overloading](https://sigilipelli.github.io/cpp-mastery-path/level-1/04-functions-overloading/)
+- [Swift — Functions](https://sigilipelli.github.io/swift-mastery-path/level-1/04-functions/)
 
 ## Exercise
 

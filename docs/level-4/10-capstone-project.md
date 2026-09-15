@@ -1,3 +1,7 @@
+---
+description: "Capstone Project — Deployment Automation Tool — This is the capstone for the entire Shell Mastery Path: deploy-tool, a production-style deployment…"
+---
+
 # 10 · Capstone Project — Deployment Automation Tool
 
 This is the capstone for the entire Shell Mastery Path: `deploy-tool`, a

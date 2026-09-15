@@ -1,3 +1,7 @@
+---
+description: "Pipes & Redirection — /dev/null is a special file that silently discards anything written to it — the standard way to suppress output you don't care about."
+---
+
 # 07 · Pipes & Redirection
 
 ## 🎥 Video walkthrough
@@ -154,6 +158,12 @@ command line.
 | `cmd1 \| cmd2` | pipe cmd1's stdout into cmd2's stdin |
 | `cmd \| tee file` | show output AND save it to file |
 | `$(cmd)` | capture a command's stdout as a string |
+
+## 🔀 See this in another language
+
+- [PowerShell — Working with Files](https://sigilipelli.github.io/powershell-mastery-path/level-1/07-working-with-files/)
+- [C++ — Classes & Objects Basics](https://sigilipelli.github.io/cpp-mastery-path/level-1/07-classes-objects/)
+- [Swift — Structs & Classes Basics](https://sigilipelli.github.io/swift-mastery-path/level-1/07-structs-classes/)
 
 ## Exercise
 

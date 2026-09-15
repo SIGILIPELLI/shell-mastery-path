@@ -1,3 +1,7 @@
+---
+description: "Arrays & Associative Arrays — Level 1 dealt only with single-value variables. Real scripts often need to hold a collection of things — a list of…"
+---
+
 # 01 · Arrays & Associative Arrays
 
 Level 1 dealt only with single-value variables. Real scripts often need to

@@ -1,3 +1,7 @@
+---
+description: "Scripting Best Practices — Writing a script that works is one thing; writing one that's safe, easy to read six months later, and doesn't silently…"
+---
+
 # 05 · Scripting Best Practices
 
 Writing a script that *works* is one thing; writing one that's safe, easy to

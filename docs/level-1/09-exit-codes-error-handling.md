@@ -1,3 +1,7 @@
+---
+description: "Exit Codes & Basic Error Handling — By convention, 0 means success and any non-zero value (1–255) means some kind of failure — the specific non-zero…"
+---
+
 # 09 · Exit Codes & Basic Error Handling
 
 ## 🎥 Video walkthrough
@@ -188,6 +192,12 @@ aborting — because all three paths funnel through the same internal
 | `set -o pipefail` | a pipeline fails if any stage fails |
 | `trap cmd EXIT` | run `cmd` when the script exits, always |
 | `cmd1 \|\| cmd2` | run cmd2 only if cmd1 fails |
+
+## 🔀 See this in another language
+
+- [PowerShell — Modules Basics](https://sigilipelli.github.io/powershell-mastery-path/level-1/09-modules-basics/)
+- [C++ — Exception Handling Basics](https://sigilipelli.github.io/cpp-mastery-path/level-1/09-exception-handling/)
+- [Swift — Closures Intro](https://sigilipelli.github.io/swift-mastery-path/level-1/09-closures-intro/)
 
 ## Exercise
 

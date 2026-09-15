@@ -1,3 +1,7 @@
+---
+description: "Working with Files & Directories — rm -rf is permanent and has no undo — always double-check the path (and consider set -e from Module 9, plus quoting…"
+---
+
 # 06 · Working with Files & Directories
 
 ## 🎥 Video walkthrough
@@ -144,6 +148,12 @@ the pattern, and hands `rm` a fully expanded argument list. If nothing
 matches, the literal pattern is passed through unchanged unless `nullglob`
 or `failglob` is set — a classic source of "no such file" surprises.
 
+
+## 🔀 See this in another language
+
+- [PowerShell — Arrays & Hashtables](https://sigilipelli.github.io/powershell-mastery-path/level-1/06-arrays-hashtables/)
+- [C++ — Strings (std::string)](https://sigilipelli.github.io/cpp-mastery-path/level-1/06-strings/)
+- [Swift — Collections](https://sigilipelli.github.io/swift-mastery-path/level-1/06-collections/)
 
 ## Exercise
 

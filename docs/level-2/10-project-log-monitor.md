@@ -1,3 +1,7 @@
+---
+description: "Project — Log Monitoring Script — The capstone for Level 2: a script that watches a log file for problem patterns, summarizes them, and is validated with…"
+---
+
 # 10 · Project — Log Monitoring Script
 
 The capstone for Level 2: a script that watches a log file for problem

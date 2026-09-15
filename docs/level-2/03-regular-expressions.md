@@ -1,3 +1,7 @@
+---
+description: "Regular Expressions in Bash — Regular expressions let you match patterns in text rather than exact strings — essential for validating input, filtering…"
+---
+
 # 03 · Regular Expressions in Bash
 
 Regular expressions let you match *patterns* in text rather than exact

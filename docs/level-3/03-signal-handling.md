@@ -1,3 +1,7 @@
+---
+description: "Signal Handling — Level 1 introduced trap ... EXIT for cleanup. Long-running scripts — servers, monitors, batch jobs — need to handle signals sent by the…"
+---
+
 # 03 · Signal Handling
 
 Level 1 introduced `trap ... EXIT` for cleanup. Long-running scripts —

@@ -1,3 +1,7 @@
+---
+description: "Packaging & Distributing Scripts — A script that only runs on your machine, from the one directory you wrote it in, isn't finished. This module covers…"
+---
+
 # 08 · Packaging & Distributing Scripts
 
 A script that only runs on your machine, from the one directory you wrote it

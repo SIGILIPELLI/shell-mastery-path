@@ -1,3 +1,7 @@
+---
+description: "Variables & Data Types — Variable names are case-sensitive, can contain letters, digits, and underscores, and can't start with a digit."
+---
+
 # 02 · Variables & Data Types
 
 ## 🎥 Video walkthrough
@@ -150,6 +154,12 @@ word splitting and globbing. That's why quoting matters — expansions inside
 double quotes still happen, but the *result* is protected from the later
 word-splitting and pathname-expansion steps.
 
+
+## 🔀 See this in another language
+
+- [PowerShell — Variables & Types](https://sigilipelli.github.io/powershell-mastery-path/level-1/02-variables-types/)
+- [C++ — Variables, Types & Operators](https://sigilipelli.github.io/cpp-mastery-path/level-1/02-variables-types-operators/)
+- [Swift — Variables & Types](https://sigilipelli.github.io/swift-mastery-path/level-1/02-variables-types/)
 
 ## Exercise
 

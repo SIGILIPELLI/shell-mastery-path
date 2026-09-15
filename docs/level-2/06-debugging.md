@@ -1,3 +1,7 @@
+---
+description: "Debugging Scripts — Shell scripts fail in ways that can be hard to see just from reading the source — a variable that's empty when you expected a value, a…"
+---
+
 # 06 · Debugging Scripts
 
 Shell scripts fail in ways that can be hard to see just from reading the

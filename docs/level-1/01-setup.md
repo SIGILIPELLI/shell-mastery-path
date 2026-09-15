@@ -1,3 +1,7 @@
+---
+description: "Setup & First Script — macOS has used zsh as the default login shell since Catalina, but bash is still installed and this whole site targets Bash…"
+---
+
 # 01 · Setup & First Script
 
 ## 🎥 Video walkthrough
@@ -150,6 +154,12 @@ until that child exits and reports an exit status back through `$?`.
 | `./script.sh` | run a script in the current directory |
 | `bash script.sh` | run a script with bash explicitly |
 | `read -r var` | read a line of input into `var` |
+
+## 🔀 See this in another language
+
+- [PowerShell — Setup & First Script](https://sigilipelli.github.io/powershell-mastery-path/level-1/01-setup/)
+- [C++ — Setup & First Program](https://sigilipelli.github.io/cpp-mastery-path/level-1/01-setup/)
+- [Swift — Setup & First Program](https://sigilipelli.github.io/swift-mastery-path/level-1/01-setup/)
 
 ## Exercise
 

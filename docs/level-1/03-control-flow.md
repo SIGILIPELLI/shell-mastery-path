@@ -1,3 +1,7 @@
+---
+description: "Control Flow — if runs the block after then when the command right after if exits with status 0 (success). [[ ... ]] is itself just a command that…"
+---
+
 # 03 · Control Flow
 
 ## 🎥 Video walkthrough
@@ -170,6 +174,12 @@ only executes the right-hand command if the left-hand one's exit status
 makes it necessary, so `mkdir dir && cd dir` skips the `cd` entirely if
 `mkdir` returns nonzero, without any explicit `if`.
 
+
+## 🔀 See this in another language
+
+- [PowerShell — Control Flow](https://sigilipelli.github.io/powershell-mastery-path/level-1/03-control-flow/)
+- [C++ — Control Flow](https://sigilipelli.github.io/cpp-mastery-path/level-1/03-control-flow/)
+- [Swift — Control Flow](https://sigilipelli.github.io/swift-mastery-path/level-1/03-control-flow/)
 
 ## Exercise
 

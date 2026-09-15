@@ -1,3 +1,7 @@
+---
+description: "Process Substitution & Here-Docs — Two techniques that make scripts dramatically more compact: process substitution ((...)), which lets a command's output…"
+---
+
 # 02 · Process Substitution & Here-Docs
 
 Two techniques that make scripts dramatically more compact: **process

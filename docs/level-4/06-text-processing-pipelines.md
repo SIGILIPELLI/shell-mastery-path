@@ -1,3 +1,7 @@
+---
+description: "Advanced Text Processing Pipelines — grep, awk, sed, and jq are each capable on their own, but production data-processing scripts get their power from…"
+---
+
 # 06 · Advanced Text Processing Pipelines
 
 `grep`, `awk`, `sed`, and `jq` are each capable on their own, but production

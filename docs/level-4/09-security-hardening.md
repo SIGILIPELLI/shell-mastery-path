@@ -1,3 +1,7 @@
+---
+description: "Security Hardening for Production Scripts — Production scripts run unattended, often with elevated access to real data. This module turns Level 3's…"
+---
+
 # 09 · Security Hardening for Production Scripts
 
 Production scripts run unattended, often with elevated access to real

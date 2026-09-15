@@ -1,3 +1,7 @@
+---
+description: "Advanced sed & awk — sed (stream editor) and awk (a full text-processing language) can replace long chains of grep/cut/sort with a single, precise…"
+---
+
 # 01 · Advanced sed & awk
 
 `sed` (stream editor) and `awk` (a full text-processing language) can

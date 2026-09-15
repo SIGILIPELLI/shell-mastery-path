@@ -1,3 +1,7 @@
+---
+description: "Networking from the Shell — Shell scripts routinely need to talk to the network: fetching data, checking whether a service is up, or scripting an API…"
+---
+
 # 09 · Networking from the Shell
 
 Shell scripts routinely need to talk to the network: fetching data, checking

@@ -1,3 +1,7 @@
+---
+description: "Environment & Configuration Management — Every shell session has an environment — a set of variables inherited by every process it starts — plus a chain…"
+---
+
 # 08 · Environment & Configuration Management
 
 Every shell session has an **environment** — a set of variables inherited by

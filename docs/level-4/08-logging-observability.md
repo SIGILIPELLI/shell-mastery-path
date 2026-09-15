@@ -1,3 +1,7 @@
+---
+description: "Logging & Observability for Scripts — A script that fails silently at 3am is worse than one that fails loudly. This module covers structured (JSON)…"
+---
+
 # 08 · Logging & Observability for Scripts
 
 A script that fails silently at 3am is worse than one that fails loudly.

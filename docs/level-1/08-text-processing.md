@@ -1,3 +1,7 @@
+---
+description: "Basic Text Processing — -d sets the delimiter (default is tab), -f selects which field(s)."
+---
+
 # 08 · Basic Text Processing
 
 ## 🎥 Video walkthrough
@@ -149,6 +153,12 @@ turn one intended line into several loop iterations.
 | `uniq` | collapse adjacent duplicates (`-c` to count) |
 | `sed` | stream-edit lines (substitute, delete, print ranges) |
 | `awk` | field-aware processing, math, conditional printing |
+
+## 🔀 See this in another language
+
+- [PowerShell — Error Handling Basics](https://sigilipelli.github.io/powershell-mastery-path/level-1/08-error-handling-basics/)
+- [C++ — References & Pointers](https://sigilipelli.github.io/cpp-mastery-path/level-1/08-references-pointers/)
+- [Swift — Enums](https://sigilipelli.github.io/swift-mastery-path/level-1/08-enums/)
 
 ## Exercise
 

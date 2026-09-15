@@ -1,3 +1,7 @@
+---
+description: "Parallelism — Level 2 introduced backgrounding jobs with & and waiting with wait. That works for a handful of jobs, but running hundreds of tasks that way…"
+---
+
 # 04 · Parallelism
 
 Level 2 introduced backgrounding jobs with `&` and waiting with `wait`. That

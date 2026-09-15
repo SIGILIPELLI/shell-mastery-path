@@ -1,3 +1,7 @@
+---
+description: "Testing Shell Scripts — Shell scripts accumulate logic just like any other code, and just like any other code they benefit from automated tests. Bats…"
+---
+
 # 09 · Testing Shell Scripts
 
 Shell scripts accumulate logic just like any other code, and just like any

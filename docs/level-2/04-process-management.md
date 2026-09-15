@@ -1,3 +1,7 @@
+---
+description: "Process Management — Every command you run becomes a process. Longer-running scripts need to know how to inspect running processes, run things in the…"
+---
+
 # 04 · Process Management
 
 Every command you run becomes a **process**. Longer-running scripts need to

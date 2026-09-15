@@ -1,3 +1,7 @@
+---
+description: "Functions & Arguments — Both greet() { ... } and function greet { ... } work in Bash; the first form is more portable (POSIX sh doesn't understand the…"
+---
+
 # 05 · Functions & Arguments
 
 ## 🎥 Video walkthrough
@@ -186,6 +190,12 @@ ever created.
 | `local var` | scope a variable to this function only |
 | `return N` | set the function's exit status (0-255, not a value) |
 | `echo value` + `$(func)` | the idiom for "returning" an actual value |
+
+## 🔀 See this in another language
+
+- [PowerShell — Working with Objects & the Pipeline](https://sigilipelli.github.io/powershell-mastery-path/level-1/05-objects-pipeline/)
+- [C++ — Arrays & std::vector Basics](https://sigilipelli.github.io/cpp-mastery-path/level-1/05-arrays-vector-basics/)
+- [Swift — Optionals Basics](https://sigilipelli.github.io/swift-mastery-path/level-1/05-optionals-basics/)
 
 ## Exercise
 

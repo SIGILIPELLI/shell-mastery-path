@@ -1,3 +1,7 @@
+---
+description: "Integrating with Git Hooks & CI Scripts — Shell scripts are the glue behind most git workflows and CI pipelines. This module covers writing git hooks…"
+---
+
 # 06 · Integrating with Git Hooks & CI Scripts
 
 Shell scripts are the glue behind most git workflows and CI pipelines. This

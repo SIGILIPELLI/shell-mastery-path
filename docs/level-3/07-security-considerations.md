@@ -1,3 +1,7 @@
+---
+description: "Security Considerations — A shell script that processes untrusted input — a filename, a URL, data from an API — can be tricked into running arbitrary…"
+---
+
 # 07 · Security Considerations
 
 A shell script that processes untrusted input — a filename, a URL, data

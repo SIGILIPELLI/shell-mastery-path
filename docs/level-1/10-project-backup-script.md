@@ -1,3 +1,7 @@
+---
+description: "Project — Backup Script — This script's execution is a chain of fork()/execve() calls stitched together by the parent bash process: each external command…"
+---
+
 # 10 · Project — Backup Script
 
 ## 🎥 Video walkthrough
@@ -187,3 +191,9 @@ the frozen value rather than re-invoking `date`.
   script around exactly this idea in Level 2's project.
 
 Completing this project means you're ready for **Level 2 · Intermediate**.
+
+## 🔀 See this in another language
+
+- [PowerShell — Project — System Info Reporter](https://sigilipelli.github.io/powershell-mastery-path/level-1/10-project-system-info-reporter/)
+- [C++ — Project — Bank Account CLI](https://sigilipelli.github.io/cpp-mastery-path/level-1/10-project-bank-account-cli/)
+- [Swift — Project — CLI To-Do App](https://sigilipelli.github.io/swift-mastery-path/level-1/10-project-todo-cli/)

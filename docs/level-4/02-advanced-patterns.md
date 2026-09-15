@@ -1,3 +1,7 @@
+---
+description: "Advanced Scripting Patterns — Once a script grows past a few dozen lines, 'just add another if' stops working. This module covers two patterns that keep…"
+---
+
 # 02 · Advanced Scripting Patterns
 
 Once a script grows past a few dozen lines, "just add another `if`"

@@ -1,3 +1,7 @@
+---
+description: "Writing Robust Production Scripts — Everything so far has focused on individual techniques. This module is about combining them into a mindset: writing…"
+---
+
 # 05 · Writing Robust Production Scripts
 
 Everything so far has focused on individual techniques. This module is about

@@ -1,3 +1,7 @@
+---
+description: "Performance Optimization — Shell scripts are usually glue, not compute — but a script that forks a new process per line of a million-line file will feel…"
+---
+
 # 03 · Performance Optimization
 
 Shell scripts are usually glue, not compute — but a script that forks a

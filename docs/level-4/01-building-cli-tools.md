@@ -1,3 +1,7 @@
+---
+description: "Building Full CLI Tools — A script that only works when called exactly one way isn't a tool, it's a trap. This module covers what turns a script into…"
+---
+
 # 01 · Building Full CLI Tools
 
 A script that only works when called exactly one way isn't a tool, it's a

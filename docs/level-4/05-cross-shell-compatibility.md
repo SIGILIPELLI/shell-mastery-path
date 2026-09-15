@@ -1,3 +1,7 @@
+---
+description: "Cross-Shell Compatibility — Not every system where your script runs has bash, and not every bash is the same version. This module covers the practical…"
+---
+
 # 05 · Cross-Shell Compatibility
 
 Not every system where your script runs has bash, and not every bash is

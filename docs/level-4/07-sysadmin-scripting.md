@@ -1,3 +1,7 @@
+---
+description: "System Administration Scripting — Scripts that manage the system itself — creating users, wiring up services, controlling systemd units — affect the whole…"
+---
+
 # 07 · System Administration Scripting
 
 Scripts that manage the system itself — creating users, wiring up
