@@ -169,9 +169,9 @@ currently tracking on an internal loop-nesting stack, which is also why
 
 ## 🔀 See this in another language
 
-- [PowerShell — Functions](https://sigilipelli.github.io/powershell-mastery-path/level-1/04-functions/)
-- [C++ — Functions & Overloading](https://sigilipelli.github.io/cpp-mastery-path/level-1/04-functions-overloading/)
-- [Swift — Functions](https://sigilipelli.github.io/swift-mastery-path/level-1/04-functions/)
+- [PowerShell — Functions](https://learnmasterypath.com/powershell-mastery-path/level-1/04-functions/)
+- [C++ — Functions & Overloading](https://learnmasterypath.com/cpp-mastery-path/level-1/04-functions-overloading/)
+- [Swift — Functions](https://learnmasterypath.com/swift-mastery-path/level-1/04-functions/)
 
 ## Exercise
 

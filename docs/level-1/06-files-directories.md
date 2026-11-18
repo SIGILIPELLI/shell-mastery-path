@@ -151,9 +151,9 @@ or `failglob` is set — a classic source of "no such file" surprises.
 
 ## 🔀 See this in another language
 
-- [PowerShell — Arrays & Hashtables](https://sigilipelli.github.io/powershell-mastery-path/level-1/06-arrays-hashtables/)
-- [C++ — Strings (std::string)](https://sigilipelli.github.io/cpp-mastery-path/level-1/06-strings/)
-- [Swift — Collections](https://sigilipelli.github.io/swift-mastery-path/level-1/06-collections/)
+- [PowerShell — Arrays & Hashtables](https://learnmasterypath.com/powershell-mastery-path/level-1/06-arrays-hashtables/)
+- [C++ — Strings (std::string)](https://learnmasterypath.com/cpp-mastery-path/level-1/06-strings/)
+- [Swift — Collections](https://learnmasterypath.com/swift-mastery-path/level-1/06-collections/)
 
 ## Exercise
 

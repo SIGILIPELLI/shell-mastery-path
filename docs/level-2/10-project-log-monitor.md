@@ -290,4 +290,4 @@ Completing this project means you're ready for **Level 3 · Advanced**.
 
 ## 🔀 See this in another language
 
-- [PowerShell — 10 · Project — Log Monitoring Script](https://sigilipelli.github.io/powershell-mastery-path/level-2/10-project-log-monitoring/)
+- [PowerShell — 10 · Project — Log Monitoring Script](https://learnmasterypath.com/powershell-mastery-path/level-2/10-project-log-monitoring/)

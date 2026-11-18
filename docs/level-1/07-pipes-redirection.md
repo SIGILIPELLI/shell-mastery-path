@@ -161,9 +161,9 @@ command line.
 
 ## 🔀 See this in another language
 
-- [PowerShell — Working with Files](https://sigilipelli.github.io/powershell-mastery-path/level-1/07-working-with-files/)
-- [C++ — Classes & Objects Basics](https://sigilipelli.github.io/cpp-mastery-path/level-1/07-classes-objects/)
-- [Swift — Structs & Classes Basics](https://sigilipelli.github.io/swift-mastery-path/level-1/07-structs-classes/)
+- [PowerShell — Working with Files](https://learnmasterypath.com/powershell-mastery-path/level-1/07-working-with-files/)
+- [C++ — Classes & Objects Basics](https://learnmasterypath.com/cpp-mastery-path/level-1/07-classes-objects/)
+- [Swift — Structs & Classes Basics](https://learnmasterypath.com/swift-mastery-path/level-1/07-structs-classes/)
 
 ## Exercise
 

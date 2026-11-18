@@ -199,8 +199,8 @@ same `&&`/`if` control-flow primitives used everywhere else in bash.
 
 ## 🔀 See this in another language
 
-- [PowerShell — 09 · Logging & Observability for Scripts](https://sigilipelli.github.io/powershell-mastery-path/level-4/09-logging-observability/)
-- [C# — 08 · Observability (logging, tracing)](https://sigilipelli.github.io/csharp-mastery-path/level-4/08-observability/)
+- [PowerShell — 09 · Logging & Observability for Scripts](https://learnmasterypath.com/powershell-mastery-path/level-4/09-logging-observability/)
+- [C# — 08 · Observability (logging, tracing)](https://learnmasterypath.com/csharp-mastery-path/level-4/08-observability/)
 
 ## Exercise
 

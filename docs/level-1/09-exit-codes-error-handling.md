@@ -195,9 +195,9 @@ aborting — because all three paths funnel through the same internal
 
 ## 🔀 See this in another language
 
-- [PowerShell — Modules Basics](https://sigilipelli.github.io/powershell-mastery-path/level-1/09-modules-basics/)
-- [C++ — Exception Handling Basics](https://sigilipelli.github.io/cpp-mastery-path/level-1/09-exception-handling/)
-- [Swift — Closures Intro](https://sigilipelli.github.io/swift-mastery-path/level-1/09-closures-intro/)
+- [PowerShell — Modules Basics](https://learnmasterypath.com/powershell-mastery-path/level-1/09-modules-basics/)
+- [C++ — Exception Handling Basics](https://learnmasterypath.com/cpp-mastery-path/level-1/09-exception-handling/)
+- [Swift — Closures Intro](https://learnmasterypath.com/swift-mastery-path/level-1/09-closures-intro/)
 
 ## Exercise
 

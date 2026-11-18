@@ -177,9 +177,9 @@ makes it necessary, so `mkdir dir && cd dir` skips the `cd` entirely if
 
 ## 🔀 See this in another language
 
-- [PowerShell — Control Flow](https://sigilipelli.github.io/powershell-mastery-path/level-1/03-control-flow/)
-- [C++ — Control Flow](https://sigilipelli.github.io/cpp-mastery-path/level-1/03-control-flow/)
-- [Swift — Control Flow](https://sigilipelli.github.io/swift-mastery-path/level-1/03-control-flow/)
+- [PowerShell — Control Flow](https://learnmasterypath.com/powershell-mastery-path/level-1/03-control-flow/)
+- [C++ — Control Flow](https://learnmasterypath.com/cpp-mastery-path/level-1/03-control-flow/)
+- [Swift — Control Flow](https://learnmasterypath.com/swift-mastery-path/level-1/03-control-flow/)
 
 ## Exercise
 

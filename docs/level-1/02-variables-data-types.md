@@ -157,9 +157,9 @@ word-splitting and pathname-expansion steps.
 
 ## 🔀 See this in another language
 
-- [PowerShell — Variables & Types](https://sigilipelli.github.io/powershell-mastery-path/level-1/02-variables-types/)
-- [C++ — Variables, Types & Operators](https://sigilipelli.github.io/cpp-mastery-path/level-1/02-variables-types-operators/)
-- [Swift — Variables & Types](https://sigilipelli.github.io/swift-mastery-path/level-1/02-variables-types/)
+- [PowerShell — Variables & Types](https://learnmasterypath.com/powershell-mastery-path/level-1/02-variables-types/)
+- [C++ — Variables, Types & Operators](https://learnmasterypath.com/cpp-mastery-path/level-1/02-variables-types-operators/)
+- [Swift — Variables & Types](https://learnmasterypath.com/swift-mastery-path/level-1/02-variables-types/)
 
 ## Exercise
 

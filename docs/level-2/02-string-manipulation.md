@@ -167,7 +167,7 @@ differently, because the counting rule bash applies changes with it.
 
 ## 🔀 See this in another language
 
-- [C — 03 · Multi-dimensional Arrays & String Manipulation](https://sigilipelli.github.io/c-mastery-path/level-2/03-multidim-arrays-strings/)
+- [C — 03 · Multi-dimensional Arrays & String Manipulation](https://learnmasterypath.com/c-mastery-path/level-2/03-multidim-arrays-strings/)
 
 ## Exercise
 

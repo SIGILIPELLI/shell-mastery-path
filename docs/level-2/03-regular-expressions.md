@@ -155,9 +155,9 @@ versa, even though both claim "extended regular expressions."
 
 ## 🔀 See this in another language
 
-- [Python — 06 · Regular Expressions](https://sigilipelli.github.io/python-mastery-path/level-2/06-regular-expressions/)
-- [JavaScript — 06 · Regular Expressions in JS](https://sigilipelli.github.io/javascript-mastery-path/level-2/06-regular-expressions/)
-- [PowerShell — 04 · Regular Expressions in PowerShell](https://sigilipelli.github.io/powershell-mastery-path/level-2/04-regular-expressions/)
+- [Python — 06 · Regular Expressions](https://learnmasterypath.com/python-mastery-path/level-2/06-regular-expressions/)
+- [JavaScript — 06 · Regular Expressions in JS](https://learnmasterypath.com/javascript-mastery-path/level-2/06-regular-expressions/)
+- [PowerShell — 04 · Regular Expressions in PowerShell](https://learnmasterypath.com/powershell-mastery-path/level-2/04-regular-expressions/)
 
 ## Exercise
 

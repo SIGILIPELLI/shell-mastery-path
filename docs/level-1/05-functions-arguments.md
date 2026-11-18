@@ -193,9 +193,9 @@ ever created.
 
 ## 🔀 See this in another language
 
-- [PowerShell — Working with Objects & the Pipeline](https://sigilipelli.github.io/powershell-mastery-path/level-1/05-objects-pipeline/)
-- [C++ — Arrays & std::vector Basics](https://sigilipelli.github.io/cpp-mastery-path/level-1/05-arrays-vector-basics/)
-- [Swift — Optionals Basics](https://sigilipelli.github.io/swift-mastery-path/level-1/05-optionals-basics/)
+- [PowerShell — Working with Objects & the Pipeline](https://learnmasterypath.com/powershell-mastery-path/level-1/05-objects-pipeline/)
+- [C++ — Arrays & std::vector Basics](https://learnmasterypath.com/cpp-mastery-path/level-1/05-arrays-vector-basics/)
+- [Swift — Optionals Basics](https://learnmasterypath.com/swift-mastery-path/level-1/05-optionals-basics/)
 
 ## Exercise
 

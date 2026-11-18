@@ -203,7 +203,7 @@ bytes reach a second parsing pass.
 
 ## 🔀 See this in another language
 
-- [PowerShell — 04 · Security Hardening (JEA)](https://sigilipelli.github.io/powershell-mastery-path/level-4/04-security-hardening-jea/)
+- [PowerShell — 04 · Security Hardening (JEA)](https://learnmasterypath.com/powershell-mastery-path/level-4/04-security-hardening-jea/)
 
 ## Exercise
 

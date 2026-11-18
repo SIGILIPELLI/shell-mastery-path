@@ -157,9 +157,9 @@ until that child exits and reports an exit status back through `$?`.
 
 ## 🔀 See this in another language
 
-- [PowerShell — Setup & First Script](https://sigilipelli.github.io/powershell-mastery-path/level-1/01-setup/)
-- [C++ — Setup & First Program](https://sigilipelli.github.io/cpp-mastery-path/level-1/01-setup/)
-- [Swift — Setup & First Program](https://sigilipelli.github.io/swift-mastery-path/level-1/01-setup/)
+- [PowerShell — Setup & First Script](https://learnmasterypath.com/powershell-mastery-path/level-1/01-setup/)
+- [C++ — Setup & First Program](https://learnmasterypath.com/cpp-mastery-path/level-1/01-setup/)
+- [Swift — Setup & First Program](https://learnmasterypath.com/swift-mastery-path/level-1/01-setup/)
 
 ## Exercise
 

@@ -156,9 +156,9 @@ turn one intended line into several loop iterations.
 
 ## 🔀 See this in another language
 
-- [PowerShell — Error Handling Basics](https://sigilipelli.github.io/powershell-mastery-path/level-1/08-error-handling-basics/)
-- [C++ — References & Pointers](https://sigilipelli.github.io/cpp-mastery-path/level-1/08-references-pointers/)
-- [Swift — Enums](https://sigilipelli.github.io/swift-mastery-path/level-1/08-enums/)
+- [PowerShell — Error Handling Basics](https://learnmasterypath.com/powershell-mastery-path/level-1/08-error-handling-basics/)
+- [C++ — References & Pointers](https://learnmasterypath.com/cpp-mastery-path/level-1/08-references-pointers/)
+- [Swift — Enums](https://learnmasterypath.com/swift-mastery-path/level-1/08-enums/)
 
 ## Exercise
 
