@@ -1,3 +1,7 @@
+---
+description: "Level 1 (Entry) of the free Shell Mastery Path. Get comfortable working in the terminal, understand the core building blocks of shell scripting, and ship a…"
+---
+
 # Level 1 · Entry <span class="level-badge">Foundations</span>
 
 Goal: get comfortable working in the terminal, understand the core building

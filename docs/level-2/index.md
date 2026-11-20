@@ -1,3 +1,7 @@
+---
+description: "Level 2 (Intermediate) of the free Shell Mastery Path: Arrays & Associative Arrays, String Manipulation, Regular Expressions in Bash, Process Management…"
+---
+
 # Level 2 · Intermediate
 
 ## Modules

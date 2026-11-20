@@ -1,3 +1,7 @@
+---
+description: "Level 3 (Advanced) of the free Shell Mastery Path: Advanced sed & awk, Process Substitution & Here-Docs, Signal Handling, Parallelism, Writing Robust…"
+---
+
 # Level 3 · Advanced
 
 ## Modules

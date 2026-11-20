@@ -1,3 +1,7 @@
+---
+description: "Level 4 (Master) of the free Shell Mastery Path: Building Full CLI Tools, Advanced Scripting Patterns, Performance Optimization, DevOps Automation…"
+---
+
 # Level 4 · Master
 
 ## Modules
